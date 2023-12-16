@@ -7,7 +7,7 @@ body {
     background-color: red;
     color: white;
     border: none;
-    
+
 }
 
 #pokedex {
@@ -24,4 +24,48 @@ body {
 
 .card-title {
     text-transform: capitalize;
+}
+
+.card-text {
+    text-transform: capitalize;
+    font-weight: bold;
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.bg-fire {
+    background-color: red;
+}
+
+.bg-grass {
+    background-color: lightgreen;
+}
+
+.bg-water {
+    background-color: lightblue;
+}
+
+.bg-normal {
+    background-color: gray;
+}
+
+.bg-poison {
+    background-color: #66cc1a;
+}
+
+.bg-ground {
+    background-color: rgb(183, 46, 46);
+}
+
+.bg-electric {
+    background-color: yellow;
+}
+
+.bg-bug {
+    background-color: #A6B91A;
+}
+
+.bg-fairy {
+    background-color: #D685AD;
 }
