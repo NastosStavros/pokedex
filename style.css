@@ -2,8 +2,26 @@ body {
     margin: 0px;
 }
 
-#pokedex {
-    min-height: 50vh;
+#pokedex-card {
+    min-height: 35vh;
     background-color: red;
     color: white;
+    border: none;
+    
+}
+
+#pokedex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.card-img-top {
+    background-color: white;
+}
+
+.card-title {
+    text-transform: capitalize;
 }
