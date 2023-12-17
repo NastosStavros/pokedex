@@ -31,9 +31,9 @@ async function loadPokemon() {
         currentPokemon = await response.json();
         console.log(currentPokemon);
         createPokemonCard(pokemon);
-
     }
 }
+
 
 function createPokemonCard(pokemon) {
     let pokedex = document.getElementById('pokedex');
@@ -44,14 +44,13 @@ function createPokemonCard(pokemon) {
         <h5 id="pokemonName-${pokemon}" class="card-title"></h5>
         <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
         
-  <div id="progressBar${pokemon}" class="progress-bar" style="width: 25%">HP: 25</div>
+  <div id="progressBar${pokemon}" class="progress-bar" style="width: 25%"> </div>
 </div>
         <p id="pokemonType${pokemon}" class="card-text"></p>
         
     </div>
 </div>`;
     showPokemonInfo(pokemon);
-
 }
 
 function showPokemonInfo(pokemon) {
@@ -67,6 +66,7 @@ function showPokemonInfo(pokemon) {
     showBgbyType(cardBody, pokemonTypeInfo);
     showHp(pokemon, hp);
 }
+
 
 function showBgbyType(cardBody, pokemonTypeInfo) {
     if (pokemonTypeInfo === 'fire') {
@@ -116,8 +116,10 @@ function showBgbyType(cardBody, pokemonTypeInfo) {
     }
 }
 
+
 function showHp(pokemon, hp) {
     let hpBar = document.getElementById(`progressBar${pokemon}`);
     hpBar.innerHTML = hp;
+    hpBar.innerHTML += ` HP`;
     hpBar.style = `width: ${hp}%`;
 }

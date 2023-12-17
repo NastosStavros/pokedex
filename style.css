@@ -124,3 +124,10 @@ h1{
 .card {
     cursor: pointer;
 }
+
+.progress {
+    height: 32px !important;
+    border-radius: 50px !important;
+    border: 5px solid rgb(0, 0, 0);
+    font-size: larger !important;
+}
