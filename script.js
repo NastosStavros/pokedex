@@ -41,7 +41,7 @@ function showPokemonInfo(pokemon) {
     let pokemonType = document.getElementById(`pokemonType${pokemon}`);
     let pokemonTypeInfo = currentPokemon['types'][0]['type']['name'];
     pokemonName.innerHTML = currentPokemon['name'];
-    pokemonImage.src = currentPokemon['sprites']['front_default'];
+    pokemonImage.src = currentPokemon['sprites']['other']['official-artwork']['front_default'];
     pokemonType.innerHTML ="Type : " +pokemonTypeInfo;
     showBgbyType(pokemonType, pokemonTypeInfo);
 }
