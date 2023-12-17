@@ -9,6 +9,12 @@ body {
     border: none;
 }
 
+.card-body{
+    height: 10vh;
+    border-radius: 8px;
+    background-color: rgb(0, 0, 0);
+}
+
 h1{
     padding-left: 30px;
     color: blue !important;

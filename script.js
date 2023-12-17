@@ -26,8 +26,9 @@ function createPokemonCard(pokemon) {
     let pokedex = document.getElementById('pokedex');
     pokedex.innerHTML += `<div id="pokedex-card-${pokemon}" class="card" style="width: 18rem;">
     <img id="pokemonImage${pokemon}" src="" class="card-img-top">
-    <div class="card-body">
+    <div id="cardBody${pokemon}" class="card-body">
         <h5 id="pokemonName-${pokemon}" class="card-title"></h5>
+     
         <p id="pokemonType${pokemon}" class="card-text"></p>
     </div>
 </div>`;
@@ -40,38 +41,39 @@ function showPokemonInfo(pokemon) {
     let pokemonImage = document.getElementById(`pokemonImage${pokemon}`);
     let pokemonType = document.getElementById(`pokemonType${pokemon}`);
     let pokemonTypeInfo = currentPokemon['types'][0]['type']['name'];
+    let cardBody = document.getElementById(`cardBody${pokemon}`);
     pokemonName.innerHTML = currentPokemon['name'];
-    pokemonImage.src = currentPokemon['sprites']['other']['official-artwork']['front_default'];
+    pokemonImage.src = currentPokemon['sprites']['other']['home']['front_default'];
     pokemonType.innerHTML ="Type : " +pokemonTypeInfo;
-    showBgbyType(pokemonType, pokemonTypeInfo);
+    showBgbyType(cardBody, pokemonTypeInfo);
 }
 
-function showBgbyType(pokemonType, pokemonTypeInfo) {
+function showBgbyType(cardBody, pokemonTypeInfo) {
     if (pokemonTypeInfo === 'fire') {
-        pokemonType.classList.add('bg-fire');
+        cardBody.classList.add('bg-fire');
     }
     if (pokemonTypeInfo === 'grass') {
-        pokemonType.classList.add('bg-grass');
+        cardBody.classList.add('bg-grass');
     }
     if (pokemonTypeInfo === 'water') {
-        pokemonType.classList.add('bg-water');
+        cardBody.classList.add('bg-water');
     }
     if (pokemonTypeInfo === 'normal') {
-        pokemonType.classList.add('bg-normal');
+        cardBody.classList.add('bg-normal');
     }
     if (pokemonTypeInfo === 'poison') {
-        pokemonType.classList.add('bg-poison');
+        cardBody.classList.add('bg-poison');
     }
     if (pokemonTypeInfo === 'ground') {
-        pokemonType.classList.add('bg-ground');
+        cardBody.classList.add('bg-ground');
     }
     if (pokemonTypeInfo === 'electric') {
-        pokemonType.classList.add('bg-electric');
+        cardBody.classList.add('bg-electric');
     }
     if (pokemonTypeInfo === 'bug') {
-        pokemonType.classList.add('bg-bug');
+        cardBody.classList.add('bg-bug');
     }
     if (pokemonTypeInfo === 'fairy') {
-        pokemonType.classList.add('bg-fairy');
+        cardBody.classList.add('bg-fairy');
     } 
 }
