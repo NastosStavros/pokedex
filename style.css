@@ -92,3 +92,35 @@ h1{
 .bg-fairy {
     background-color: #D685AD;
 }
+
+.bg-fighting {
+    background-color: #C22E28;
+}
+
+.bg-rock {
+    background-color: #B6A136;
+}
+
+.bg-ice {
+    background-color: #96D9D6;
+}
+
+.bg-psychic {
+    background-color: #F95587;
+}
+
+.bg-ghost {
+    background-color: #735797;
+}
+
+.bg-dragon {
+    background-color: #6F35FC;
+}
+
+.card-img-top:hover {
+    background-color: lightgrey;
+} 
+
+.card {
+    cursor: pointer;
+}
