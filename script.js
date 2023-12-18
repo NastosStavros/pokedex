@@ -24,13 +24,14 @@ let currentPokemon;
 
 
 async function loadPokemon() {
-    await Promise.all(allPokemon.map(async (pokemon) => {
+    for (let i = 0; i < allPokemon.length; i++) {
+        let pokemon = allPokemon[i];
         let url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
         let response = await fetch(url);
         currentPokemon = await response.json();
         console.log(currentPokemon);
         createPokedex(pokemon);
-    }));
+    };
 }
 
 
@@ -130,4 +131,5 @@ function createPokemonCard(pokemon) {
 
     pokedex.classList.add('d-none');
 
-}
+    };
+
