@@ -24,14 +24,13 @@ let currentPokemon;
 
 
 async function loadPokemon() {
-    for (let i = 0; i < allPokemon.length; i++) {
-        let pokemon = allPokemon[i];
+    await Promise.all(allPokemon.map(async (pokemon) => {
         let url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
         let response = await fetch(url);
         currentPokemon = await response.json();
         console.log(currentPokemon);
         createPokedex(pokemon);
-    }
+    }));
 }
 
 
