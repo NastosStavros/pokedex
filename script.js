@@ -20,8 +20,7 @@ let allPokemon = ['bulbasaur', 'ivysaur', 'venusaur', 'charmander', 'charmeleon'
     'lapras', 'ditto', 'eevee', 'vaporeon', 'jolteon', 'flareon', 'porygon',
     'omanyte', 'omastar', 'kabuto', 'kabutops', 'aerodactyl', 'snorlax', 'articuno',
     'zapdos', 'moltres', 'dratini', 'dragonair', 'dragonite', 'mewtwo', 'mew'];
-let currentPokemon;
-
+let currentPokemon
 
 async function loadPokemon() {
     for (let i = 0; i < allPokemon.length; i++) {
@@ -54,6 +53,7 @@ function createPokedex(pokemon) {
 }
 
 function showPokemonInfo(pokemon) {
+    
     let pokemonName = document.getElementById(`pokemonName-${pokemon}`);
     let pokemonImage = document.getElementById(`pokemonImage${pokemon}`);
     let pokemonType = document.getElementById(`pokemonType${pokemon}`);
@@ -126,10 +126,44 @@ function showHp(pokemon, hp) {
 
 
 function createPokemonCard(pokemon) {
-    let card = document.getElementById('pokemoncard');
+    let card = document.getElementById('pokemonCard');
     let pokedex = document.getElementById('pokedex');
 
     pokedex.classList.add('d-none');
 
-    };
+    card.innerHTML = `<div id="pokedexCardBig${pokemon}"  style="width: 18rem;">
+    <img onclick="createPokemonCard()"id="pokemonImageBig${pokemon}" >
+    <div id="cardBodyBig${pokemon}" >
+    
+        <h5 id="pokemonNameBig${pokemon}" class="card-title"></h5>
+        <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+        
+  <div id="progressBar${pokemon}" class="progress-bar" style="width: 25%"> </div>
+</div>
+        <p id="pokemonTypeBig${pokemon}" class="card-text"></p>
+        <button id="backButton" onclick="goBackToPokedex()">back to Pokedex</button>
+    </div>
+</div>`;
+showPokemonInfoBigCard(pokemon);
+}
 
+function showPokemonInfoBigCard(pokemon) {
+    
+    let pokemonNameBigger = document.getElementById(`pokemonNameBig${pokemon}`);
+    let pokemonImageBigger= document.getElementById(`pokemonImageBig${pokemon}`);
+    let hpBigger = currentPokemon['stats'][0]['base_stat'];
+    pokemonNameBigger.innerHTML = currentPokemon['name'];
+    pokemonImageBigger.src = currentPokemon['sprites']['other']['home']['front_default'];
+    showHp(pokemon, hpBigger);
+}
+
+
+
+
+function goBackToPokedex() {
+    let card = document.getElementById('pokemonCard');
+    let pokedex = document.getElementById('pokedex');
+
+    card.innerHTML = '';
+    pokedex.classList.remove('d-none');
+}
