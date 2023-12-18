@@ -30,15 +30,15 @@ async function loadPokemon() {
         let response = await fetch(url);
         currentPokemon = await response.json();
         console.log(currentPokemon);
-        createPokemonCard(pokemon);
+        createPokedex(pokemon);
     }
 }
 
 
-function createPokemonCard(pokemon) {
+function createPokedex(pokemon) {
     let pokedex = document.getElementById('pokedex');
     pokedex.innerHTML += `<div id="pokedex-card-${pokemon}" class="card" style="width: 18rem;">
-    <img id="pokemonImage${pokemon}" src="" class="card-img-top">
+    <img onclick="createPokemonCard()"id="pokemonImage${pokemon}" src="" class="card-img-top">
     <div id="cardBody${pokemon}" class="card-body">
     
         <h5 id="pokemonName-${pokemon}" class="card-title"></h5>
@@ -122,4 +122,13 @@ function showHp(pokemon, hp) {
     hpBar.innerHTML = hp;
     hpBar.innerHTML += ` HP`;
     hpBar.style = `width: ${hp}%`;
+}
+
+
+function createPokemonCard(pokemon) {
+    let card = document.getElementById('pokemoncard');
+    let pokedex = document.getElementById('pokedex');
+
+    pokedex.classList.add('d-none');
+
 }
