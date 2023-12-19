@@ -23,8 +23,8 @@ let allPokemon = ['bulbasaur', 'ivysaur', 'venusaur', 'charmander', 'charmeleon'
 
 
 
-    let pokemonArray = [];
-    
+    let pokemonArray = [];      // hier werden nach dem fetch unsere Pokemon reingepusht
+
 
 async function loadPokemon() {
     for (let i = 0; i < allPokemon.length; i++) {
