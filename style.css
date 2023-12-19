@@ -4,7 +4,6 @@ body {
 }
 
 .card {
-    min-height: 35vh;
     background-color: red;
     color: white;
     border: none;
@@ -13,13 +12,6 @@ body {
 
 .card-img-top{
     border-radius: 28px 28px 0px 0px !important;
-
-
-}
-
-.card-body{
-    height: 10vh;
-    border-radius: 0px 0px 28px 28px !important;
 }
 
 h1{
@@ -48,6 +40,7 @@ h1{
     border-radius: 28px;
 }
 
+
 .progress {
     height: 32px !important;
     border-radius: 50px !important;
@@ -71,10 +64,23 @@ h1{
     border-radius: 10px;
 }
 
-.card-body h5, p{
-    display: flex;
-    justify-content: center;
+#backButton{
+    margin-top: 20px;
+    border-radius: 20px;
+    height: 4rem;
+    width: 8rem;
+
+
 }
+
+
+
+
+
+
+
+
+
 
 .bg-fire {
     background-color: red;

@@ -21,22 +21,21 @@ let allPokemon = ['bulbasaur', 'ivysaur', 'venusaur', 'charmander', 'charmeleon'
     'omanyte', 'omastar', 'kabuto', 'kabutops', 'aerodactyl', 'snorlax', 'articuno',
     'zapdos', 'moltres', 'dratini', 'dragonair', 'dragonite', 'mewtwo', 'mew'];
 
-
-    let pokemonArray = [];      // hier werden nach dem fetch unsere Pokemon reingepusht
-
+    let pokemonArray = []; // hier werden nach dem fetch unsere Pokemon reingepusht
 
     async function loadPokemon() {
         for (let i = 0; i < allPokemon.length; i++) {
             let pokemon = allPokemon[i];
             let url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
             let response = await fetch(url);
-            let currentPokemon = await response.json();
+            const currentPokemon = await response.json();
             pokemonArray.push(currentPokemon);
         }
         createPokedex();
     }
     
-    function createPokedex() {
+                                                        //MAIN - func
+    function createPokedex() {                                          // erstellt unsere Hauptansicht mit allen Pokemon
         let pokedex = document.getElementById('pokedex');
         for (let i = 0; i < pokemonArray.length; i++) {
             let currentPokemon = pokemonArray[i];
@@ -45,14 +44,13 @@ let allPokemon = ['bulbasaur', 'ivysaur', 'venusaur', 'charmander', 'charmeleon'
                 <img onclick="createPokemonCard(${i})" id="pokemonImage${pokemon}" src="${currentPokemon.sprites.front_default}" class="card-img-top">
                 <div id="cardBody${pokemon}" class="card-body">
                     <h5 id="pokemonName-${pokemon}" class="card-title">${currentPokemon.name}</h5>
-                    <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                        <div id="progressBar${pokemon}" class="progress-bar" style="width: ${currentPokemon.stats[0].base_stat}%"></div>
-                    </div>
+                  
                     <p id="pokemonType${pokemon}" class="card-text">Type : ${currentPokemon.types[0].type.name}</p>
                 </div>
             </div>`;
         }
     }
+
 
 function showPokemonInfo(pokemon, currentPokemon) {
     let pokemonName = document.getElementById(`pokemonName-${pokemon}`);
@@ -69,8 +67,6 @@ function showPokemonInfo(pokemon, currentPokemon) {
 }
 
 
-
-
 function showHp(pokemon, hp) {
     let hpBar = document.getElementById(`progressBar${pokemon}`);
     hpBar.innerHTML = hp;
@@ -79,9 +75,8 @@ function showHp(pokemon, hp) {
 }
 
 
-function createPokemonCard(pokemonIndex) {
+function createPokemonCard(pokemonIndex, i) {
     let selectedPokemon = pokemonArray[pokemonIndex];
-
     let card = document.getElementById('pokemonCard');
     let pokedex = document.getElementById('pokedex');
 
@@ -90,13 +85,14 @@ function createPokemonCard(pokemonIndex) {
     card.innerHTML = `<div id="pokedex-card-${selectedPokemon.name}" class="card" style="width: 18rem;">
         <div id="cardBody" class="card-body">
             <h5 id="pokemonName-${selectedPokemon.name}" class="card-title">${selectedPokemon.name}</h5>
-            <img src="${selectedPokemon.sprites.front_default}" class="card-img-top">
+            <img src="${selectedPokemon.sprites.front_default}" class="card-img-top"> 
             <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                <div id="progressBar${selectedPokemon.name}" class="progress-bar" style="width: ${selectedPokemon.stats[0].base_stat}%"></div>
+               <div id="progressBar${selectedPokemon.name}" class="progress-bar" style="width: ${selectedPokemon.stats[0]['base_stat']}%">${selectedPokemon['stats'][0]['base_stat']}</div>
             </div>
             <p id="pokemonType${selectedPokemon.name}" class="card-text">Type: ${selectedPokemon.types[0].type.name}</p>
         </div>
-    </div>`;
+    </div>
+    <button id="backButton" onclick="goBackToPokedex()">Back to Pokedex</button>`;
 }
 
 
@@ -124,6 +120,13 @@ function goBackToPokedex() {
 }
 
 
+function goBackToPokedex() {
+    let card = document.getElementById('pokemonCard');
+    let pokedex = document.getElementById('pokedex');
+
+    card.innerHTML = '';
+    pokedex.classList.remove('d-none');
+}
 
 
 function showBgbyType(cardBody, pokemonTypeInfo) {
