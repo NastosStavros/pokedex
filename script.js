@@ -22,37 +22,37 @@ let allPokemon = ['bulbasaur', 'ivysaur', 'venusaur', 'charmander', 'charmeleon'
     'zapdos', 'moltres', 'dratini', 'dragonair', 'dragonite', 'mewtwo', 'mew'];
 
 
-
     let pokemonArray = [];      // hier werden nach dem fetch unsere Pokemon reingepusht
 
 
-async function loadPokemon() {
-    for (let i = 0; i < allPokemon.length; i++) {
-        let pokemon = allPokemon[i];
-        let url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
-        let response = await fetch(url);
-        let currentPokemon = await response.json();
-        pokemonArray.push(currentPokemon);
-        createPokedex(pokemon, currentPokemon);
-    };
-}
-
-
-
-function createPokedex(pokemon, currentPokemon) {
-    let pokedex = document.getElementById('pokedex');
-    pokedex.innerHTML += `<div id="pokedex-card-${pokemon}" class="card" style="width: 18rem;">
-    <img onclick="createPokemonCard('${currentPokemon}')" id="pokemonImage${pokemon}" src="" class="card-img-top">
-    <div id="cardBody${pokemon}" class="card-body">
-        <h5 id="pokemonName-${pokemon}" class="card-title"></h5>
-        <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-            <div id="progressBar${pokemon}" class="progress-bar" style="width: 25%"> </div>
-        </div>
-        <p id="pokemonType${pokemon}" class="card-text"></p>
-    </div>
-</div>`;
-    showPokemonInfo(pokemon, currentPokemon);
-}
+    async function loadPokemon() {
+        for (let i = 0; i < allPokemon.length; i++) {
+            let pokemon = allPokemon[i];
+            let url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
+            let response = await fetch(url);
+            let currentPokemon = await response.json();
+            pokemonArray.push(currentPokemon);
+        }
+        createPokedex();
+    }
+    
+    function createPokedex() {
+        let pokedex = document.getElementById('pokedex');
+        for (let i = 0; i < pokemonArray.length; i++) {
+            let currentPokemon = pokemonArray[i];
+            let pokemon = allPokemon[i];
+            pokedex.innerHTML += `<div id="pokedex-card-${pokemon}" class="card" style="width: 18rem;">
+                <img onclick="createPokemonCard(${i})" id="pokemonImage${pokemon}" src="${currentPokemon.sprites.front_default}" class="card-img-top">
+                <div id="cardBody${pokemon}" class="card-body">
+                    <h5 id="pokemonName-${pokemon}" class="card-title">${currentPokemon.name}</h5>
+                    <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                        <div id="progressBar${pokemon}" class="progress-bar" style="width: ${currentPokemon.stats[0].base_stat}%"></div>
+                    </div>
+                    <p id="pokemonType${pokemon}" class="card-text">Type : ${currentPokemon.types[0].type.name}</p>
+                </div>
+            </div>`;
+        }
+    }
 
 function showPokemonInfo(pokemon, currentPokemon) {
     let pokemonName = document.getElementById(`pokemonName-${pokemon}`);
@@ -79,19 +79,21 @@ function showHp(pokemon, hp) {
 }
 
 
-function createPokemonCard(pokemon, currentPokemon) {
+function createPokemonCard(pokemonIndex) {
+    let selectedPokemon = pokemonArray[pokemonIndex];
+
     let card = document.getElementById('pokemonCard');
     let pokedex = document.getElementById('pokedex');
 
     pokedex.classList.add('d-none');
 
-    card.innerHTML = `<div id="pokedex-card-${pokemon}" class="card" style="width: 18rem;">
-        <div id="cardBody${pokemon}" class="card-body">
-            <h5 id="pokemonName-${pokemon}" class="card-title">${currentPokemon['name']}</h5>
+    card.innerHTML = `<div id="pokedex-card-${selectedPokemon.name}" class="card" style="width: 18rem;">
+        <div id="cardBody" class="card-body">
+            <h5 id="pokemonName-${selectedPokemon.name}" class="card-title">${selectedPokemon.name}</h5>
             <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                <div id="progressBar${pokemon}" class="progress-bar" style="width: ${currentPokemon.stats[0].base_stat}%"> </div>
+                <div id="progressBar${selectedPokemon.name}" class="progress-bar" style="width: ${selectedPokemon.stats[0].base_stat}%"></div>
             </div>
-            <p id="pokemonType${pokemon}" class="card-text">Type: ${currentPokemon.types[0].type.name}</p>
+            <p id="pokemonType${selectedPokemon.name}" class="card-text">Type: ${selectedPokemon.types[0].type.name}</p>
         </div>
     </div>`;
 }
