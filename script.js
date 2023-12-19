@@ -90,6 +90,7 @@ function createPokemonCard(pokemonIndex) {
     card.innerHTML = `<div id="pokedex-card-${selectedPokemon.name}" class="card" style="width: 18rem;">
         <div id="cardBody" class="card-body">
             <h5 id="pokemonName-${selectedPokemon.name}" class="card-title">${selectedPokemon.name}</h5>
+            <img src="${selectedPokemon.sprites.front_default}" class="card-img-top">
             <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
                 <div id="progressBar${selectedPokemon.name}" class="progress-bar" style="width: ${selectedPokemon.stats[0].base_stat}%"></div>
             </div>
