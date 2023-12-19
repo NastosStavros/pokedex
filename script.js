@@ -21,12 +21,18 @@ let allPokemon = ['bulbasaur', 'ivysaur', 'venusaur', 'charmander', 'charmeleon'
     'omanyte', 'omastar', 'kabuto', 'kabutops', 'aerodactyl', 'snorlax', 'articuno',
     'zapdos', 'moltres', 'dratini', 'dragonair', 'dragonite', 'mewtwo', 'mew'];
 
+
+
+    let pokemonArray = [];
+    
+
 async function loadPokemon() {
     for (let i = 0; i < allPokemon.length; i++) {
         let pokemon = allPokemon[i];
         let url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
         let response = await fetch(url);
-       let currentPokemon = await response.json();
+        let currentPokemon = await response.json();
+        pokemonArray.push(currentPokemon);
         createPokedex(pokemon, currentPokemon);
     };
 }
@@ -36,7 +42,7 @@ async function loadPokemon() {
 function createPokedex(pokemon, currentPokemon) {
     let pokedex = document.getElementById('pokedex');
     pokedex.innerHTML += `<div id="pokedex-card-${pokemon}" class="card" style="width: 18rem;">
-    <img onclick="createPokemonCard('${pokemon}')" id="pokemonImage${pokemon}" src="" class="card-img-top">
+    <img onclick="createPokemonCard('${currentPokemon}')" id="pokemonImage${pokemon}" src="" class="card-img-top">
     <div id="cardBody${pokemon}" class="card-body">
         <h5 id="pokemonName-${pokemon}" class="card-title"></h5>
         <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
@@ -49,7 +55,6 @@ function createPokedex(pokemon, currentPokemon) {
 }
 
 function showPokemonInfo(pokemon, currentPokemon) {
-    
     let pokemonName = document.getElementById(`pokemonName-${pokemon}`);
     let pokemonImage = document.getElementById(`pokemonImage${pokemon}`);
     let pokemonType = document.getElementById(`pokemonType${pokemon}`);
@@ -81,8 +86,8 @@ function createPokemonCard(pokemon, currentPokemon) {
     pokedex.classList.add('d-none');
 
     card.innerHTML = `<div id="pokedex-card-${pokemon}" class="card" style="width: 18rem;">
-    <img onclick="showPokemonInfoBigCard('${pokemon}', ${JSON.stringify(currentPokemon)})"  id="pokemonImage${pokemon}" src="${currentPokemon.sprites.other.home.front_default}" class="card-img-top">        <div id="cardBody${pokemon}" class="card-body">
-            <h5 id="pokemonName-${pokemon}" class="card-title">${currentPokemon.name}</h5>
+        <div id="cardBody${pokemon}" class="card-body">
+            <h5 id="pokemonName-${pokemon}" class="card-title">${currentPokemon['name']}</h5>
             <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
                 <div id="progressBar${pokemon}" class="progress-bar" style="width: ${currentPokemon.stats[0].base_stat}%"> </div>
             </div>
@@ -92,7 +97,7 @@ function createPokemonCard(pokemon, currentPokemon) {
 }
 
 
-function showPokemonInfoBigCard(pokemon, currentPokemon) { 
+function showPokemonInfoBigCard(pokemon, currentPokemon) {
     let pokemonName = document.getElementById(`pokemonName-${pokemon}`);
     let pokemonImage = document.getElementById(`pokemonImage${pokemon}`);
     let pokemonType = document.getElementById(`pokemonType${pokemon}`);
@@ -105,7 +110,6 @@ function showPokemonInfoBigCard(pokemon, currentPokemon) {
     showBgbyType(cardBody, pokemonTypeInfo);
     showHp(pokemon, hp);
 }
-
 
 
 function goBackToPokedex() {
