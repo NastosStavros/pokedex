@@ -21,38 +21,34 @@ let allPokemon = ['bulbasaur', 'ivysaur', 'venusaur', 'charmander', 'charmeleon'
     'omanyte', 'omastar', 'kabuto', 'kabutops', 'aerodactyl', 'snorlax', 'articuno',
     'zapdos', 'moltres', 'dratini', 'dragonair', 'dragonite', 'mewtwo', 'mew'];
 
-
 async function loadPokemon() {
     for (let i = 0; i < allPokemon.length; i++) {
         let pokemon = allPokemon[i];
         let url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
         let response = await fetch(url);
-        currentPokemon = await response.json();
-        console.log(currentPokemon);
-        createPokedex(pokemon);
+       let currentPokemon = await response.json();
+        createPokedex(pokemon, currentPokemon);
     };
 }
 
 
-function createPokedex(pokemon) {
+
+function createPokedex(pokemon, currentPokemon) {
     let pokedex = document.getElementById('pokedex');
     pokedex.innerHTML += `<div id="pokedex-card-${pokemon}" class="card" style="width: 18rem;">
-    <img onclick="createPokemonCard()"id="pokemonImage${pokemon}" src="" class="card-img-top">
+    <img onclick="createPokemonCard('${pokemon}')" id="pokemonImage${pokemon}" src="" class="card-img-top">
     <div id="cardBody${pokemon}" class="card-body">
-    
         <h5 id="pokemonName-${pokemon}" class="card-title"></h5>
         <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-        
-  <div id="progressBar${pokemon}" class="progress-bar" style="width: 25%"> </div>
-</div>
+            <div id="progressBar${pokemon}" class="progress-bar" style="width: 25%"> </div>
+        </div>
         <p id="pokemonType${pokemon}" class="card-text"></p>
-        
     </div>
 </div>`;
-    showPokemonInfo(pokemon);
+    showPokemonInfo(pokemon, currentPokemon);
 }
 
-function showPokemonInfo(pokemon) {
+function showPokemonInfo(pokemon, currentPokemon) {
     
     let pokemonName = document.getElementById(`pokemonName-${pokemon}`);
     let pokemonImage = document.getElementById(`pokemonImage${pokemon}`);
@@ -61,11 +57,66 @@ function showPokemonInfo(pokemon) {
     let cardBody = document.getElementById(`cardBody${pokemon}`);
     let hp = currentPokemon['stats'][0]['base_stat'];
     pokemonName.innerHTML = currentPokemon['name'];
-    pokemonImage.src = currentPokemon['sprites']['other']['home']['front_default'];
+    pokemonImage.src = currentPokemon['sprites']['front_default'];
     pokemonType.innerHTML = "Type : " + pokemonTypeInfo;
     showBgbyType(cardBody, pokemonTypeInfo);
     showHp(pokemon, hp);
 }
+
+
+
+
+function showHp(pokemon, hp) {
+    let hpBar = document.getElementById(`progressBar${pokemon}`);
+    hpBar.innerHTML = hp;
+    hpBar.innerHTML += ` HP`;
+    hpBar.style = `width: ${hp}%`;
+}
+
+
+function createPokemonCard(pokemon, currentPokemon) {
+    let card = document.getElementById('pokemonCard');
+    let pokedex = document.getElementById('pokedex');
+
+    pokedex.classList.add('d-none');
+
+    card.innerHTML = `<div id="pokedex-card-${pokemon}" class="card" style="width: 18rem;">
+    <img onclick="showPokemonInfoBigCard('${pokemon}', ${JSON.stringify(currentPokemon)})"  id="pokemonImage${pokemon}" src="${currentPokemon.sprites.other.home.front_default}" class="card-img-top">        <div id="cardBody${pokemon}" class="card-body">
+            <h5 id="pokemonName-${pokemon}" class="card-title">${currentPokemon.name}</h5>
+            <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                <div id="progressBar${pokemon}" class="progress-bar" style="width: ${currentPokemon.stats[0].base_stat}%"> </div>
+            </div>
+            <p id="pokemonType${pokemon}" class="card-text">Type: ${currentPokemon.types[0].type.name}</p>
+        </div>
+    </div>`;
+}
+
+
+function showPokemonInfoBigCard(pokemon, currentPokemon) { 
+    let pokemonName = document.getElementById(`pokemonName-${pokemon}`);
+    let pokemonImage = document.getElementById(`pokemonImage${pokemon}`);
+    let pokemonType = document.getElementById(`pokemonType${pokemon}`);
+    let pokemonTypeInfo = currentPokemon['types'][0]['type']['name'];
+    let cardBody = document.getElementById(`cardBody${pokemon}`);
+    let hp = currentPokemon['stats'][0]['base_stat'];
+    pokemonName.innerHTML = currentPokemon['name'];
+    pokemonImage.src = pokemon['sprites']['front_default'];
+    pokemonType.innerHTML = "Type : " + pokemonTypeInfo;
+    showBgbyType(cardBody, pokemonTypeInfo);
+    showHp(pokemon, hp);
+}
+
+
+
+function goBackToPokedex() {
+    let card = document.getElementById('pokemonCard');
+    let pokedex = document.getElementById('pokedex');
+
+    card.innerHTML = '';
+    pokedex.classList.remove('d-none');
+}
+
+
 
 
 function showBgbyType(cardBody, pokemonTypeInfo) {
@@ -116,54 +167,3 @@ function showBgbyType(cardBody, pokemonTypeInfo) {
     }
 }
 
-
-function showHp(pokemon, hp) {
-    let hpBar = document.getElementById(`progressBar${pokemon}`);
-    hpBar.innerHTML = hp;
-    hpBar.innerHTML += ` HP`;
-    hpBar.style = `width: ${hp}%`;
-}
-
-
-function createPokemonCard(pokemon) {
-    let card = document.getElementById('pokemonCard');
-    let pokedex = document.getElementById('pokedex');
-
-    pokedex.classList.add('d-none');
-
-    card.innerHTML = `<div id="pokedexCardBig${pokemon}"  style="width: 18rem;">
-    <img onclick="createPokemonCard()"id="pokemonImageBig${pokemon}" >
-    <div id="cardBodyBig${pokemon}" >
-    
-        <h5 id="pokemonNameBig${pokemon}" class="card-title"></h5>
-        <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-        
-  <div id="progressBar${pokemon}" class="progress-bar" style="width: 25%"> </div>
-</div>
-        <p id="pokemonTypeBig${pokemon}" class="card-text"></p>
-        <button id="backButton" onclick="goBackToPokedex()">back to Pokedex</button>
-    </div>
-</div>`;
-showPokemonInfoBigCard(pokemon);
-}
-
-function showPokemonInfoBigCard(pokemon) {
-    
-    let pokemonNameBigger = document.getElementById(`pokemonNameBig${pokemon}`);
-    let pokemonImageBigger= document.getElementById(`pokemonImageBig${pokemon}`);
-    let hpBigger = currentPokemon['stats'][0]['base_stat'];
-    pokemonNameBigger.innerHTML = currentPokemon['name'];
-    pokemonImageBigger.src = currentPokemon['sprites']['other']['home']['front_default'];
-    showHp(pokemon, hpBigger);
-}
-
-
-
-
-function goBackToPokedex() {
-    let card = document.getElementById('pokemonCard');
-    let pokedex = document.getElementById('pokedex');
-
-    card.innerHTML = '';
-    pokedex.classList.remove('d-none');
-}
