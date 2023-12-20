@@ -61,7 +61,11 @@ h1{
     height: 200px;
 }
 
-<<<<<<< HEAD
+.card-body{
+height: 300px;
+color: black !important;
+background-color: #495151;}
+
 .overlayHpBar{
     font-size: larger;
     display: flex;
@@ -72,19 +76,12 @@ h1{
 
 
 
-=======
-#overlayHpBar{
-    font-size: larger;
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-
-}
-
->>>>>>> 891188f93b504739e0b0ec7184ca4ca2038997d3
 #backButton{
-width: 10vh;
-margin-left:20px ;
+    width: 10vh;
+    margin-left:20px ;
+    margin-top: 28px;
+    border-radius: 8px;
+    height: 40px;
 }
 
 .overlay-name{
@@ -92,31 +89,25 @@ margin-left:20px ;
     align-items: center !important;
     justify-content: center !important;
     font-size: xx-large !important;
+    height: 30px;
 }
 
 .progress{
     width: 40vw !important;
     height: 30px !important;
     border-radius: 20px !important;
-<<<<<<< HEAD
     font-size: large !important;
-=======
->>>>>>> 891188f93b504739e0b0ec7184ca4ca2038997d3
 }
 
 #pokemonCard{
     display: flex;
-    justify-content: space-around;
-    align-items: first baseline;
+    align-items: center;
     flex-direction: column;
     background-color: #495151 !important;
     height: 80vh;
     margin-left: 10vw;
     margin-right: 10vw;
-<<<<<<< HEAD
     text-transform: capitalize;
-=======
->>>>>>> 891188f93b504739e0b0ec7184ca4ca2038997d3
 }
 
 .bg-fire {
@@ -179,7 +170,6 @@ margin-left:20px ;
     background-color: #6F35FC;
 }
 
-<<<<<<< HEAD
 .bg-blue {
     background-color: rgb(37, 37, 251) !important;
 }
@@ -189,8 +179,6 @@ margin-left:20px ;
     
 }
 
-=======
->>>>>>> 891188f93b504739e0b0ec7184ca4ca2038997d3
 
 .d-none{
     display: none;
@@ -203,7 +191,16 @@ margin-left:20px ;
 #infoBars {
     display: flex;
     flex-direction: column;
-    align-items: end;
     gap: 16px;
-    font-size: larger ;
+    font-size: larger;
+    margin-top: 5%;
+    width: 40%;
+}
+
+#pokemonOverlayImage{
+    filter: drop-shadow(0 0 0 40px #000000) !important;
+}
+
+.image-overlay{
+    filter: drop-shadow(0 0 0 40px #000000) !important;
 }
