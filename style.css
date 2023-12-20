@@ -1,25 +1,7 @@
 body {
     margin: 0px;
-    background-image: linear-gradient(to right, rgb(97, 97, 97) ,rgb(35, 35, 141)) !important;
-}
-
-.card {
-    min-height: 35vh;
-    background-color: red;
-    color: white;
-    border: none;
-    border-radius: 28px 28px 28px 28px !important;
-}
-
-.card-img-top{
-    border-radius: 28px 28px 0px 0px !important;
-
-
-}
-
-.card-body{
-    height: 10vh;
-    border-radius: 0px 0px 28px 28px !important;
+    background-image: linear-gradient(to right, rgb(72, 72, 72),rgb(108, 7, 7), rgb(54, 54, 54) ,rgb(18, 8, 8)) !important;
+    color: white !important;
 }
 
 h1{
@@ -43,20 +25,28 @@ h1{
     margin-top: 38px;
 }
 
-.card {
+
+.pokedex-card {
+    border-radius: 28px 28px 28px 28px !important;
+}
+
+.card:hover {
     cursor: pointer;
-    border-radius: 28px;
 }
 
-.progress {
-    height: 32px !important;
-    border-radius: 50px !important;
-    border: 5px solid rgb(0, 0, 0);
-    font-size: larger !important;
+.card-img-main {
+    height: 350px;
+    width: 300px;
+    border-radius: 20px ;
+    background-image: linear-gradient(to right top, rgb(255, 255, 255) ,rgb(100, 100, 100)) !important;
 }
 
-.card-img-top {
-    background-color: white;
+.card-img-main:hover {
+    padding: 20px;
+    background-image: linear-gradient(to right top, rgb(90, 90, 90) ,rgb(43, 43, 43)) !important;
+    border: 8px solid rgb(82, 82, 82);
+    box-shadow: 0px 0px 15px 12px rgb(255, 255, 255);
+    cursor: pointer;
 }
 
 .card-title {
@@ -64,16 +54,52 @@ h1{
 }
 
 .card-text {
-    text-transform: capitalize;
-    font-weight: bold;
-    width: 100%;
-    padding: 10px;
     border-radius: 10px;
 }
 
-.card-body h5, p{
+.card-img-overlay{
+    height: 200px;
+}
+
+.overlayHpBar{
+    font-size: larger;
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    gap: 28px;
+
+}
+
+
+
+#backButton{
+width: 10vh;
+margin-left:20px ;
+}
+
+.overlay-name{
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: xx-large !important;
+}
+
+.progress{
+    width: 40vw !important;
+    height: 30px !important;
+    border-radius: 20px !important;
+    font-size: large !important;
+}
+
+#pokemonCard{
+    display: flex;
+    justify-content: space-around;
+    align-items: first baseline;
+    flex-direction: column;
+    background-color: #495151 !important;
+    height: 80vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    text-transform: capitalize;
 }
 
 .bg-fire {
@@ -97,7 +123,7 @@ h1{
 }
 
 .bg-ground {
-    background-color: rgb(183, 46, 46);
+    background-color: rgb(183, 46, 46) !important;
 }
 
 .bg-electric {
@@ -136,11 +162,28 @@ h1{
     background-color: #6F35FC;
 }
 
-.card-img-top:hover {
-    padding: 20px;
-    background-color: #a7a7a7;
-} 
+.bg-blue {
+    background-color: rgb(37, 37, 251) !important;
+}
+
+.bg-magenta {
+     background-color: rgb(134, 30, 134) !important;
+    
+}
+
 
 .d-none{
     display: none;
+}
+
+.hp {
+    background-color: green !important;
+}
+
+#infoBars {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 16px;
+    font-size: larger ;
 }
