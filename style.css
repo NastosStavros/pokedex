@@ -1,6 +1,6 @@
 body {
     margin: 0px;
-    background-image: linear-gradient(to right, rgb(72, 72, 72),rgb(108, 7, 7), rgb(61, 20, 20) ,rgb(18, 8, 8)) !important;
+    background-image: linear-gradient(to right, rgb(72, 72, 72),rgb(108, 7, 7), rgb(54, 54, 54) ,rgb(18, 8, 8)) !important;
     color: white !important;
 }
 
@@ -34,7 +34,6 @@ h1{
     cursor: pointer;
 }
 
-
 .card-img-main {
     height: 350px;
     width: 300px;
@@ -56,23 +55,16 @@ h1{
 }
 
 .card-text {
-    text-transform: capitalize;
-    font-weight: bold;
-    width: 100%;
-    padding: 10px;
     border-radius: 10px;
 }
 
-.card-img-overlay {
-    height: 50vh;
-    width: 50vw;
+.card-img-overlay{
+    height: 200px;
 }
 
 #backButton{
-    margin-top: 19rem;
-    border-radius: 20px;
-    height: 4rem;
-    width: 8rem;
+width: 10vh;
+margin-left:20px ;
 }
 
 .card-stats{
@@ -80,6 +72,11 @@ h1{
     display: flex;
     flex-direction: column;
     margin-left: 10%;
+}
+
+#pokemon-name-overlay{
+    height: 200px;
+    color: black;
 }
 
 .progress {
