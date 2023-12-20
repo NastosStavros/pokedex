@@ -61,6 +61,7 @@ h1{
     height: 200px;
 }
 
+<<<<<<< HEAD
 .overlayHpBar{
     font-size: larger;
     display: flex;
@@ -71,6 +72,16 @@ h1{
 
 
 
+=======
+#overlayHpBar{
+    font-size: larger;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+
+}
+
+>>>>>>> 891188f93b504739e0b0ec7184ca4ca2038997d3
 #backButton{
 width: 10vh;
 margin-left:20px ;
@@ -87,7 +98,10 @@ margin-left:20px ;
     width: 40vw !important;
     height: 30px !important;
     border-radius: 20px !important;
+<<<<<<< HEAD
     font-size: large !important;
+=======
+>>>>>>> 891188f93b504739e0b0ec7184ca4ca2038997d3
 }
 
 #pokemonCard{
@@ -99,7 +113,10 @@ margin-left:20px ;
     height: 80vh;
     margin-left: 10vw;
     margin-right: 10vw;
+<<<<<<< HEAD
     text-transform: capitalize;
+=======
+>>>>>>> 891188f93b504739e0b0ec7184ca4ca2038997d3
 }
 
 .bg-fire {
@@ -162,6 +179,7 @@ margin-left:20px ;
     background-color: #6F35FC;
 }
 
+<<<<<<< HEAD
 .bg-blue {
     background-color: rgb(37, 37, 251) !important;
 }
@@ -171,6 +189,8 @@ margin-left:20px ;
     
 }
 
+=======
+>>>>>>> 891188f93b504739e0b0ec7184ca4ca2038997d3
 
 .d-none{
     display: none;

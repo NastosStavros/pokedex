@@ -32,7 +32,10 @@ let allPokemon = ['bulbasaur', 'ivysaur', 'venusaur', 'charmander', 'charmeleon'
             pokemonArray.push(currentPokemon);
         }
         createPokedex();
+<<<<<<< HEAD
         console.log(pokemonArray);
+=======
+>>>>>>> 891188f93b504739e0b0ec7184ca4ca2038997d3
     }
                                
                                                                                     // creates all cards in  first main-overview
@@ -69,6 +72,15 @@ function showPokemonInfo(pokemon, currentPokemon) {
 }
 
 
+<<<<<<< HEAD
+=======
+function showHp(pokemon, hp) {
+    let hpBar = document.getElementById(`progressBar${pokemon}`);
+    hpBar.innerHTML = hp;
+    hpBar.innerHTML += ` HP`;
+    hpBar.style = `width: ${hp}%`;
+}
+>>>>>>> 891188f93b504739e0b0ec7184ca4ca2038997d3
 
 
 function createPokemonCard(pokemonIndex) {
@@ -88,6 +100,7 @@ function createPokemonCard(pokemonIndex) {
             
             <div id="infoBars">
                
+<<<<<<< HEAD
                 <div class="overlayHpBar"> HP
                     <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
                             <div id="progressBar${selectedPokemon.name}" class="progress-bar progress-bar-striped hp" style="width: ${selectedPokemon.stats[0]['base_stat']}%">${selectedPokemon['stats'][0]['base_stat']}
@@ -117,6 +130,35 @@ function createPokemonCard(pokemonIndex) {
                     </div>
 
                     
+=======
+                <div id="overlayHpBar"> HP
+                    <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                            <div id="progressBar${selectedPokemon.name}" class="progress-bar progress-bar-striped" style="width: ${selectedPokemon.stats[0]['base_stat']}%">${selectedPokemon['stats'][0]['base_stat']}
+                            </div> 
+                            </div>
+                    </div>
+                                                
+                
+                    <div class="progress" role="progressbar" aria-label="Default striped example" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+                    <div id="progressBar${selectedPokemon.name}" class="progress-bar progress-bar-striped" style="width: 10%"></div>
+                    </div>
+
+                    <div class="progress" role="progressbar" aria-label="Success striped example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar progress-bar-striped bg-success" style="width: 25%"></div>
+                    </div>
+
+                    <div class="progress" role="progressbar" aria-label="Info striped example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar progress-bar-striped bg-info" style="width: 50%"></div>
+                    </div>
+
+                    <div class="progress" role="progressbar" aria-label="Warning striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar progress-bar-striped bg-warning" style="width: 75%"></div>
+                    </div>
+
+                    <div class="progress" role="progressbar" aria-label="Danger striped example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar progress-bar-striped bg-danger" style="width: 100%"></div>
+                    </div>
+>>>>>>> 891188f93b504739e0b0ec7184ca4ca2038997d3
 
 
             </div>    
