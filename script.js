@@ -89,17 +89,41 @@ function createPokemonCard(pokemonIndex) {
             </div>
                 <p id="pokemonType${selectedPokemon.name}" class="">Type: ${selectedPokemon.types[0].type.name}</p>
             <img id="pokemonOverlayImage" src="${selectedPokemon['sprites']['other']['home']['front_default']}"> 
-
-            <div id="overlayHpBar"> HP
-                    <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                        <div id="progressBar${selectedPokemon.name}" class="progress-bar" style="width: ${selectedPokemon.stats[0]['base_stat']}%">${selectedPokemon['stats'][0]['base_stat']}
-                        </div>
-                        </div>
-             </div>
-          
-          
             
-    <button id="backButton" onclick="goBackToPokedex()">Back to Pokedex</button>`;
+            
+            <div id="infoBars">
+               
+                <div id="overlayHpBar"> HP
+                    <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                            <div id="progressBar${selectedPokemon.name}" class="progress-bar progress-bar-striped" style="width: ${selectedPokemon.stats[0]['base_stat']}%">${selectedPokemon['stats'][0]['base_stat']}
+                            </div> 
+                            </div>
+                    </div>
+                                                
+                
+                    <div class="progress" role="progressbar" aria-label="Default striped example" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+                    <div id="progressBar${selectedPokemon.name}" class="progress-bar progress-bar-striped" style="width: 10%"></div>
+                    </div>
+
+                    <div class="progress" role="progressbar" aria-label="Success striped example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar progress-bar-striped bg-success" style="width: 25%"></div>
+                    </div>
+
+                    <div class="progress" role="progressbar" aria-label="Info striped example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar progress-bar-striped bg-info" style="width: 50%"></div>
+                    </div>
+
+                    <div class="progress" role="progressbar" aria-label="Warning striped example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar progress-bar-striped bg-warning" style="width: 75%"></div>
+                    </div>
+
+                    <div class="progress" role="progressbar" aria-label="Danger striped example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar progress-bar-striped bg-danger" style="width: 100%"></div>
+                    </div>
+
+
+            </div>    
+                <button id="backButton" onclick="goBackToPokedex()">Back to Pokedex</button>`;
 }
 
                                                                                            // shows pokemon info and stats in overlaycard
