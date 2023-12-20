@@ -3,17 +3,6 @@ body {
     background-image: linear-gradient(to right, rgb(97, 97, 97) ,rgb(35, 35, 141)) !important;
 }
 
-.card {
-    background-color: red;
-    color: white;
-    border: none;
-    border-radius: 28px 28px 28px 28px !important;
-}
-
-.card-img-top{
-    border-radius: 28px 28px 0px 0px !important;
-}
-
 h1{
     padding-left: 30px;
     color: blue !important;
@@ -36,16 +25,18 @@ h1{
 }
 
 .card {
-    cursor: pointer;
-    border-radius: 28px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 28px 28px 28px 28px !important;
 }
 
+.card:hover {
+    cursor: pointer;
+}
 
-.progress {
-    height: 32px !important;
-    border-radius: 50px !important;
-    border: 5px solid rgb(0, 0, 0);
-    font-size: larger !important;
+.card-img-top{
+    border-radius: 28px 28px 0px 0px !important;
 }
 
 .card-img-top {
@@ -69,17 +60,26 @@ h1{
     border-radius: 20px;
     height: 4rem;
     width: 8rem;
+}
 
+.card-stats{
+    width: 60% !important;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+}
 
+.progress {
+    height: 32px !important;
+    border-radius: 50px !important;
+    border: 5px solid rgb(0, 0, 0);
+    font-size: larger !important;
 }
 
 
 
 
-
-
-
-
+ 
 
 
 .bg-fire {
@@ -142,10 +142,6 @@ h1{
     background-color: #6F35FC;
 }
 
-.card-img-top:hover {
-    padding: 20px;
-    background-color: #a7a7a7;
-} 
 
 .d-none{
     display: none;

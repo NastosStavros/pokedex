@@ -21,7 +21,7 @@ let allPokemon = ['bulbasaur', 'ivysaur', 'venusaur', 'charmander', 'charmeleon'
     'omanyte', 'omastar', 'kabuto', 'kabutops', 'aerodactyl', 'snorlax', 'articuno',
     'zapdos', 'moltres', 'dratini', 'dragonair', 'dragonite', 'mewtwo', 'mew'];
 
-    let pokemonArray = []; // hier werden nach dem fetch unsere Pokemon reingepusht
+    let pokemonArray = []; // after fetch for the URL, pokemons get pushed into this array
 
     async function loadPokemon() {
         for (let i = 0; i < allPokemon.length; i++) {
@@ -34,20 +34,22 @@ let allPokemon = ['bulbasaur', 'ivysaur', 'venusaur', 'charmander', 'charmeleon'
         createPokedex();
     }
     
-                                                        //MAIN - func
-    function createPokedex() {                                          // erstellt unsere Hauptansicht mit allen Pokemon
+                                                        //MAIN - func      // creates all cards in  first main-overview
+    function createPokedex() {                                      
         let pokedex = document.getElementById('pokedex');
         for (let i = 0; i < pokemonArray.length; i++) {
             let currentPokemon = pokemonArray[i];
             let pokemon = allPokemon[i];
-            pokedex.innerHTML += `<div id="pokedex-card-${pokemon}" class="card" style="width: 18rem;">
-                <img onclick="createPokemonCard(${i})" id="pokemonImage${pokemon}" src="${currentPokemon.sprites.front_default}" class="card-img-top">
+            pokedex.innerHTML += `
+            
+        <div id="pokedex-card-${pokemon}" class="card" style="width: 18rem;">
+            <img onclick="createPokemonCard(${i})" id="pokemonImage${pokemon}" src="${currentPokemon['sprites']['other']['home']['front_default']}" class="card-img-top">
+                    
                 <div id="cardBody${pokemon}" class="card-body">
-                    <h5 id="pokemonName-${pokemon}" class="card-title">${currentPokemon.name}</h5>
-                  
-                    <p id="pokemonType${pokemon}" class="card-text">Type : ${currentPokemon.types[0].type.name}</p>
+                        <h5 id="pokemonName-${pokemon}" class="card-title">${currentPokemon.name}</h5>
+                        <p id="pokemonType${pokemon}" class="card-text">Type : ${currentPokemon.types[0].type.name}</p>
                 </div>
-            </div>`;
+        </div>`;
         }
     }
 
@@ -60,7 +62,7 @@ function showPokemonInfo(pokemon, currentPokemon) {
     let cardBody = document.getElementById(`cardBody${pokemon}`);
     let hp = currentPokemon['stats'][0]['base_stat'];
     pokemonName.innerHTML = currentPokemon['name'];
-    pokemonImage.src = currentPokemon['sprites']['front_default'];
+    pokemonImage.src = currentPokemon['sprites']['other']['home']['front_default'];
     pokemonType.innerHTML = "Type : " + pokemonTypeInfo;
     showBgbyType(cardBody, pokemonTypeInfo);
     showHp(pokemon, hp);
@@ -82,21 +84,21 @@ function createPokemonCard(pokemonIndex, i) {
 
     pokedex.classList.add('d-none');
 
-    card.innerHTML = `<div id="pokedex-card-${selectedPokemon.name}" class="card" style="width: 18rem;">
+    card.innerHTML = `<div id="pokedex-big-card-${selectedPokemon.name}" class="card-stats" style="width: 18rem;">
         <div id="cardBody" class="card-body">
-            <h5 id="pokemonName-${selectedPokemon.name}" class="card-title">${selectedPokemon.name}</h5>
-            <img src="${selectedPokemon.sprites.front_default}" class="card-img-top"> 
-            <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-               <div id="progressBar${selectedPokemon.name}" class="progress-bar" style="width: ${selectedPokemon.stats[0]['base_stat']}%">${selectedPokemon['stats'][0]['base_stat']}</div>
-            </div>
-            <p id="pokemonType${selectedPokemon.name}" class="card-text">Type: ${selectedPokemon.types[0].type.name}</p>
-        </div>
+                <h5 id="pokemonName-${selectedPokemon.name}" class="card-title">${selectedPokemon.name}</h5>
+                <img src="${selectedPokemon.sprites.front_default}" class="card-img-top"> 
+                    <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                        <div id="progressBar${selectedPokemon.name}" class="progress-bar" style="width: ${selectedPokemon.stats[0]['base_stat']}%">${selectedPokemon['stats'][0]['base_stat']}</div>
+                        </div>
+                        <p id="pokemonType${selectedPokemon.name}" class="card-text">Type: ${selectedPokemon.types[0].type.name}</p>
+                  
     </div>
     <button id="backButton" onclick="goBackToPokedex()">Back to Pokedex</button>`;
 }
 
 
-function showPokemonInfoBigCard(pokemon, currentPokemon) {
+function showPokemonInfoOverlay(pokemon, currentPokemon) {
     let pokemonName = document.getElementById(`pokemonName-${pokemon}`);
     let pokemonImage = document.getElementById(`pokemonImage${pokemon}`);
     let pokemonType = document.getElementById(`pokemonType${pokemon}`);
@@ -104,7 +106,7 @@ function showPokemonInfoBigCard(pokemon, currentPokemon) {
     let cardBody = document.getElementById(`cardBody${pokemon}`);
     let hp = currentPokemon['stats'][0]['base_stat'];
     pokemonName.innerHTML = currentPokemon['name'];
-    pokemonImage.src = pokemon['sprites']['front_default'];
+    pokemonImage.src = pokemon['sprites']['other']['official-artwork']['front_default'];
     pokemonType.innerHTML = "Type : " + pokemonTypeInfo;
     showBgbyType(cardBody, pokemonTypeInfo);
     showHp(pokemon, hp);
