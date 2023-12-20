@@ -41,7 +41,6 @@ let allPokemon = ['bulbasaur', 'ivysaur', 'venusaur', 'charmander', 'charmeleon'
             let currentPokemon = pokemonArray[i];
             let pokemon = allPokemon[i];
             pokedex.innerHTML += `
-            
         <div id="pokedex-card-${pokemon}" class="pokedex-card" style="width: 18rem;">
             <img onclick="createPokemonCard(${i})" id="pokemonImage${pokemon}" src="${currentPokemon['sprites']['other']['dream_world']['front_default']}" class="card-img-main">
                     
@@ -87,16 +86,17 @@ function createPokemonCard(pokemonIndex) {
     card.innerHTML = `
             <div id="pokedex-big-card-${selectedPokemon.name}" class="overlay-name">
             ${selectedPokemon.name}
-              </div>
+            </div>
+                <p id="pokemonType${selectedPokemon.name}" class="">Type: ${selectedPokemon.types[0].type.name}</p>
+            <img id="pokemonOverlayImage" src="${selectedPokemon['sprites']['other']['home']['front_default']}"> 
 
-     
-                <img id="pokemonOverlayImage" src="${selectedPokemon['sprites']['other']['home']['front_default']}"> 
-
+            <div id="overlayHpBar"> HP
                     <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
                         <div id="progressBar${selectedPokemon.name}" class="progress-bar" style="width: ${selectedPokemon.stats[0]['base_stat']}%">${selectedPokemon['stats'][0]['base_stat']}
                         </div>
-                    </div>
-                        <p id="pokemonType${selectedPokemon.name}" class="">Type: ${selectedPokemon.types[0].type.name}</p>
+                        </div>
+             </div>
+          
           
             
     <button id="backButton" onclick="goBackToPokedex()">Back to Pokedex</button>`;
