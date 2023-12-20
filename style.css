@@ -1,6 +1,7 @@
 body {
     margin: 0px;
-    background-image: linear-gradient(to right, rgb(97, 97, 97) ,rgb(35, 35, 141)) !important;
+    background-image: linear-gradient(to right, rgb(72, 72, 72),rgb(108, 7, 7), rgb(61, 20, 20) ,rgb(18, 8, 8)) !important;
+    color: white !important;
 }
 
 h1{
@@ -47,6 +48,7 @@ h1{
     border: 8px solid rgb(82, 82, 82);
     box-shadow: 0px 0px 15px 12px rgb(255, 255, 255);
     cursor: pointer;
+    
 }
 
 .card-title {
