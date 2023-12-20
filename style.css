@@ -1,19 +1,15 @@
 body {
     margin: 0px;
-    background-image: linear-gradient(to right, rgb(72, 72, 72),rgb(108, 7, 7), rgb(54, 54, 54) ,rgb(18, 8, 8)) !important;
-    color: white !important;
+    background-image: linear-gradient(to right, #000000, rgb(38, 38, 38), #858585);
 }
 
 h1{
-    padding-left: 30px;
-    color: blue !important;
-    background-color: yellow;
-    width: 230px;
+    color: rgb(255, 255, 255) !important;
     height: 100%;
-    display: flex;
     margin-top: 20px !important;
     border-radius: 29px !important;
-    border: 4px solid blue ;
+    display: flex;
+    justify-content: center;
 }
 
 #pokedex {
@@ -74,14 +70,19 @@ background-color: #495151;}
 
 }
 
-
-
 #backButton{
-    width: 10vh;
+    width: 100px;
     margin-left:20px ;
     margin-top: 28px;
     border-radius: 8px;
-    height: 40px;
+    height: 90px;
+}
+
+#backButton:hover{
+    padding: 10px;
+    background-color: #495151;
+    cursor: pointer;
+    color: white;
 }
 
 .overlay-name{
@@ -103,11 +104,37 @@ background-color: #495151;}
     display: flex;
     align-items: center;
     flex-direction: column;
-    background-color: #495151 !important;
-    height: 80vh;
-    margin-left: 10vw;
-    margin-right: 10vw;
+    justify-content: center;
+    background-color: #bfbfbf !important;
+    height: 70vh;
     text-transform: capitalize;
+    margin-left:20%;
+    margin-right: 20%;
+    margin-top: 10%;
+    border-radius: 20px;
+    color: black;
+    
+}
+
+.hp {
+    background-color: green !important;
+}
+
+#infoBars {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    font-size: larger;
+    margin-top: 5%;
+    width: 40%;
+}
+
+#pokemonOverlayImage{
+    filter: drop-shadow(0 0 0 40px #000000) !important;
+}
+
+.image-overlay{
+    filter: drop-shadow(0 0 0 40px #000000) !important;
 }
 
 .bg-fire {
@@ -184,23 +211,3 @@ background-color: #495151;}
     display: none;
 }
 
-.hp {
-    background-color: green !important;
-}
-
-#infoBars {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    font-size: larger;
-    margin-top: 5%;
-    width: 40%;
-}
-
-#pokemonOverlayImage{
-    filter: drop-shadow(0 0 0 40px #000000) !important;
-}
-
-.image-overlay{
-    filter: drop-shadow(0 0 0 40px #000000) !important;
-}
