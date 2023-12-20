@@ -52,7 +52,8 @@ let allPokemon = ['bulbasaur', 'ivysaur', 'venusaur', 'charmander', 'charmeleon'
                 <div id="cardBodyElement${pokemon}" class="card-body">
                         <h5 id="pokemonName-${pokemon}" class="card-title">${currentPokemon.name}</h5>
                         <p id="pokemonType${pokemon}" class="card-text">Type : ${currentPokemon.types[0].type.name}</p>
-                </div>
+                
+            </div>
         </div>`;
         }
     }
@@ -149,12 +150,4 @@ function goBackToPokedex() {                                //back to all Pokemo
     pokedex.classList.remove('d-none');
 }
 
-
-function goBackToPokedex() {
-    let card = document.getElementById('pokemonCard');
-    let pokedex = document.getElementById('pokedex');
-
-    card.innerHTML = '';
-    pokedex.classList.remove('d-none');
-}
 
