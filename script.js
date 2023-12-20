@@ -33,8 +33,8 @@ let allPokemon = ['bulbasaur', 'ivysaur', 'venusaur', 'charmander', 'charmeleon'
         }
         createPokedex();
     }
-    
-                                                        //MAIN - func      // creates all cards in  first main-overview
+                               
+                                                                                    // creates all cards in  first main-overview
     function createPokedex() {                                      
         let pokedex = document.getElementById('pokedex');
         for (let i = 0; i < pokemonArray.length; i++) {
@@ -42,8 +42,8 @@ let allPokemon = ['bulbasaur', 'ivysaur', 'venusaur', 'charmander', 'charmeleon'
             let pokemon = allPokemon[i];
             pokedex.innerHTML += `
             
-        <div id="pokedex-card-${pokemon}" class="card" style="width: 18rem;">
-            <img onclick="createPokemonCard(${i})" id="pokemonImage${pokemon}" src="${currentPokemon['sprites']['other']['home']['front_default']}" class="card-img-top">
+        <div id="pokedex-card-${pokemon}" class="pokedex-card" style="width: 18rem;">
+            <img onclick="createPokemonCard(${i})" id="pokemonImage${pokemon}" src="${currentPokemon['sprites']['other']['dream_world']['front_default']}" class="card-img-main">
                     
                 <div id="cardBody${pokemon}" class="card-body">
                         <h5 id="pokemonName-${pokemon}" class="card-title">${currentPokemon.name}</h5>
@@ -87,7 +87,7 @@ function createPokemonCard(pokemonIndex, i) {
     card.innerHTML = `<div id="pokedex-big-card-${selectedPokemon.name}" class="card-stats" style="width: 18rem;">
         <div id="cardBody" class="card-body">
                 <h5 id="pokemonName-${selectedPokemon.name}" class="card-title">${selectedPokemon.name}</h5>
-                <img src="${selectedPokemon.sprites.front_default}" class="card-img-top"> 
+                <img id="pokemonOverlayImage" src="${selectedPokemon['sprites']['other']['official-artwork']['front_default']}" class="card-img-overlay"> 
                     <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
                         <div id="progressBar${selectedPokemon.name}" class="progress-bar" style="width: ${selectedPokemon.stats[0]['base_stat']}%">${selectedPokemon['stats'][0]['base_stat']}</div>
                         </div>
@@ -97,26 +97,24 @@ function createPokemonCard(pokemonIndex, i) {
     <button id="backButton" onclick="goBackToPokedex()">Back to Pokedex</button>`;
 }
 
-
-function showPokemonInfoOverlay(pokemon, currentPokemon) {
-    let pokemonName = document.getElementById(`pokemonName-${pokemon}`);
-    let pokemonImage = document.getElementById(`pokemonImage${pokemon}`);
-    let pokemonType = document.getElementById(`pokemonType${pokemon}`);
+                                                                                           // shows pokemon info and stats in overlaycard
+function showPokemonInfoOverlay(currentPokemon) {                            
+    let pokemonName = document.getElementById(`pokemonName-${currentPokemon}`);
+    let pokemonImage = document.getElementById(`pokemonOverlayImage${currentPokemon}`);
+    let pokemonType = document.getElementById(`pokemonType${currentPokemon}`);
     let pokemonTypeInfo = currentPokemon['types'][0]['type']['name'];
-    let cardBody = document.getElementById(`cardBody${pokemon}`);
+    let cardBody = document.getElementById(`cardBody${currentPokemon}`);
     let hp = currentPokemon['stats'][0]['base_stat'];
     pokemonName.innerHTML = currentPokemon['name'];
-    pokemonImage.src = pokemon['sprites']['other']['official-artwork']['front_default'];
     pokemonType.innerHTML = "Type : " + pokemonTypeInfo;
     showBgbyType(cardBody, pokemonTypeInfo);
     showHp(pokemon, hp);
 }
 
 
-function goBackToPokedex() {
+function goBackToPokedex() {                                //back to all Pokemon  MAIN overview 
     let card = document.getElementById('pokemonCard');
     let pokedex = document.getElementById('pokedex');
-
     card.innerHTML = '';
     pokedex.classList.remove('d-none');
 }
