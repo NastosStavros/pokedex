@@ -105,7 +105,7 @@ h1{
 #pokemonCard{
     display: flex;
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     background-color: #4e4e4e !important;
     height: 100vh;
@@ -114,6 +114,7 @@ h1{
     color: rgb(255, 255, 255);
     position: fixed;
     top: 0px;
+    gap: 24px;
 }
 
 #content-overlay{
@@ -138,6 +139,7 @@ h1{
     font-size: larger;
     margin-top: 5%;
     width: 40%;
+    align-items: center;
 }
 
 
@@ -225,5 +227,20 @@ h1{
 
 .d-none{
     display: none;
+}
+
+#previousButton, #nextButton {
+height: 40px;
+width: 40px;
+background-color: #333;
+border-radius: 50%;
+font-size: xx-large;
+color: white;
+opacity: 95%;
+display: flex;
+align-items: center;
+cursor: pointer;
+justify-content: center;
+border: none;
 }
 

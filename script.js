@@ -21,29 +21,29 @@ let allPokemon = ['bulbasaur', 'ivysaur', 'venusaur', 'charmander', 'charmeleon'
     'omanyte', 'omastar', 'kabuto', 'kabutops', 'aerodactyl', 'snorlax', 'articuno',
     'zapdos', 'moltres', 'dratini', 'dragonair', 'dragonite', 'mewtwo', 'mew'];
 
-    let pokemonArray = []; // after fetch for the URL, pokemons get pushed into this array
+let pokemonArray = []; // after fetch for the URL, pokemons get pushed into this array
 
-    async function loadPokemon() {
-        for (let i = 0; i < allPokemon.length; i++) {
-            let pokemon = allPokemon[i];
-            let url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
-            let response = await fetch(url);
-            const currentPokemon = await response.json();
-            pokemonArray.push(currentPokemon);
-        }
-        createPokedex();
-
-        console.log(pokemonArray);
-
+async function loadPokemon() {
+    for (let i = 0; i < allPokemon.length; i++) {
+        let pokemon = allPokemon[i];
+        let url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
+        let response = await fetch(url);
+        const currentPokemon = await response.json();
+        pokemonArray.push(currentPokemon);
     }
-                               
-                                                                                    // creates all cards in  first main-overview
-    function createPokedex() {                                      
-        let pokedex = document.getElementById('pokedex');
-        for (let i = 0; i < pokemonArray.length; i++) {
-            let currentPokemon = pokemonArray[i];
-            let pokemon = allPokemon[i];
-            pokedex.innerHTML += `
+    createPokedex();
+
+    console.log(pokemonArray);
+
+}
+
+// creates all cards in  first main-overview
+function createPokedex() {
+    let pokedex = document.getElementById('pokedex');
+    for (let i = 0; i < pokemonArray.length; i++) {
+        let currentPokemon = pokemonArray[i];
+        let pokemon = allPokemon[i];
+        pokedex.innerHTML += `
         <div id="pokedex-card-${pokemon}" class="pokedex-card" style="width: 18rem;">
 
             <img onclick="createPokemonCard(${i})" id="pokemonImage${pokemon}" 
@@ -55,8 +55,8 @@ let allPokemon = ['bulbasaur', 'ivysaur', 'venusaur', 'charmander', 'charmeleon'
                 
             </div>
         </div>`;
-        }
     }
+}
 
 
 function showPokemonInfo(pokemon, currentPokemon) {
@@ -79,12 +79,12 @@ function showPokemonInfo(pokemon, currentPokemon) {
 function createPokemonCard(pokemonIndex) {
     let selectedPokemon = pokemonArray[pokemonIndex];
     let card = document.getElementById('pokemonCard');
-    let pokedex = document.getElementById('pokedex');
+    
 
     card.classList.remove('d-none');
 
     card.innerHTML = `
-
+       <div><button id="previousButton" onclick="previousPokemon(${pokemonIndex})"><</button></div>
       <div id="content-overlay">      
             <div id="pokemonName${selectedPokemon.name}" class="overlay-name">
             ${selectedPokemon.name}
@@ -123,32 +123,49 @@ function createPokemonCard(pokemonIndex) {
                     </div>
             </div>    
                 <button id="backButton" onclick="goBackToPokedex()">Back to Pokedex</button>
-          </div>      
+          </div>    
+          <div><button id="nextButton" onclick="nextPokemon(${pokemonIndex})">></button></div>  
                 `;
 
 
-            }
+}
 
-                                                                                           // shows pokemon info and stats in overlaycard
-function showPokemonInfoOverlay(currentPokemon) {                            
+// shows pokemon info and stats in overlaycard
+function showPokemonInfoOverlay(currentPokemon) {
     let pokemonName = document.getElementById(`pokemonName-${currentPokemon}`);
-    let pokemonImage = document.getElementById(`pokemonOverlayImage${currentPokemon}`);
     let pokemonType = document.getElementById(`pokemonType${currentPokemon}`);
     let pokemonTypeInfo = currentPokemon['types'][0]['type']['name'];
     let cardBody = document.getElementById(`cardBody${currentPokemon}`);
-    let hp = currentPokemon['stats'][0]['base_stat'];
     pokemonName.innerHTML = currentPokemon['name'];
     pokemonType.innerHTML = "Type : " + pokemonTypeInfo;
     showBgbyType(cardBody, pokemonTypeInfo);
-    showHp(pokemon, hp);
+
 }
 
 
 function goBackToPokedex() {                                //back to all Pokemon  MAIN overview 
     let card = document.getElementById('pokemonCard');
-    let pokedex = document.getElementById('pokedex');
     card.innerHTML = '';
     card.classList.add('d-none');
 }
 
+function previousPokemon(pokemonIndex) {
+    if (pokemonIndex == 0) {
+        pokemonIndex += 146;
+        } else {
+    pokemonIndex--;
+    
+    }
+    createPokemonCard(pokemonIndex);
+    console.log(pokemonIndex);
+}
 
+function nextPokemon(pokemonIndex) {
+    if (pokemonIndex == 146) {
+        pokemonIndex -= 146;
+        } else {
+    pokemonIndex++;
+    }
+    createPokemonCard(pokemonIndex);
+    console.log(pokemonIndex);
+}
