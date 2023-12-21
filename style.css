@@ -17,13 +17,18 @@ h1{
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 24px;
+    gap: 38px;
     margin-top: 38px;
 }
 
 
-.pokedex-card {
-    border-radius: 28px 28px 28px 28px !important;
+.card-body{
+    border-radius: 20px !important;                     
+    display: flex;                      
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    color: white !important;
 }
 
 .card:hover {
@@ -57,10 +62,7 @@ h1{
     height: 200px;
 }
 
-.card-body{
-height: 300px;
-color: black !important;
-background-color: #495151;}
+
 
 .overlayHpBar{
     font-size: larger;
@@ -104,17 +106,14 @@ background-color: #495151;}
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     background-color: #4e4e4e !important;
-    height: 85vh;
+    height: 100vh;
+    width: 100vw;
     text-transform: capitalize;
-    margin-left:20%;
-    margin-right: 20%;
-    margin-top: 3%;
-    border-radius: 20px;
     color: rgb(255, 255, 255);
-    border: 8px solid white;
-    
+    position: fixed;
+    top: 0px;
 }
 
 .hp {

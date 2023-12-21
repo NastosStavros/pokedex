@@ -50,8 +50,8 @@ let allPokemon = ['bulbasaur', 'ivysaur', 'venusaur', 'charmander', 'charmeleon'
             src="${currentPokemon['sprites']['other']['dream_world']['front_default']}" class="card-img-main">
                     
                 <div id="cardBodyElement${pokemon}" class="card-body">
-                        <h5 id="pokemonName-${pokemon}" class="card-title">${currentPokemon.name}</h5>
-                        <p id="pokemonType${pokemon}" class="card-text">Type : ${currentPokemon.types[0].type.name}</p>
+                        <h5 >${currentPokemon.name}</h5>
+                        <p>Type : ${currentPokemon.types[0].type.name}</p>
                 
             </div>
         </div>`;
@@ -81,7 +81,7 @@ function createPokemonCard(pokemonIndex) {
     let card = document.getElementById('pokemonCard');
     let pokedex = document.getElementById('pokedex');
 
-    pokedex.classList.add('d-none');
+    card.classList.remove('d-none');
 
     card.innerHTML = `
             <div id="pokemonName${selectedPokemon.name}" class="overlay-name">
@@ -89,7 +89,6 @@ function createPokemonCard(pokemonIndex) {
             </div>
                 <p id="pokemonType${selectedPokemon.name}" class="">Type: ${selectedPokemon.types[0].type.name}</p>
             <img class="image-overlay"id="pokemonOverlayImage" src="${selectedPokemon['sprites']['other']['home']['front_default']}"> 
-            
             
             <div id="infoBars">
                
@@ -120,10 +119,6 @@ function createPokemonCard(pokemonIndex) {
                     </div>
                     </div>
                     </div>
-
-                    
-
-
             </div>    
                 <button id="backButton" onclick="goBackToPokedex()">Back to Pokedex</button>`;
 }
@@ -147,7 +142,7 @@ function goBackToPokedex() {                                //back to all Pokemo
     let card = document.getElementById('pokemonCard');
     let pokedex = document.getElementById('pokedex');
     card.innerHTML = '';
-    pokedex.classList.remove('d-none');
+    card.classList.add('d-none');
 }
 
 
