@@ -32,39 +32,33 @@ async function loadPokemon() {
         pokemonArray.push(currentPokemon);
     }
     createPokedex();
-
-    console.log(pokemonArray);
-
 }
+
 
 // creates all cards in  first main-overview
 function createPokedex() {
     let pokedex = document.getElementById('pokedex');
     for (let i = 0; i < pokemonArray.length; i++) {
         let currentPokemon = pokemonArray[i];
-        let pokemon = allPokemon[i];
         pokedex.innerHTML += `
-        <div id="pokedex-card-${pokemon}" class="pokedex-card" style="width: 18rem;">
-
-            <img onclick="createPokemonCard(${i})" id="pokemonImage${pokemon}" 
+        <div id="pokedex-card-${currentPokemon}" class="pokedex-card" style="width: 18rem;">
+            <img onclick="createPokemonCard(${i})" id="pokemonImage${currentPokemon}" 
             src="${currentPokemon['sprites']['other']['dream_world']['front_default']}" class="card-img-main">
-                    
-                <div id="cardBodyElement${pokemon}" class="card-body">
+                <div id="cardBodyElement${currentPokemon}" class="card-body-pokemon">
                         <h5 >${currentPokemon.name}</h5>
                         <p>Type : ${currentPokemon.types[0].type.name}</p>
-                
             </div>
         </div>`;
     }
 }
 
 
-function showPokemonInfo(pokemon, currentPokemon) {
-    let pokemonName = document.getElementById(`pokemonName-${pokemon}`);
-    let pokemonImage = document.getElementById(`pokemonImage${pokemon}`);
-    let pokemonType = document.getElementById(`pokemonType${pokemon}`);
+function showPokemonInfo(currentPokemon) {
+    let pokemonName = document.getElementById(`pokemonName-${currentPokemon}`);
+    let pokemonImage = document.getElementById(`pokemonImage${currentPokemon}`);
+    let pokemonType = document.getElementById(`pokemonType${currentPokemon}`);
     let pokemonTypeInfo = currentPokemon['types'][0]['type']['name'];
-    let cardBody = document.getElementById(`cardBody${pokemon}`);
+    let cardBody = document.getElementById(`cardBody${currentPokemon}`);
     let hp = currentPokemon['stats'][0]['base_stat'];
     pokemonName.innerHTML = currentPokemon['name'];
     pokemonImage.src = currentPokemon['sprites']['other']['home']['front_default'];
@@ -74,15 +68,11 @@ function showPokemonInfo(pokemon, currentPokemon) {
 }
 
 
-
-
 function createPokemonCard(pokemonIndex) {
     let selectedPokemon = pokemonArray[pokemonIndex];
     let card = document.getElementById('pokemonCard');
     
-
     card.classList.remove('d-none');
-
     card.innerHTML = `
        <div><button id="previousButton" onclick="previousPokemon(${pokemonIndex})"><</button></div>
       <div id="content-overlay">      
@@ -91,30 +81,25 @@ function createPokemonCard(pokemonIndex) {
             </div>
                 <p id="pokemonType${selectedPokemon.name}" class="">Type: ${selectedPokemon.types[0].type.name}</p>
             <img class="image-overlay"id="pokemonOverlayImage" src="${selectedPokemon['sprites']['other']['home']['front_default']}"> 
-            
             <div id="infoBars">
-               
-                <div class="overlayHpBar"> HP
+                <div class="overlayHpBar marginPlus"> HP
                     <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
                             <div id="progressBar${selectedPokemon.name}" class="progress-bar progress-bar-striped hp" style="width: ${selectedPokemon.stats[0]['base_stat']}%">${selectedPokemon['stats'][0]['base_stat']}
                             </div> 
                             </div>
                     </div>
-                         
                     <div class="overlayHpBar"> ATK
                     <div class="progress" role="progressbar" aria-label="Success striped example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
                         <div id="progressBar${selectedPokemon.name}" class="progress-bar progress-bar-striped  bg-ground" style="width: ${selectedPokemon.stats[1]['base_stat']}%">${selectedPokemon['stats'][1]['base_stat']}
                     </div>
                     </div>
                     </div>
-
                     <div class="overlayHpBar"> DEF
                     <div class="progress" role="progressbar" aria-label="Info striped example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
                         <div id="progressBar${selectedPokemon.name}" class="progress-bar progress-bar-striped  bg-blue" style="width: ${selectedPokemon.stats[2]['base_stat']}%">${selectedPokemon['stats'][2]['base_stat']}
                     </div>
                     </div>
                     </div>
-
                     <div class="overlayHpBar"> SPD
                     <div class="progress" role="progressbar" aria-label="Info striped example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
                         <div id="progressBar${selectedPokemon.name}" class="progress-bar progress-bar-striped bg-magenta" style="width: ${selectedPokemon.stats[5]['base_stat']}%">${selectedPokemon['stats'][5]['base_stat']}
@@ -126,12 +111,11 @@ function createPokemonCard(pokemonIndex) {
           </div>    
           <div><button id="nextButton" onclick="nextPokemon(${pokemonIndex})">></button></div>  
                 `;
-
-
 }
 
-// shows pokemon info and stats in overlaycard
-function showPokemonInfoOverlay(currentPokemon) {
+
+    // shows pokemon info and stats in overlaycard
+    function showPokemonInfoOverlay(currentPokemon) {
     let pokemonName = document.getElementById(`pokemonName-${currentPokemon}`);
     let pokemonType = document.getElementById(`pokemonType${currentPokemon}`);
     let pokemonTypeInfo = currentPokemon['types'][0]['type']['name'];
@@ -142,23 +126,23 @@ function showPokemonInfoOverlay(currentPokemon) {
 
 }
 
-
-function goBackToPokedex() {                                //back to all Pokemon  MAIN overview 
+    //back to all Pokemon  MAIN overview 
+    function goBackToPokedex() {                              
     let card = document.getElementById('pokemonCard');
     card.innerHTML = '';
     card.classList.add('d-none');
 }
 
-function previousPokemon(pokemonIndex) {
+    function previousPokemon(pokemonIndex) {
     if (pokemonIndex == 0) {
-        pokemonIndex += 146;
-        } else {
+    pokemonIndex += 146;
+    } else {
     pokemonIndex--;
-    
     }
     createPokemonCard(pokemonIndex);
     console.log(pokemonIndex);
 }
+
 
 function nextPokemon(pokemonIndex) {
     if (pokemonIndex == 146) {
@@ -168,4 +152,15 @@ function nextPokemon(pokemonIndex) {
     }
     createPokemonCard(pokemonIndex);
     console.log(pokemonIndex);
+}
+
+
+function changeBackgrounds(currentPokemon){
+
+    let currentBG = document.getElementById(`cardBodyElement${currentPokemon}`);
+    currentBG
+
+
+
+
 }
