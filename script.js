@@ -123,6 +123,7 @@ function createPokemonCard(pokemonIndex) {
                     </div>
             </div>    
                 <button id="backButton" onclick="goBackToPokedex()">Back to Pokedex</button>
+                
           </div>      
                 `;
 
