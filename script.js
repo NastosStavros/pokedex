@@ -84,6 +84,8 @@ function createPokemonCard(pokemonIndex) {
     card.classList.remove('d-none');
 
     card.innerHTML = `
+
+      <div id="content-overlay">      
             <div id="pokemonName${selectedPokemon.name}" class="overlay-name">
             ${selectedPokemon.name}
             </div>
@@ -120,8 +122,12 @@ function createPokemonCard(pokemonIndex) {
                     </div>
                     </div>
             </div>    
-                <button id="backButton" onclick="goBackToPokedex()">Back to Pokedex</button>`;
-}
+                <button id="backButton" onclick="goBackToPokedex()">Back to Pokedex</button>
+          </div>      
+                `;
+
+
+            }
 
                                                                                            // shows pokemon info and stats in overlaycard
 function showPokemonInfoOverlay(currentPokemon) {                            
