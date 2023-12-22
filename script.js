@@ -24,16 +24,22 @@ let allPokemon = ['bulbasaur', 'ivysaur', 'venusaur', 'charmander', 'charmeleon'
 let pokemonArray = []; // after fetch for the URL, pokemons get pushed into this array
 
 async function loadPokemon() {
-    for (let i = 0; i < allPokemon.length; i++) {
-        let pokemon = allPokemon[i];
-        let url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
-        let response = await fetch(url);
-        const currentPokemon = await response.json();
-        pokemonArray.push(currentPokemon);
-    }
+                                            // Sammelt alle Fetch-Promises in einem Array
+    const fetchPromises = allPokemon.map(async (pokemon) => {
+        const url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
+        const response = await fetch(url);
+        return response.json();
+    });
+
+                                            // Warte auf alle Fetch-Promises gleichzeitig
+    const pokemonDataArray = await Promise.all(fetchPromises);
+
+                                            // Füge alle Pokemon-Daten dem Array hinzu
+    pokemonArray.push(...pokemonDataArray);
+
+                                        // Ruft unsere Funktion erst nach Abschluss aller API-Aufrufe auf
     createPokedex();
 }
-
 
 // creates all cards in  first main-overview
 function createPokedex() {
@@ -84,7 +90,7 @@ function createPokemonCard(pokemonIndex) {          // shows pokemon in overlay
 
                 <div id="OverlayButtons">
                 <button id="OverlayBtn1">Stats</button>
-                <button id="OverlayBtn2">more</button>
+                <button id="OverlayBtn2">more Info</button>
                 </div>
                     
      <div id="OverlayBottom">
@@ -121,7 +127,8 @@ function createPokemonCard(pokemonIndex) {          // shows pokemon in overlay
                     </div>
                     </div>
                     </div>   
-                </div>
+ 
+    </div>
 
 
                 <button id="backButton" onclick="goBackToPokedex()">Back to Pokedex</button>
@@ -173,10 +180,6 @@ function nextPokemon(pokemonIndex) {
 
 
 function changeBackgrounds(currentPokemon){
-
-    let pokemonTypeGrass = currentPokemon['types'][0]['type']['name'];
-
-
 
 
 }
