@@ -227,5 +227,8 @@ function showOverlayBgbyType(selectedPokemon, i) {
     if (type == 'electric') {
         overlayImage.classList.add('bg-img-electric');
     }
+    if (type == 'bug') {
+        overlayImage.classList.add('bg-img-bug');
+    }
 }
 

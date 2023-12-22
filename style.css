@@ -322,7 +322,7 @@ border: none;
     background-image: url("./img/fire.png");
     background-position: center;
     background-size: cover;
-    background-color: rgba(255, 255, 255, 0.5);
+    
     
 }
 
@@ -330,33 +330,40 @@ border: none;
     background-image: url("./img/grass.png");
     background-position: center;
     background-size: cover;
-    opacity: 0.5
+   
 }
 
 .bg-img-water {
     background-image: url("./img/water.png");
     background-position: center;
     background-size: cover;
-    opacity: 0.5
+   
 }
 
 .bg-img-electric {
     background-image: url("./img/electric.png");
     background-position: center;
     background-size: cover;
-    opacity: 0.5
+    
 }
 
 .bg-img-psychic {
     background-image: url("./img/psychic.png");
     background-position: center;
     background-size: cover;
-    opacity: 0.5
+    
 }
 
 .bg-img-rock {
     background-image: url("./img/rock.png");
     background-position: center;
     background-size: cover;
-    opacity: 0.5
+    
+}
+
+.bg-img-bug {
+    background-image: url("./img/bug.png");
+    background-position: center;
+    background-size: cover;
+    
 }
