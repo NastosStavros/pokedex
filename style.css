@@ -217,11 +217,15 @@ border: none;
     background-color: #e6e6e6;
     cursor: pointer;
     box-shadow: 0px 5px 20px 3px rgb(22, 22, 22);
-
-
-
 }
 
+#infoDiv{
+    background-color: #000000;
+    height: 300px;
+    width: 300px;
+    position: fixed;
+
+}
 
 
 

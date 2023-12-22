@@ -88,14 +88,16 @@ function createPokemonCard(pokemonIndex) {          // shows pokemon in overlay
                 <p id="pokemonType${selectedPokemon.name}" class="">Type: ${selectedPokemon.types[0].type.name}</p>
             <img class="image-overlay"id="pokemonOverlayImage" src="${selectedPokemon['sprites']['other']['home']['front_default']}"> 
 
-                <div id="OverlayButtons">
+        <div id="OverlayButtons">
                 <button id="OverlayBtn1">Stats</button>
-                <button id="OverlayBtn2">more Info</button>
-                </div>
+                <button onclick="showInfoInOverlay()"id="OverlayBtn2">more Info</button>
+        </div>
                     
-     <div id="OverlayBottom">
+        <div id="OverlayBottom">
+
+        <div id="infoDiv" class="d-none"></div>
       
-         <div id="infoBars">
+            <div id="infoBars">
                     
                         <h1 id="headingStats">Stats</h1>
  
@@ -176,10 +178,4 @@ function nextPokemon(pokemonIndex) {
     }
     createPokemonCard(pokemonIndex);
     console.log(pokemonIndex);
-}
-
-
-function changeBackgrounds(currentPokemon){
-
-
 }
