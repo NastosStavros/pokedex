@@ -23,23 +23,19 @@ let allPokemon = ['bulbasaur', 'ivysaur', 'venusaur', 'charmander', 'charmeleon'
 
 let pokemonArray = []; // after fetch for the URL, pokemons get pushed into this array
 
+
 async function loadPokemon() {
-                                            // Sammelt alle Fetch-Promises in einem Array
-    const fetchPromises = allPokemon.map(async (pokemon) => {
-        const url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
-        const response = await fetch(url);
-        return response.json();
-    });
-
-                                            // Warte auf alle Fetch-Promises gleichzeitig
-    const pokemonDataArray = await Promise.all(fetchPromises);
-
-                                            // Füge alle Pokemon-Daten dem Array hinzu
-    pokemonArray.push(...pokemonDataArray);
-
-                                        // Ruft unsere Funktion erst nach Abschluss aller API-Aufrufe auf
+    for (let i = 0; i < allPokemon.length; i++) {
+        let pokemon = allPokemon[i];
+        let url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
+        let response = await fetch(url);
+        let currentPokemon = await response.json();
+        pokemonArray.push(currentPokemon);
+    }
     createPokedex();
+    console.log(pokemonArray);
 }
+
 
 // creates all cards in  first main-overview
 function createPokedex() {
@@ -47,50 +43,36 @@ function createPokedex() {
     for (let i = 0; i < pokemonArray.length; i++) {
         let currentPokemon = pokemonArray[i];
         pokedex.innerHTML += `
-        <div id="pokedex-card-${currentPokemon}" class="pokedex-card" style="width: 18rem;">
+        <div id="pokedex-card" class="pokedex-card" style="width: 18rem;">
                     <img onclick="createPokemonCard(${i})" id="pokemonImage${currentPokemon}" 
                     src="${currentPokemon['sprites']['other']['dream_world']['front_default']}" class="card-img-main">
-             <div id="cardBodyElement${currentPokemon}" class="card-body-pokemon">
+             <div id="cardBodyElement${i}" class="card-body-pokemon">
                     <h5 >${currentPokemon.name}</h5>
                     <p>Type : ${currentPokemon.types[0].type.name}</p>
              </div>
         </div>`;
+       showBgbyType(currentPokemon, i);
     }
-}
-
-
-function showPokemonInfo(currentPokemon) {
-    let pokemonName = document.getElementById(`pokemonName-${currentPokemon}`);
-    let pokemonImage = document.getElementById(`pokemonImage${currentPokemon}`);
-    let pokemonType = document.getElementById(`pokemonType${currentPokemon}`);
-    let pokemonTypeInfo = currentPokemon['types'][0]['type']['name'];
-    let cardBody = document.getElementById(`cardBody${currentPokemon}`);
-    let hp = currentPokemon['stats'][0]['base_stat'];
-    pokemonName.innerHTML = currentPokemon['name'];
-    pokemonImage.src = currentPokemon['sprites']['other']['home']['front_default'];
-    pokemonType.innerHTML = "Type : " + pokemonTypeInfo;
-    showBgbyType(cardBody, pokemonTypeInfo);
-    showHp(pokemon, hp);
-}
-
-
-function createPokemonCard(pokemonIndex) {          // shows pokemon in overlay
-    let selectedPokemon = pokemonArray[pokemonIndex];
-    let card = document.getElementById('pokemonCard');
     
+}
+
+function createPokemonCard(i) {          // shows pokemon in overlay
+    let selectedPokemon = pokemonArray[i];
+    let card = document.getElementById('pokemonCard');
+
     card.classList.remove('d-none');
     card.innerHTML = `
-       <div><button id="previousButton" onclick="previousPokemon(${pokemonIndex})"><</button></div>
+       <div><button id="previousButton" onclick="previousPokemon(${i})"><</button></div>
       <div id="content-overlay">      
             <div id="pokemonName${selectedPokemon.name}" class="overlay-name">
             ${selectedPokemon.name}
             </div>
                 <p id="pokemonType${selectedPokemon.name}" class="">Type: ${selectedPokemon.types[0].type.name}</p>
+                <div id="overlayImageContainer${i}">
             <img class="image-overlay"id="pokemonOverlayImage" src="${selectedPokemon['sprites']['other']['home']['front_default']}"> 
-
-        <div id="OverlayButtons">
-                <button id="OverlayBtn1">Stats</button>
-                <button onclick="showInfoInOverlay()"id="OverlayBtn2">more Info</button>
+                </div>
+        <div id="elementIcon">
+               <img id="elementIconBig" src="">
         </div>
                     
         <div id="OverlayBottom">
@@ -130,52 +112,120 @@ function createPokemonCard(pokemonIndex) {          // shows pokemon in overlay
                     </div>
                     </div>   
  
-    </div>
+                  </div>
 
 
                 <button id="backButton" onclick="goBackToPokedex()">Back to Pokedex</button>
           </div>    
-          <div><button id="nextButton" onclick="nextPokemon(${pokemonIndex})">></button></div>  
+          <div><button id="nextButton" onclick="nextPokemon(${i})">></button></div>  
                 `;
+                showOverlayBgbyType(selectedPokemon, i);
 }
 
 
-   
-    function showPokemonInfoOverlay(currentPokemon) {
-    let pokemonName = document.getElementById(`pokemonName-${currentPokemon}`);
-    let pokemonType = document.getElementById(`pokemonType${currentPokemon}`);
-    let pokemonTypeInfo = currentPokemon['types'][0]['type']['name'];
-    let cardBody = document.getElementById(`cardBody${currentPokemon}`);
-    pokemonName.innerHTML = currentPokemon['name'];
-    pokemonType.innerHTML = "Type : " + pokemonTypeInfo;
-    showBgbyType(cardBody, pokemonTypeInfo);
 
-}
 
-    //back to all Pokemon  MAIN overview 
-    function goBackToPokedex() {                              
+
+//back to all Pokemon  MAIN overview 
+function goBackToPokedex() {
     let card = document.getElementById('pokemonCard');
     card.innerHTML = '';
     card.classList.add('d-none');
 }
 
-    function previousPokemon(pokemonIndex) {
-    if (pokemonIndex == 0) {
-    pokemonIndex += 146;
+function previousPokemon(i) {
+    if (i == 0) {
+        i += 146;
     } else {
-    pokemonIndex--;
+        i--;
     }
-    createPokemonCard(pokemonIndex);
-    console.log(pokemonIndex);
+    createPokemonCard(i);
+    console.log(i);
 }
 
 
-function nextPokemon(pokemonIndex) {
-    if (pokemonIndex == 146) {
-        pokemonIndex -= 146;
-        } else {
-    pokemonIndex++;
+function nextPokemon(i) {
+    if (i == 146) {
+        i -= 146;
+    } else {
+        i++;
     }
-    createPokemonCard(pokemonIndex);
-    console.log(pokemonIndex);
+    createPokemonCard(i);
+    console.log(i);
 }
+
+function showBgbyType(currentPokemon, i) {
+     let type = currentPokemon['types'][0]['type']['name'];
+     let infoCard = document.getElementById(`cardBodyElement${i}`);
+
+     if (type == 'fire'){
+        infoCard.classList.add('bg-fire');
+     }
+     if (type == 'grass'){
+        infoCard.classList.add('bg-grass');
+     }
+     if (type == 'dragon'){
+        infoCard.classList.add('bg-dragon');
+     }
+     if (type == 'water'){
+        infoCard.classList.add('bg-water');
+     }
+     if (type == 'fighting'){
+        infoCard.classList.add('bg-fighting');
+     }
+     if (type == 'bug'){
+        infoCard.classList.add('bg-bug');
+     }
+     if (type == 'electric'){
+        infoCard.classList.add('bg-electric');
+     }
+     if (type == 'dragon'){
+        infoCard.classList.add('bg-dragon');
+     }
+     if (type == 'normal'){
+        infoCard.classList.add('bg-normal');
+     }
+     if (type == 'poison'){
+        infoCard.classList.add('bg-poison');
+     }
+     if (type == 'psychic'){
+        infoCard.classList.add('bg-psychic');
+     }
+     if (type == 'ground'){
+        infoCard.classList.add('bg-ground');
+     }
+     if (type == 'rock'){
+        infoCard.classList.add('bg-rock');
+     }
+     if (type == 'fairy'){
+        infoCard.classList.add('bg-fairy');
+     }
+     if (type == 'ghost'){
+        infoCard.classList.add('bg-ghost');
+     }
+     if (type == 'ice'){
+        infoCard.classList.add('bg-ice');
+     }
+}
+
+function showOverlayBgbyType(selectedPokemon, i) {
+    let type = selectedPokemon['types'][0]['type']['name'];
+    let overlayImage = document.getElementById(`overlayImageContainer${i}`)
+
+    if (type == 'fire') {
+        overlayImage.classList.add('bg-img-fire');
+    }
+
+    if (type == 'water') {
+        overlayImage.classList.add('bg-img-water');
+    }
+
+    if (type == 'grass') {
+        overlayImage.classList.add('bg-img-grass');
+    }
+
+    if (type == 'electric') {
+        overlayImage.classList.add('bg-img-electric');
+    }
+}
+
