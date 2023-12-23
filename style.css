@@ -23,6 +23,12 @@ h1{
     margin-top: 38px;
 }
 
+.texts{
+color: rgb(255, 255, 255);
+padding: 28px;
+border-radius: 50%;
+font-size: x-large;
+}
 
 .card-body-pokemon{
     border-radius: 0px 0px 18px 18px;                     
@@ -626,8 +632,7 @@ border: none;
 .bg-img-fireSUB {
     background-image: url("./img/fire.png");
     background-size: cover;
-    height: 100px;
-    width: 300px;
+
     color: white;
     font-size: large;
     display: flex;
@@ -638,7 +643,7 @@ border: none;
 .bg-img-grassSUB {
     background-image: url("./img/grass.png");
     background-size: cover;
-    height: 100px;
+
     width: 300px;
     color: white;
     font-size: large;
@@ -650,8 +655,7 @@ border: none;
 .bg-img-waterSUB {
     background-image: url("./img/water.png");
     background-size: cover;
-    height: 100px;
-    width: 300px;
+
     color: white;
     font-size: large;
     display: flex;
@@ -662,8 +666,7 @@ border: none;
 .bg-img-electricSUB {
     background-image: url("./img/electric.png");
     background-size: cover;
-    height: 100px;
-    width: 300px;
+
     color: white;
     font-size: large;
     display: flex;
@@ -674,8 +677,7 @@ border: none;
 .bg-img-psychicSUB {
     background-image: url("./img/psychic.png");
     background-size: cover;
-    height: 100px;
-    width: 300px;
+
     color: white;
     font-size: large;
     display: flex;
@@ -686,8 +688,6 @@ border: none;
 .bg-img-rockSUB {
     background-image: url("./img/rock.png");
     background-size: cover;
-    height: 100px;
-    width: 300px;
     color: white;
     font-size: large;
     display: flex;
@@ -698,8 +698,6 @@ border: none;
 .bg-img-bugSUB {
     background-image: url("./img/bug.png");
     background-size: cover;
-    height: 100px;
-    width: 300px;
     color: white;
     font-size: large;
     display: flex;
@@ -710,8 +708,6 @@ border: none;
 .bg-img-normalSUB {
     background-image: url("./img/normal.png");
     background-size: cover;
-    height: 100px;
-    width: 300px;
     color: white;
     font-size: large;
     display: flex;
@@ -722,8 +718,6 @@ border: none;
 .bg-img-poisonSUB {
     background-image: url("./img/poison.png");
     background-size: cover;
-    height: 100px;
-    width: 300px;
     color: white;
     font-size: large;
     display: flex;
@@ -734,8 +728,6 @@ border: none;
 .bg-img-electricSUB {
     background-image: url("./img/bug.png");
     background-size: cover;
-    height: 100px;
-    width: 300px;
     color: white;
     font-size: large;
     display: flex;
@@ -746,8 +738,6 @@ border: none;
 .bg-img-groundSUB {
     background-image: url("./img/ground.png");
     background-size: cover;
-    height: 100px;
-    width: 300px;
     color: white;
     font-size: large;
     display: flex;
@@ -758,8 +748,6 @@ border: none;
 .bg-img-fairySUB {
     background-image: url("./img/fairy.png");
     background-size: cover;
-    height: 100px;
-    width: 300px;
     color: white;
     font-size: large;
     display: flex;
@@ -770,8 +758,6 @@ border: none;
 .bg-img-fightingSUB {
     background-image: url("./img/fighting.png");
     background-size: cover;
-    height: 100px;
-    width: 300px;
     color: white;
     font-size: large;
     display: flex;
@@ -782,8 +768,6 @@ border: none;
 .bg-img-dragonSUB {
     background-image: url("./img/dragon.png");
     background-size: cover;
-    height: 100px;
-    width: 300px;
     color: white;
     font-size: large;
     display: flex;
@@ -794,8 +778,6 @@ border: none;
 .bg-img-iceSUB {
     background-image: url("./img/ice.png");
     background-size: cover;
-    height: 100px;
-    width: 300px;
     color: white;
     font-size: large;
     display: flex;
@@ -806,8 +788,6 @@ border: none;
 .bg-img-ghostSUB {
     background-image: url("./img/ghost.png");
     background-size: cover;
-    height: 100px;
-    width: 300px;
     color: white;
     font-size: large;
     display: flex;

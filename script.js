@@ -47,9 +47,13 @@ function createPokedex() {
                     <img onclick="createPokemonCard(${i})" id="pokemonImage${currentPokemon}" 
                     src="${currentPokemon['sprites']['other']['dream_world']['front_default']}" class="card-img-main">
              <div id="cardBodyElement${i}" class="card-body-pokemon">
-                    <h5 >${currentPokemon.name}</h5>
-                    <p>Type : ${currentPokemon.types[0].type.name}</p>
-             </div>
+                   
+            <div class="texts">
+             <p>${currentPokemon.name}</p>
+             <p>Type: ${currentPokemon.types[0].type.name}</p>
+            </div>
+            
+          
         </div>`;
         showBgbyType(currentPokemon, i);
     }
