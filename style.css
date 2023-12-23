@@ -23,15 +23,14 @@ h1{
 
 
 .card-body-pokemon{
-    border-radius: 20px !important;                     
+    border-radius: 20px;                     
     display: flex;                      
-    justify-content: space-around;
     align-items: center;
     flex-direction: column;
-    color: white !important;
-    border: 4px solid white;
-    padding-top: 18px;
+    border: 1px solid white;
     text-transform: capitalize;
+    height: 15vh;
+    width: 300px;
 }
 
 .card:hover {
@@ -39,10 +38,10 @@ h1{
 }
 
 .card-img-main {
-    height: 350px;
+    height: 300px;
     width: 300px;
     border-radius: 20px ;
-    background-image: linear-gradient(to right top, rgb(229, 229, 229) ,rgb(100, 100, 100)) !important;
+    background-image: linear-gradient(to right top, rgb(229, 229, 229) ,rgb(68, 68, 68)) !important;
 }
 
 .card-img-main:hover {
@@ -64,8 +63,6 @@ h1{
 .card-img-overlay{
     height: 200px;
 }
-
-
 
 .overlayHpBar{
     font-size: larger;
@@ -122,7 +119,6 @@ h1{
 }
 
 #content-overlay{
-    background-color: #ffffff;
     height: 90vh;
     border-radius: 28px;
     display: flex;
@@ -130,12 +126,13 @@ h1{
     flex-direction: column;
     padding-top: 28px;
     width: 80%;
-    color: black;
+    color: rgb(255, 255, 255);
 }
 
 #pokemonType{
     margin-top:28px;
 }
+
 
 .hp {
     background-color: green !important;
@@ -189,7 +186,7 @@ border: none;
 }
 
 #headingStats{
-    color: black !important;
+    color: rgb(255, 255, 255) !important;
     font-weight: 150;
     margin-bottom: 28px;
 }
@@ -220,7 +217,7 @@ border: none;
 }
 
 #infoDiv{
-    background-color: #000000;
+    background-color: #ffffff;
     height: 300px;
     width: 300px;
     position: fixed;
@@ -238,19 +235,8 @@ border: none;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 .bg-fire {
-    background-color: red !important;
+    background-color: red ;
 }
 
 .bg-grass {
@@ -320,50 +306,168 @@ border: none;
 
 .bg-img-fire {
     background-image: url("./img/fire.png");
-    background-position: center;
     background-size: cover;
-    
-    
+    height: 60px;
+    width: 60px;
 }
 
 .bg-img-grass {
     background-image: url("./img/grass.png");
-    background-position: center;
     background-size: cover;
-   
+    height: 60px;
+    width: 60px;
 }
 
 .bg-img-water {
     background-image: url("./img/water.png");
-    background-position: center;
     background-size: cover;
+    height: 60px;
+    width: 60px;
    
 }
 
 .bg-img-electric {
     background-image: url("./img/electric.png");
-    background-position: center;
     background-size: cover;
+    height: 60px;
+    width: 60px;
     
 }
 
 .bg-img-psychic {
     background-image: url("./img/psychic.png");
-    background-position: center;
     background-size: cover;
+    height: 60px;
+    width: 60px;
     
 }
 
 .bg-img-rock {
     background-image: url("./img/rock.png");
-    background-position: center;
     background-size: cover;
+    height: 60px;
+    width: 60px;
     
 }
 
 .bg-img-bug {
     background-image: url("./img/bug.png");
-    background-position: center;
     background-size: cover;
+    height: 60px;
+    width: 60px;
     
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.bg-img-fireSUB {
+    background-image: url("./img/fire.png");
+    background-size: cover;
+    height: 100px;
+    width: 300px;
+    color: white;
+    font-size: large;
+    display: flex;
+    justify-content: start;
+    padding-top: 18px;
+}
+
+.bg-img-grassSUB {
+    background-image: url("./img/grass.png");
+    background-size: cover;
+    height: 100px;
+    width: 300px;
+    color: white;
+    font-size: large;
+    display: flex;
+    justify-content: start;
+    padding-top: 18px;
+}
+
+.bg-img-waterSUB {
+    background-image: url("./img/water.png");
+    background-size: cover;
+    height: 100px;
+    width: 300px;
+    color: white;
+    font-size: large;
+    display: flex;
+    justify-content: start;
+    padding-top: 18px;
+}
+
+.bg-img-electricSUB {
+    background-image: url("./img/electric.png");
+    background-size: cover;
+    height: 100px;
+    width: 300px;
+    color: white;
+    font-size: large;
+    display: flex;
+    justify-content: start;
+    padding-top: 18px;
+}
+
+.bg-img-psychicSUB {
+    background-image: url("./img/psychic.png");
+    background-size: cover;
+    height: 100px;
+    width: 300px;
+    color: white;
+    font-size: large;
+    display: flex;
+    justify-content: start;
+    padding-top: 18px;
+}
+
+.bg-img-rockSUB {
+    background-image: url("./img/rock.png");
+    background-size: cover;
+    height: 100px;
+    width: 300px;
+    color: white;
+    font-size: large;
+    display: flex;
+    justify-content: start;
+    padding-top: 18px;
+}
+
+.bg-img-bugSUB {
+    background-image: url("./img/bug.png");
+    background-size: cover;
+    height: 100px;
+    width: 300px;
+    color: white;
+    font-size: large;
+    display: flex;
+    justify-content: start;
+    padding-top: 18px;
 }

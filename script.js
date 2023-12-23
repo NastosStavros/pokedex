@@ -68,12 +68,12 @@ function createPokemonCard(i) {          // shows pokemon in overlay
             ${selectedPokemon.name}
             </div>
                 <p id="pokemonType${selectedPokemon.name}" class="">Type: ${selectedPokemon.types[0].type.name}</p>
-                <div id="overlayImageContainer${i}">
+           
+                <div id="elementIcon${i}">
+                <img id="elementIconBig" src="">
+         </div>
             <img class="image-overlay"id="pokemonOverlayImage" src="${selectedPokemon['sprites']['other']['home']['front_default']}"> 
-                </div>
-        <div id="elementIcon">
-               <img id="elementIconBig" src="">
-        </div>
+         
                     
         <div id="OverlayBottom">
 
@@ -160,57 +160,86 @@ function showBgbyType(currentPokemon, i) {
 
      if (type == 'fire'){
         infoCard.classList.add('bg-fire');
+        infoCard.classList.add('bg-img-fireSUB');
      }
      if (type == 'grass'){
         infoCard.classList.add('bg-grass');
+        infoCard.classList.add('bg-img-grassSUB');
+
      }
      if (type == 'dragon'){
         infoCard.classList.add('bg-dragon');
+        infoCard.classList.add('bg-img-dragonSUB');
+
      }
      if (type == 'water'){
         infoCard.classList.add('bg-water');
-     }
+        infoCard.classList.add('bg-img-waterSUB');
+
+    }
      if (type == 'fighting'){
         infoCard.classList.add('bg-fighting');
-     }
+        infoCard.classList.add('bg-img-fightingSUB');
+
+    }
      if (type == 'bug'){
         infoCard.classList.add('bg-bug');
-     }
+        infoCard.classList.add('bg-img-bugSUB');
+
+    }
      if (type == 'electric'){
         infoCard.classList.add('bg-electric');
-     }
-     if (type == 'dragon'){
-        infoCard.classList.add('bg-dragon');
-     }
+        infoCard.classList.add('bg-img-electricSUB');
+
+    }
+    
      if (type == 'normal'){
         infoCard.classList.add('bg-normal');
-     }
+        infoCard.classList.add('bg-img-normalSUB');
+
+    }
      if (type == 'poison'){
         infoCard.classList.add('bg-poison');
-     }
+        infoCard.classList.add('bg-img-poisonSUB');
+
+    }
      if (type == 'psychic'){
         infoCard.classList.add('bg-psychic');
-     }
+        infoCard.classList.add('bg-img-psychicSUB');
+
+    }
      if (type == 'ground'){
         infoCard.classList.add('bg-ground');
-     }
+        infoCard.classList.add('bg-img-groundSUB');
+
+    }
      if (type == 'rock'){
         infoCard.classList.add('bg-rock');
-     }
+        infoCard.classList.add('bg-img-rockSUB');
+
+    }
      if (type == 'fairy'){
         infoCard.classList.add('bg-fairy');
-     }
+        infoCard.classList.add('bg-img-fairySUB');
+
+    }
      if (type == 'ghost'){
         infoCard.classList.add('bg-ghost');
-     }
+        infoCard.classList.add('bg-img-ghostSUB');
+
+    }
      if (type == 'ice'){
         infoCard.classList.add('bg-ice');
-     }
+        infoCard.classList.add('bg-img-iceSUB');
+
+    }
 }
+
+
 
 function showOverlayBgbyType(selectedPokemon, i) {
     let type = selectedPokemon['types'][0]['type']['name'];
-    let overlayImage = document.getElementById(`overlayImageContainer${i}`)
+    let overlayImage = document.getElementById(`elementIcon${i}`)
 
     if (type == 'fire') {
         overlayImage.classList.add('bg-img-fire');
