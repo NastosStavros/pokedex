@@ -51,10 +51,10 @@ function createPokedex() {
                     <p>Type : ${currentPokemon.types[0].type.name}</p>
              </div>
         </div>`;
-       showBgbyType(currentPokemon, i);
+        showBgbyType(currentPokemon, i);
     }
-    
 }
+
 
 function createPokemonCard(i) {          // shows pokemon in overlay
     let selectedPokemon = pokemonArray[i];
@@ -62,68 +62,59 @@ function createPokemonCard(i) {          // shows pokemon in overlay
 
     card.classList.remove('d-none');
     card.innerHTML = `
-       <div><button id="previousButton" onclick="previousPokemon(${i})"><</button></div>
-      <div id="content-overlay">      
-            <div id="pokemonName${selectedPokemon.name}" class="overlay-name">
-            ${selectedPokemon.name}
-            </div>
-                <p id="pokemonType${selectedPokemon.name}" class="">Type: ${selectedPokemon.types[0].type.name}</p>
-           
-                <div id="elementIcon${i}">
-                <img id="elementIconBig" src="">
-         </div>
-            <img class="image-overlay"id="pokemonOverlayImage" src="${selectedPokemon['sprites']['other']['home']['front_default']}"> 
-         
-                    
-        <div id="OverlayBottom">
+       <div> <button id="previousButton" onclick="previousPokemon(${i})"><</button>
+       </div>
+             <div id="contentOverlay${i}">      
+             
+             <div id="NameAndType">
+                <div id="pokemonName${selectedPokemon.name}" class="overlay-name">${selectedPokemon.name}
+                    </div>
+                        <p id="pokemonType${selectedPokemon.name}" class="">Type: ${selectedPokemon.types[0].type.name}</p>
+                            <div id="elementIcon${i}">
+                                <img id="elementIconBig" src="">
+                </div>
+                 <div>       
+                    <img class="image-overlay"id="pokemonOverlayImage" src="${selectedPokemon['sprites']['other']['home']['front_default']}"> 
+                    </div>
+             </div>       
 
-        <div id="infoDiv" class="d-none"></div>
-      
-            <div id="infoBars">
-                    
+            <div id="OverlayBottom">
+            <div id="infoDiv" class="d-none"></div>
+                 <div id="infoBars">
                         <h1 id="headingStats">Stats</h1>
- 
-                    <div class="overlayHpBar marginPlus"> HP
-                    <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                            <div id="progressBar${selectedPokemon.name}" class="progress-bar progress-bar-striped hp" style="width: ${selectedPokemon.stats[0]['base_stat']}%">${selectedPokemon['stats'][0]['base_stat']}
-                            </div> 
+                        <div class="overlayHpBar marginPlus"> HP
+                            <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                                    <div id="progressBar${selectedPokemon.name}" class="progress-bar progress-bar-striped hp" style="width: ${selectedPokemon.stats[0]['base_stat']}%">${selectedPokemon['stats'][0]['base_stat']}
+                                    </div> 
+                                    </div>
+                        </div>
+                            <div class="overlayHpBar"> ATK
+                        <div class="progress" role="progressbar" aria-label="Success striped example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                                <div id="progressBar${selectedPokemon.name}" class="progress-bar progress-bar-striped  bg-ground" style="width: ${selectedPokemon.stats[1]['base_stat']}%">${selectedPokemon['stats'][1]['base_stat']}
                             </div>
-                    </div>
-                    
-                    <div class="overlayHpBar"> ATK
-                    <div class="progress" role="progressbar" aria-label="Success striped example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                        <div id="progressBar${selectedPokemon.name}" class="progress-bar progress-bar-striped  bg-ground" style="width: ${selectedPokemon.stats[1]['base_stat']}%">${selectedPokemon['stats'][1]['base_stat']}
-                    </div>
-                    </div>
-                    </div>
-                   
-                    <div class="overlayHpBar"> DEF
-                    <div class="progress" role="progressbar" aria-label="Info striped example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
-                        <div id="progressBar${selectedPokemon.name}" class="progress-bar progress-bar-striped  bg-blue" style="width: ${selectedPokemon.stats[2]['base_stat']}%">${selectedPokemon['stats'][2]['base_stat']}
-                    </div>
-                    </div>
-                    </div>
-                   
-                    <div class="overlayHpBar"> SPD
-                    <div class="progress" role="progressbar" aria-label="Info striped example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
-                        <div id="progressBar${selectedPokemon.name}" class="progress-bar progress-bar-striped bg-magenta" style="width: ${selectedPokemon.stats[5]['base_stat']}%">${selectedPokemon['stats'][5]['base_stat']}
-                    </div>
-                    </div>
-                    </div>
-                    </div>   
- 
-                  </div>
-
-
-                <button id="backButton" onclick="goBackToPokedex()">Back to Pokedex</button>
+                            </div>
+                        </div>
+                        
+                        <div class="overlayHpBar"> DEF
+                            <div class="progress" role="progressbar" aria-label="Info striped example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                                <div id="progressBar${selectedPokemon.name}" class="progress-bar progress-bar-striped  bg-blue" style="width: ${selectedPokemon.stats[2]['base_stat']}%">${selectedPokemon['stats'][2]['base_stat']}
+                            </div>
+                            </div>
+                        </div>
+                        <div class="overlayHpBar"> SPD
+                            <div class="progress" role="progressbar" aria-label="Info striped example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                                <div id="progressBar${selectedPokemon.name}" class="progress-bar progress-bar-striped bg-magenta" style="width: ${selectedPokemon.stats[5]['base_stat']}%">${selectedPokemon['stats'][5]['base_stat']}
+                            </div>
+                            </div>
+                            </div>
+                        </div>   
+                        <button id="backButton" onclick="goBackToPokedex()">Back to Pokedex</button>
+                </div>
           </div>    
           <div><button id="nextButton" onclick="nextPokemon(${i})">></button></div>  
                 `;
-                showOverlayBgbyType(selectedPokemon, i);
+    showOverlayBgbyType(selectedPokemon, i);
 }
-
-
-
 
 
 //back to all Pokemon  MAIN overview 
@@ -132,6 +123,7 @@ function goBackToPokedex() {
     card.innerHTML = '';
     card.classList.add('d-none');
 }
+
 
 function previousPokemon(i) {
     if (i == 0) {
@@ -154,87 +146,87 @@ function nextPokemon(i) {
     console.log(i);
 }
 
-function showBgbyType(currentPokemon, i) {
-     let type = currentPokemon['types'][0]['type']['name'];
-     let infoCard = document.getElementById(`cardBodyElement${i}`);
 
-     if (type == 'fire'){
+function showBgbyType(currentPokemon, i) {
+    let type = currentPokemon['types'][0]['type']['name'];
+    let infoCard = document.getElementById(`cardBodyElement${i}`);
+
+    if (type == 'fire') {
         infoCard.classList.add('bg-fire');
         infoCard.classList.add('bg-img-fireSUB');
-     }
-     if (type == 'grass'){
+    }
+    if (type == 'grass') {
         infoCard.classList.add('bg-grass');
         infoCard.classList.add('bg-img-grassSUB');
 
-     }
-     if (type == 'dragon'){
+    }
+    if (type == 'dragon') {
         infoCard.classList.add('bg-dragon');
         infoCard.classList.add('bg-img-dragonSUB');
 
-     }
-     if (type == 'water'){
+    }
+    if (type == 'water') {
         infoCard.classList.add('bg-water');
         infoCard.classList.add('bg-img-waterSUB');
 
     }
-     if (type == 'fighting'){
+    if (type == 'fighting') {
         infoCard.classList.add('bg-fighting');
         infoCard.classList.add('bg-img-fightingSUB');
 
     }
-     if (type == 'bug'){
+    if (type == 'bug') {
         infoCard.classList.add('bg-bug');
         infoCard.classList.add('bg-img-bugSUB');
 
     }
-     if (type == 'electric'){
+    if (type == 'electric') {
         infoCard.classList.add('bg-electric');
         infoCard.classList.add('bg-img-electricSUB');
 
     }
-    
-     if (type == 'normal'){
+
+    if (type == 'normal') {
         infoCard.classList.add('bg-normal');
         infoCard.classList.add('bg-img-normalSUB');
 
     }
-     if (type == 'poison'){
+    if (type == 'poison') {
         infoCard.classList.add('bg-poison');
         infoCard.classList.add('bg-img-poisonSUB');
 
     }
-     if (type == 'psychic'){
+    if (type == 'psychic') {
         infoCard.classList.add('bg-psychic');
         infoCard.classList.add('bg-img-psychicSUB');
 
     }
-     if (type == 'ground'){
+    if (type == 'ground') {
         infoCard.classList.add('bg-ground');
         infoCard.classList.add('bg-img-groundSUB');
 
     }
-     if (type == 'rock'){
+    if (type == 'rock') {
         infoCard.classList.add('bg-rock');
         infoCard.classList.add('bg-img-rockSUB');
 
     }
-     if (type == 'fairy'){
+    if (type == 'fairy') {
         infoCard.classList.add('bg-fairy');
         infoCard.classList.add('bg-img-fairySUB');
 
     }
-     if (type == 'ghost'){
+    if (type == 'ghost') {
         infoCard.classList.add('bg-ghost');
         infoCard.classList.add('bg-img-ghostSUB');
 
     }
-     if (type == 'ice'){
+    if (type == 'ice') {
         infoCard.classList.add('bg-ice');
         infoCard.classList.add('bg-img-iceSUB');
 
     }
 }
-
 
 
 function showOverlayBgbyType(selectedPokemon, i) {
@@ -259,5 +251,34 @@ function showOverlayBgbyType(selectedPokemon, i) {
     if (type == 'bug') {
         overlayImage.classList.add('bg-img-bug');
     }
+    if (type == 'normal') {
+        overlayImage.classList.add('bg-img-normal');
+    }
+    if (type == 'poison') {
+        overlayImage.classList.add('bg-img-poison');
+    }
+    if (type == 'ground') {
+        overlayImage.classList.add('bg-img-ground');
+    }
+    if (type == 'rock') {
+        overlayImage.classList.add('bg-img-rock');
+    }
+    if (type == 'fairy') {
+        overlayImage.classList.add('bg-img-fairy');
+    }
+    if (type == 'ghost') {
+        overlayImage.classList.add('bg-img-ghost');
+    }
+    if (type == 'ice') {
+        overlayImage.classList.add('bg-img-ice');
+    }
+    if (type == 'fighting') {
+        overlayImage.classList.add('bg-img-fighting');
+    }
+    if (type == 'psychic') {
+        overlayImage.classList.add('bg-img-psychic');
+    }
+    if (type == 'dragon') {
+        overlayImage.classList.add('bg-img-dragon');
+    }
 }
-

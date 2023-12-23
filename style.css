@@ -26,11 +26,10 @@ h1{
 
 
 .card-body-pokemon{
-    border-radius: 20px;                     
+    border-radius: 0px 0px 18px 18px;                     
     display: flex;                      
     align-items: center;
     flex-direction: column;
-    border: 1px solid white;
     text-transform: capitalize;
     height: 15vh;
     width: 300px;
@@ -43,16 +42,17 @@ h1{
 .card-img-main {
     height: 300px;
     width: 300px;
-    border-radius: 20px ;
+    border-radius: 18px 18px 0px 0px ;
     background-image: linear-gradient(to right top, rgb(229, 229, 229) ,rgb(68, 68, 68)) !important;
 }
 
 .card-img-main:hover {
     padding: 20px;
     background-image: linear-gradient(to right top, rgb(90, 90, 90) ,rgb(43, 43, 43)) !important;
-    border: 8px solid rgb(82, 82, 82);
-    box-shadow: 0px 0px 15px 12px rgb(255, 255, 255);
+    border: 4px solid rgb(37, 37, 37);
+    box-shadow: 0px 0px 18px 12px rgb(69, 69, 69);
     cursor: pointer;
+    
 }
 
 .card-title {
@@ -74,15 +74,15 @@ h1{
     justify-content: space-between;
     gap: 20px;
     width: 30vw;
+    border: none;
 }
 
 #backButton{
     width: 140px;
-    margin-left:20px ;
-    margin-top: 28px;
+   margin-top: 38px;
     border-radius: 8px;
     height: 60px;
-    margin-bottom: 18px;
+
 }
 
 #backButton:hover{
@@ -110,7 +110,7 @@ h1{
 #pokemonCard{
     display: flex;
     align-items: center;
-    flex-direction: row;
+    flex-direction: col;
     justify-content: center;
     height: 100vh;
     width: 100vw;
@@ -120,21 +120,13 @@ h1{
     top: 0px;
     gap: 24px;
     background-image: url(./img/wallpaper.png);
-    background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
-#content-overlay{
-    height: 90vh;
-    border-radius: 28px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding-top: 28px;
-    width: 60%;
-    color: rgb(255, 255, 255);
-    background-color: rgb(184, 184, 184);
+#contentOverlay{
+    background-color: #66cc1a ;
+  
 }
 
 #pokemonType{
@@ -194,6 +186,7 @@ border: none;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 #headingStats{
@@ -232,8 +225,15 @@ border: none;
     height: 300px;
     width: 300px;
     position: fixed;
-
 }
+
+#NameAndType{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 
 
 
