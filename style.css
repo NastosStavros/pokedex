@@ -1,6 +1,6 @@
 body {
     margin: 0px;
-    background-image: url(./img/wallpaper.png);
+    background-image: linear-gradient(to right, black,rgb(46, 46, 46), purple, purple, rgb(46, 46, 46),black);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -8,10 +8,13 @@ body {
 
 h1{
     height: 100%;
-    margin-top: 20px !important;
-    border-radius: 29px !important;
+    margin-top: 3% !important;
+    margin-bottom: 3% !important;
     display: flex;
     justify-content: center;
+    color: white !important;
+    font-size: 84px !important;
+    font-weight: 200 !important;
 }
 
 #pokedex {
@@ -19,8 +22,8 @@ h1{
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 38px;
-    margin-top: 38px;
+    gap: 50px;
+    margin-top: 50px;
 }
 
 .texts1{
