@@ -69,7 +69,7 @@ h1{
 
 #backButton{
     border-radius: 8px;
-    margin-top: 8%;
+    margin-top: 200px;
 }
 
 #backButton:hover{
@@ -109,17 +109,8 @@ h1{
     background-attachment: fixed;
 }
 
-#pokemonType{
-    margin-top:28px;
-}
-
-
 .hp {
     background-color: green !important;
-}
-
-#infoBar{
-    width: 20vw;
 }
 
 #infoBars {
@@ -129,21 +120,27 @@ h1{
     font-size: larger;
     align-items: center;
     justify-content: center;
-    margin-top:100px;
+    margin-top:28%;
+    height: 10%;
 }
 
 .d-none{
     display: none;
 }
 
+.image-overlay{
+    height:280px;
+    width: 280px;
+}
+
 #previousButton, #nextButton {
 height: 90px;
-width: 45px;
-background-color: #ffffff;
-border-radius: 30%;
+width: 90px;
+background-color: #bdbdbd;
+border-radius: 50%;
 font-size: xx-large;
-color: rgb(60, 60, 60);
-opacity: 95%;
+color: rgb(0, 0, 0);
+opacity: 90%;
 display: flex;
 align-items: center;
 cursor: pointer;
@@ -152,7 +149,7 @@ border: none;
 }
 
 #previousButton:hover, #nextButton:hover{
-    background-color: #e6e6e6;
+    background-color: #b9b9b9;
     cursor: pointer;
     box-shadow: 0px 5px 20px 3px rgb(22, 22, 22);
 }
@@ -200,22 +197,12 @@ border: none;
     box-shadow: 0px 5px 20px 3px rgb(22, 22, 22);
 }
 
-#infoDiv{
-    background-color: #ffffff;
-    height: 300px;
-    width: 300px;
-    position: fixed;
-}
-
 #NameAndType{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
-
-
-
 
 
 
@@ -450,136 +437,171 @@ border: none;
     background-color: red;
     color: black;
     border-radius: 20px;
-    height: 75%;
+    height: 900px;
     width: 45%;
+    border: 2px solid rgb(255, 255, 255);
 }
 
 .bg-grassSUB {
     background-color: lightgreen;
     color: black;
     border-radius: 20px;
-    height: 75%;
+    height: 900px;
     width: 45%;
+    border: 2px solid rgb(255, 255, 255);
 }
 
 .bg-waterSUB {
     background-color: lightblue;
     color: black;
     border-radius: 20px;
-    height: 75%;
+    height: 900px;
     width: 45%;
+    border: 2px solid rgb(255, 255, 255);
 }
 
 .bg-normalSUB {
     background-color: gray;
     color: black;
     border-radius: 20px;
-    height: 75%;
+    height: 900px;
     width: 45%;
+    border: 2px solid rgb(255, 255, 255);
+
 }
 
 .bg-poisonSUB {
     background-color: #66cc1a;
     color: black;
     border-radius: 20px;
-    height: 75%;
+    height: 900px;
     width: 45%;
+    border: 2px solid rgb(255, 255, 255);
+
 }
 
 .bg-groundSUB {
     background-color: rgb(183, 46, 46) !important;
     color: black;
     border-radius: 20px;
-    height: 75%;
+    height: 900px;
     width: 45%;
+    border: 2px solid rgb(255, 255, 255);
+
 }
 
 .bg-electricSUB {
     background-color: yellow;
     color: black;
     border-radius: 20px;
-    height: 75%;
+    height: 900px;
+
     width: 45%;
+    border: 2px solid rgb(255, 255, 255);
+
 }
 
 .bg-bugSUB {
     background-color: #A6B91A;
     color: black;
     border-radius: 20px;
-    height: 75%;
+    height: 900px;
+
     width: 45%;
+    border: 2px solid rgb(255, 255, 255);
+
 }
 
 .bg-fairySUB {
     background-color: #D685AD;
     color: black;
     border-radius: 20px;
-    height: 75%;
+    height: 900px;
+
     width: 45%;
+    border: 2px solid rgb(255, 255, 255);
+
 }
 
 .bg-fightingSUB {
     background-color: #C22E28;
     color: black;
     border-radius: 20px;
-    height: 75%;
+    height: 900px;
+
     width: 45%;
+    border: 2px solid rgb(255, 255, 255);
+
 }
 
 .bg-rockSUB {
     background-color: #B6A136;
     color: black;
     border-radius: 20px;
-    height: 75%;
+    height: 900px;
     width: 45%;
+    border: 2px solid rgb(255, 255, 255);
+
 }
 
 .bg-iceSUB {
     color: black;
     background-color: #96D9D6;
     border-radius: 20px;
-    height: 75%;
+    height: 900px;
     width: 45%;
+    border: 2px solid rgb(255, 255, 255);
+
 }
 
 .bg-psychicSUB {
     background-color: #F95587;
     color: black;
     border-radius: 20px;
-    height: 75%;
+    height: 900px;
     width: 45%;
+    border: 2px solid rgb(255, 255, 255);
+
 }
 
 .bg-ghostSUB {
     background-color: #735797;
     color: black;
     border-radius: 20px;
-    height: 75%;
+    height: 900px;
     width: 45%;
+    border: 2px solid rgb(255, 255, 255);
+
 }
 
 .bg-dragonSUB {
     color: black;
     background-color: #6F35FC;
     border-radius: 20px;
-    height: 75%;
+      height: 900px;
     width: 45%;
+    border: 2px solid rgb(255, 255, 255);
+
 }
 
 .bg-blueSUB {
     color: black;
     background-color: rgb(37, 37, 251);
     border-radius: 20px;
-    height: 75%;
+
     width: 45%;
+    border: 2px solid rgb(255, 255, 255);
+
 }
 
 .bg-magentaSUB {
     color: black;
     background-color: rgb(134, 30, 134);
     border-radius: 20px;
-    height: 75%;
+    height: 900px;
     width: 45%;
+    border: 2px solid rgb(255, 255, 255);
+
 }
 
 
