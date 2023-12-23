@@ -1,6 +1,9 @@
 body {
     margin: 0px;
-    background-image: linear-gradient(to right, #2c2c2c, rgb(38, 38, 38), #ffffff);
+    background-image: url(./img/wallpaper.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 h1{
@@ -115,7 +118,10 @@ h1{
     position: fixed;
     top: 0px;
     gap: 24px;
-    background-image: linear-gradient(to right, #000000, rgb(38, 38, 38), #858585);
+    background-image: url(./img/wallpaper.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 #content-overlay{
@@ -125,8 +131,9 @@ h1{
     align-items: center;
     flex-direction: column;
     padding-top: 28px;
-    width: 80%;
+    width: 60%;
     color: rgb(255, 255, 255);
+    background-color: rgb(184, 184, 184);
 }
 
 #pokemonType{
@@ -301,7 +308,6 @@ border: none;
 
 .bg-magenta {
      background-color: rgb(134, 30, 134) !important;
-    
 }
 
 .bg-img-fire {
@@ -323,7 +329,6 @@ border: none;
     background-size: cover;
     height: 60px;
     width: 60px;
-   
 }
 
 .bg-img-electric {
@@ -331,7 +336,6 @@ border: none;
     background-size: cover;
     height: 60px;
     width: 60px;
-    
 }
 
 .bg-img-psychic {
@@ -339,7 +343,6 @@ border: none;
     background-size: cover;
     height: 60px;
     width: 60px;
-    
 }
 
 .bg-img-rock {
@@ -347,7 +350,6 @@ border: none;
     background-size: cover;
     height: 60px;
     width: 60px;
-    
 }
 
 .bg-img-bug {
@@ -355,13 +357,70 @@ border: none;
     background-size: cover;
     height: 60px;
     width: 60px;
-    
 }
 
+.bg-img-normal {
+    background-image: url("./img/normal.png");
+    background-size: cover;
+    height: 60px;
+    width: 60px;
+}
 
+.bg-img-poison {
+    background-image: url("./img/poison.png");
+    background-size: cover;
+    height: 60px;
+    width: 60px;
+}
 
+.bg-img-electric {
+    background-image: url("./img/bug.png");
+    background-size: cover;
+    height: 60px;
+    width: 60px;
+}
 
+.bg-img-ground {
+    background-image: url("./img/ground.png");
+    background-size: cover;
+    height: 60px;
+    width: 60px;
+}
 
+.bg-img-fairy {
+    background-image: url("./img/fairy.png");
+    background-size: cover;
+    height: 60px;
+    width: 60px;
+}
+
+.bg-img-fighting {
+    background-image: url("./img/fighting.png");
+    background-size: cover;
+    height: 60px;
+    width: 60px;
+}
+
+.bg-img-dragon {
+    background-image: url("./img/dragon.png");
+    background-size: cover;
+    height: 60px;
+    width: 60px;
+}
+
+.bg-img-ice {
+    background-image: url("./img/ice.png");
+    background-size: cover;
+    height: 60px;
+    width: 60px;
+}
+
+.bg-img-ghost {
+    background-image: url("./img/ghost.png");
+    background-size: cover;
+    height: 60px;
+    width: 60px;
+}
 
 
 
@@ -471,3 +530,113 @@ border: none;
     justify-content: start;
     padding-top: 18px;
 }
+
+.bg-img-normalSUB {
+    background-image: url("./img/normal.png");
+    background-size: cover;
+    height: 100px;
+    width: 300px;
+    color: white;
+    font-size: large;
+    display: flex;
+    justify-content: start;
+    padding-top: 18px;
+}
+
+.bg-img-poisonSUB {
+    background-image: url("./img/poison.png");
+    background-size: cover;
+    height: 100px;
+    width: 300px;
+    color: white;
+    font-size: large;
+    display: flex;
+    justify-content: start;
+    padding-top: 18px;
+}
+
+.bg-img-electricSUB {
+    background-image: url("./img/bug.png");
+    background-size: cover;
+    height: 100px;
+    width: 300px;
+    color: white;
+    font-size: large;
+    display: flex;
+    justify-content: start;
+    padding-top: 18px;
+}
+
+.bg-img-groundSUB {
+    background-image: url("./img/ground.png");
+    background-size: cover;
+    height: 100px;
+    width: 300px;
+    color: white;
+    font-size: large;
+    display: flex;
+    justify-content: start;
+    padding-top: 18px;
+}
+
+.bg-img-fairySUB {
+    background-image: url("./img/fairy.png");
+    background-size: cover;
+    height: 100px;
+    width: 300px;
+    color: white;
+    font-size: large;
+    display: flex;
+    justify-content: start;
+    padding-top: 18px;
+}
+
+.bg-img-fightingSUB {
+    background-image: url("./img/fighting.png");
+    background-size: cover;
+    height: 100px;
+    width: 300px;
+    color: white;
+    font-size: large;
+    display: flex;
+    justify-content: start;
+    padding-top: 18px;
+}
+
+.bg-img-dragonSUB {
+    background-image: url("./img/dragon.png");
+    background-size: cover;
+    height: 100px;
+    width: 300px;
+    color: white;
+    font-size: large;
+    display: flex;
+    justify-content: start;
+    padding-top: 18px;
+}
+
+.bg-img-iceSUB {
+    background-image: url("./img/ice.png");
+    background-size: cover;
+    height: 100px;
+    width: 300px;
+    color: white;
+    font-size: large;
+    display: flex;
+    justify-content: start;
+    padding-top: 18px;
+}
+
+.bg-img-ghostSUB {
+    background-image: url("./img/ghost.png");
+    background-size: cover;
+    height: 100px;
+    width: 300px;
+    color: white;
+    font-size: large;
+    display: flex;
+    justify-content: start;
+    padding-top: 18px;
+}
+
+
