@@ -72,6 +72,12 @@ body {
     width: 30vw;
 }
 
+#overlayBottom{
+   height: 0px;
+   display: block;
+
+}
+
 #backButton {
     border-radius: 8px;
     margin-top: 4%;
@@ -123,15 +129,9 @@ body {
 #infoBars {
     display: flex;
     flex-direction: column;
-    gap: 16px;
     font-size: larger;
     align-items: center;
     justify-content: center;
-}
-
-#headingStats {
-    margin-top: 32%;
-
 }
 
 .d-none {
@@ -139,8 +139,8 @@ body {
 }
 
 .image-overlay {
-    height: 280px;
-    width: 280px;
+    height: 680px;
+    width: 680px;
 }
 
 #previousButton,
@@ -179,6 +179,13 @@ body {
     flex-direction: column;
 }
 
+.content-overlay{
+display: flex;
+align-items: center;
+justify-content: space-around;
+flex-direction: column;
+}
+
 #OverlayBtn1,
 #OverlayBtn2 {
     height: 50px;
@@ -194,6 +201,8 @@ body {
     cursor: pointer;
     box-shadow: 0px 5px 20px 3px rgb(22, 22, 22);
 }
+
+
 
 #NameAndType {
     display: flex;
@@ -791,6 +800,7 @@ body {
 
 .content-overlay {
     position: relative;
+    height: 1200px;
 }
 
 .media-buttons {
@@ -799,19 +809,79 @@ body {
     position: absolute;
     bottom: 8px;
 }
+@media(max-width: 1550px){
+    .image-overlay {
+        height: 480px;
+        width: 480px;
+    }
+    
 
-@media (max-width : 550px) {
+
+
+}
+@media (max-width: 1200px){
+    .content-overlay {
+        position: relative;
+        height: 60vh;
+    }
+    .image-overlay{
+        height: 380px;
+        width: 380px;
+    }
+}
+
+
+@media(max-width: 900px){
+    .image-overlay{
+    height: 480px;
+    width: 480px;
+}
+.width-resp {
+    width: 90%;
+    height: 70vh;
+}
+
+
+}
+
+@media (max-width: 726px) {
     #previousButton, #nextButton {
         display: none;
     }
-
+    .content-overlay{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
     .width-resp {
         width: 90%;
+        height: 70vh;
+    }
+    .image-overlay{
+        height: 480px;
+        width: 480px;
     }
 
     #previousButtonMedia, #nextButtonMedia {
         display: block;
     }
+}
 
+@media (max-width: 550px) {
+    .image-overlay{
+        height: 280px;
+        width: 280px;
+}
+.width-resp {
+    width: 90%;
+    height: 50vh;
+}
+}
 
+@media (max-width: 450px) {
+    .image-overlay{
+        height: 180px;
+        width: 180px;
+}
 }
