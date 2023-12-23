@@ -62,21 +62,20 @@ function createPokemonCard(i) {          // shows pokemon in overlay
 
     card.classList.remove('d-none');
     card.innerHTML = `
-       <div> <button id="previousButton" onclick="previousPokemon(${i})"><</button>
-       </div>
+                                <div> <button id="previousButton" onclick="previousPokemon(${i})"><</button>
+                                </div>
              <div id="contentOverlay${i}">      
-             
-             <div id="NameAndType">
-                <div id="pokemonName${selectedPokemon.name}" class="overlay-name">${selectedPokemon.name}
-                    </div>
-                        <p id="pokemonType${selectedPokemon.name}" class="">Type: ${selectedPokemon.types[0].type.name}</p>
-                            <div id="elementIcon${i}">
-                                <img id="elementIconBig" src="">
-                </div>
-                 <div>       
+                     <div id="NameAndType">
+                        <div id="pokemonName" class="overlay-name">${selectedPokemon.name}</div>
+                             <p id="pokemonType${selectedPokemon.name}" class="">Type: ${selectedPokemon.types[0].type.name}</p>
+                                <div id="elementIcon${i}"><img id="elementIconBig" src=""></div>
+                
+                <div id="imageDiv">       
                     <img class="image-overlay"id="pokemonOverlayImage" src="${selectedPokemon['sprites']['other']['home']['front_default']}"> 
-                    </div>
-             </div>       
+                 </div>
+            
+            
+                 </div>       
 
             <div id="OverlayBottom">
             <div id="infoDiv" class="d-none"></div>
@@ -232,53 +231,83 @@ function showBgbyType(currentPokemon, i) {
 function showOverlayBgbyType(selectedPokemon, i) {
     let type = selectedPokemon['types'][0]['type']['name'];
     let overlayImage = document.getElementById(`elementIcon${i}`)
+    let overlayBg = document.getElementById(`contentOverlay${i}`)
 
     if (type == 'fire') {
         overlayImage.classList.add('bg-img-fire');
+        overlayBg.classList.add('bg-fireSUB');
     }
 
     if (type == 'water') {
         overlayImage.classList.add('bg-img-water');
+        overlayBg.classList.add('bg-waterSUB');
+
     }
 
     if (type == 'grass') {
         overlayImage.classList.add('bg-img-grass');
+        overlayBg.classList.add('bg-grassSUB');
+
     }
 
     if (type == 'electric') {
         overlayImage.classList.add('bg-img-electric');
+                overlayBg.classList.add('bg-electricSUB');
+
     }
     if (type == 'bug') {
         overlayImage.classList.add('bg-img-bug');
+        overlayBg.classList.add('bg-bugSUB');
+
     }
     if (type == 'normal') {
         overlayImage.classList.add('bg-img-normal');
+        overlayBg.classList.add('bg-normalSUB');
+
     }
     if (type == 'poison') {
         overlayImage.classList.add('bg-img-poison');
+        overlayBg.classList.add('bg-poisonSUB');
+
     }
     if (type == 'ground') {
         overlayImage.classList.add('bg-img-ground');
+        overlayBg.classList.add('bg-groundSUB');
+
     }
     if (type == 'rock') {
         overlayImage.classList.add('bg-img-rock');
+        overlayBg.classList.add('bg-rockSUB');
+
     }
     if (type == 'fairy') {
         overlayImage.classList.add('bg-img-fairy');
+        overlayBg.classList.add('bg-fairySUB');
+
     }
     if (type == 'ghost') {
         overlayImage.classList.add('bg-img-ghost');
+        overlayBg.classList.add('bg-ghostSUB');
+
     }
     if (type == 'ice') {
         overlayImage.classList.add('bg-img-ice');
+        overlayBg.classList.add('bg-iceSUB');
+
     }
     if (type == 'fighting') {
         overlayImage.classList.add('bg-img-fighting');
+        overlayBg.classList.add('bg-fightingSUB');
+
     }
     if (type == 'psychic') {
         overlayImage.classList.add('bg-img-psychic');
+        overlayBg.classList.add('bg-psychicSUB');
+
     }
     if (type == 'dragon') {
         overlayImage.classList.add('bg-img-dragon');
+        overlayBg.classList.add('bg-dragonSUB');
+
     }
 }

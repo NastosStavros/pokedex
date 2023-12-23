@@ -7,7 +7,6 @@ body {
 }
 
 h1{
-    color: rgb(255, 255, 255) !important;
     height: 100%;
     margin-top: 20px !important;
     border-radius: 29px !important;
@@ -59,14 +58,6 @@ h1{
     text-transform: capitalize;
 }
 
-.card-text {
-    border-radius: 10px;
-}
-
-.card-img-overlay{
-    height: 200px;
-}
-
 .overlayHpBar{
     font-size: larger;
     display: flex;
@@ -74,15 +65,11 @@ h1{
     justify-content: space-between;
     gap: 20px;
     width: 30vw;
-    border: none;
 }
 
 #backButton{
-    width: 140px;
-   margin-top: 38px;
     border-radius: 8px;
-    height: 60px;
-
+    margin-top: 8%;
 }
 
 #backButton:hover{
@@ -110,23 +97,16 @@ h1{
 #pokemonCard{
     display: flex;
     align-items: center;
-    flex-direction: col;
     justify-content: center;
     height: 100vh;
     width: 100vw;
     text-transform: capitalize;
-    color: rgb(255, 255, 255);
     position: fixed;
     top: 0px;
     gap: 24px;
     background-image: url(./img/wallpaper.png);
     background-repeat: no-repeat;
     background-attachment: fixed;
-}
-
-#contentOverlay{
-    background-color: #66cc1a ;
-  
 }
 
 #pokemonType{
@@ -149,6 +129,7 @@ h1{
     font-size: larger;
     align-items: center;
     justify-content: center;
+    margin-top:100px;
 }
 
 .d-none{
@@ -190,7 +171,6 @@ border: none;
 }
 
 #headingStats{
-    color: rgb(255, 255, 255) !important;
     font-weight: 150;
     margin-bottom: 28px;
 }
@@ -241,78 +221,112 @@ border: none;
 
 
 
-
-
-
-
-
 .bg-fire {
     background-color: red ;
+    color: black;
 }
 
 .bg-grass {
     background-color: lightgreen;
+    color: black;
 }
 
 .bg-water {
     background-color: lightblue;
+    color: black;
 }
 
 .bg-normal {
     background-color: gray;
+    color: black;
 }
 
 .bg-poison {
     background-color: #66cc1a;
+    color: black;
+
 }
 
 .bg-ground {
     background-color: rgb(183, 46, 46) !important;
+    color: black;
+
 }
 
 .bg-electric {
     background-color: yellow;
+    color: black;
 }
 
 .bg-bug {
     background-color: #A6B91A;
+    color: black;
+
 }
 
 .bg-fairy {
     background-color: #D685AD;
+    color: black;
+
 }
 
 .bg-fighting {
     background-color: #C22E28;
+    color: black;
+
 }
 
 .bg-rock {
     background-color: #B6A136;
+    color: black;
 }
 
 .bg-ice {
+    color: black;
     background-color: #96D9D6;
 }
 
 .bg-psychic {
     background-color: #F95587;
+    color: black;
 }
 
 .bg-ghost {
     background-color: #735797;
+    color: black;
 }
 
 .bg-dragon {
+    color: black;
     background-color: #6F35FC;
 }
 
 .bg-blue {
+    color: black;
     background-color: rgb(37, 37, 251) !important;
 }
 
 .bg-magenta {
+    color: black;
      background-color: rgb(134, 30, 134) !important;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .bg-img-fire {
     background-image: url("./img/fire.png");
@@ -431,6 +445,142 @@ border: none;
 
 
 
+
+.bg-fireSUB {
+    background-color: red;
+    color: black;
+    border-radius: 20px;
+    height: 75%;
+    width: 45%;
+}
+
+.bg-grassSUB {
+    background-color: lightgreen;
+    color: black;
+    border-radius: 20px;
+    height: 75%;
+    width: 45%;
+}
+
+.bg-waterSUB {
+    background-color: lightblue;
+    color: black;
+    border-radius: 20px;
+    height: 75%;
+    width: 45%;
+}
+
+.bg-normalSUB {
+    background-color: gray;
+    color: black;
+    border-radius: 20px;
+    height: 75%;
+    width: 45%;
+}
+
+.bg-poisonSUB {
+    background-color: #66cc1a;
+    color: black;
+    border-radius: 20px;
+    height: 75%;
+    width: 45%;
+}
+
+.bg-groundSUB {
+    background-color: rgb(183, 46, 46) !important;
+    color: black;
+    border-radius: 20px;
+    height: 75%;
+    width: 45%;
+}
+
+.bg-electricSUB {
+    background-color: yellow;
+    color: black;
+    border-radius: 20px;
+    height: 75%;
+    width: 45%;
+}
+
+.bg-bugSUB {
+    background-color: #A6B91A;
+    color: black;
+    border-radius: 20px;
+    height: 75%;
+    width: 45%;
+}
+
+.bg-fairySUB {
+    background-color: #D685AD;
+    color: black;
+    border-radius: 20px;
+    height: 75%;
+    width: 45%;
+}
+
+.bg-fightingSUB {
+    background-color: #C22E28;
+    color: black;
+    border-radius: 20px;
+    height: 75%;
+    width: 45%;
+}
+
+.bg-rockSUB {
+    background-color: #B6A136;
+    color: black;
+    border-radius: 20px;
+    height: 75%;
+    width: 45%;
+}
+
+.bg-iceSUB {
+    color: black;
+    background-color: #96D9D6;
+    border-radius: 20px;
+    height: 75%;
+    width: 45%;
+}
+
+.bg-psychicSUB {
+    background-color: #F95587;
+    color: black;
+    border-radius: 20px;
+    height: 75%;
+    width: 45%;
+}
+
+.bg-ghostSUB {
+    background-color: #735797;
+    color: black;
+    border-radius: 20px;
+    height: 75%;
+    width: 45%;
+}
+
+.bg-dragonSUB {
+    color: black;
+    background-color: #6F35FC;
+    border-radius: 20px;
+    height: 75%;
+    width: 45%;
+}
+
+.bg-blueSUB {
+    color: black;
+    background-color: rgb(37, 37, 251);
+    border-radius: 20px;
+    height: 75%;
+    width: 45%;
+}
+
+.bg-magentaSUB {
+    color: black;
+    background-color: rgb(134, 30, 134);
+    border-radius: 20px;
+    height: 75%;
+    width: 45%;
+}
 
 
 
