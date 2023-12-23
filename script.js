@@ -49,8 +49,8 @@ function createPokedex() {
              <div id="cardBodyElement${i}" class="card-body-pokemon">
                    
             <div class="texts">
-             <p>${currentPokemon.name}</p>
-             <p>Type: ${currentPokemon.types[0].type.name}</p>
+             <p class="texts1">${currentPokemon.name}</p>
+             <p class="texts2">Type: ${currentPokemon.types[0].type.name}</p>
             </div>
             
           
