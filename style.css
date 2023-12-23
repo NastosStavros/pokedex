@@ -73,6 +73,7 @@ h1{
     flex-direction: row;
     justify-content: space-between;
     gap: 20px;
+    width: 30vw;
 }
 
 #backButton{
@@ -145,12 +146,15 @@ h1{
     background-color: green !important;
 }
 
+#infoBar{
+    width: 20vw;
+}
+
 #infoBars {
     display: flex;
     flex-direction: column;
     gap: 16px;
     font-size: larger;
-    width: 40%;
     align-items: center;
     justify-content: center;
 }
