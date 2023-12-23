@@ -1,21 +1,12 @@
 body {
     margin: 0px;
-    background-image: linear-gradient(to right, black,rgb(46, 46, 46), purple, purple, rgb(46, 46, 46),black);
+    background-image: linear-gradient(to right, black, rgb(46, 46, 46), purple, purple, rgb(46, 46, 46), black);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
-h1{
-    height: 100%;
-    margin-top: 3% !important;
-    margin-bottom: 3% !important;
-    display: flex;
-    justify-content: center;
-    color: white !important;
-    font-size: 84px !important;
-    font-weight: 200 !important;
-}
+
 
 #pokedex {
     display: flex;
@@ -26,21 +17,21 @@ h1{
     margin-top: 50px;
 }
 
-.texts1{
+.texts1 {
     color: rgb(0, 0, 0);
     padding: 28px;
     border-radius: 50%;
     font-size: xx-large;
 }
 
-.texts2{
+.texts2 {
     color: rgb(0, 0, 0);
     font-size: larger;
 }
 
-.card-body-pokemon{
-    border-radius: 0px 0px 18px 18px;                     
-    display: flex;                      
+.card-body-pokemon {
+    border-radius: 0px 0px 18px 18px;
+    display: flex;
     align-items: center;
     flex-direction: column;
     text-transform: capitalize;
@@ -55,24 +46,24 @@ h1{
 .card-img-main {
     height: 300px;
     width: 300px;
-    border-radius: 18px 18px 0px 0px ;
-    background-image: linear-gradient(to right top, rgb(19, 19, 19) ,rgb(161, 161, 161)) !important;
+    border-radius: 18px 18px 0px 0px;
+    background-image: linear-gradient(to right top, rgb(19, 19, 19), rgb(161, 161, 161)) !important;
 }
 
 .card-img-main:hover {
     padding: 20px;
-    background-image: linear-gradient(to right top, rgb(90, 90, 90) ,rgb(43, 43, 43)) !important;
+    background-image: linear-gradient(to right top, rgb(90, 90, 90), rgb(43, 43, 43)) !important;
     border: 4px solid rgb(37, 37, 37);
     box-shadow: 0px 0px 18px 12px rgb(69, 69, 69);
     cursor: pointer;
-    
+
 }
 
 .card-title {
     text-transform: capitalize;
 }
 
-.overlayHpBar{
+.overlayHpBar {
     font-size: larger;
     display: flex;
     flex-direction: row;
@@ -81,18 +72,19 @@ h1{
     width: 30vw;
 }
 
-#backButton{
+#backButton {
     border-radius: 8px;
-    margin-top: 200px;
+    margin-top: 4%;
+    height: 55px;
 }
 
-#backButton:hover{
+#backButton:hover {
     background-color: #e6e6e6;
     cursor: pointer;
     box-shadow: 0px 5px 20px 3px rgb(22, 22, 22);
 }
 
-.overlay-name{
+.overlay-name {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -100,7 +92,7 @@ h1{
     margin-bottom: 10px;
 }
 
-.progress{
+.progress {
     width: 40vw !important;
     height: 30px !important;
     border-radius: 20px !important;
@@ -108,7 +100,7 @@ h1{
     border: 2px black solid;
 }
 
-#pokemonCard{
+#pokemonCard {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -121,6 +113,7 @@ h1{
     background-image: url(./img/wallpaper.png);
     background-repeat: no-repeat;
     background-attachment: fixed;
+    padding-right: 4vw;
 }
 
 .hp {
@@ -134,45 +127,50 @@ h1{
     font-size: larger;
     align-items: center;
     justify-content: center;
-    margin-top:28%;
-    height: 10%;
 }
 
-.d-none{
+#headingStats {
+    margin-top: 32%;
+
+}
+
+.d-none {
     display: none;
 }
 
-.image-overlay{
-    height:280px;
+.image-overlay {
+    height: 280px;
     width: 280px;
 }
 
-#previousButton, #nextButton {
-height: 90px;
-width: 90px;
-background-color: #bdbdbd;
-border-radius: 50%;
-font-size: xx-large;
-color: rgb(0, 0, 0);
-opacity: 90%;
-display: flex;
-align-items: center;
-cursor: pointer;
-justify-content: center;
-border: none;
+#previousButton,
+#nextButton {
+    height: 90px;
+    width: 90px;
+    background-color: #bdbdbd;
+    border-radius: 50%;
+    font-size: xx-large;
+    color: rgb(0, 0, 0);
+    opacity: 90%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    justify-content: center;
+    border: none;
 }
 
-#previousButton:hover, #nextButton:hover{
+#previousButton:hover,
+#nextButton:hover {
     background-color: #b9b9b9;
     cursor: pointer;
     box-shadow: 0px 5px 20px 3px rgb(22, 22, 22);
 }
 
-.marginPlus{
+.marginPlus {
     margin-left: 8px;
 }
 
-#OverlayBottom{
+#OverlayBottom {
     height: 25%;
     border-radius: 20px;
     display: flex;
@@ -181,22 +179,8 @@ border: none;
     flex-direction: column;
 }
 
-#headingStats{
-    font-weight: 150;
-    margin-bottom: 28px;
-}
-
-#OverlayButtons{
-    width: 400px;
-    display: flex;
-    justify-content: space-around;
-    flex-direction: row;
-    align-items: center;
-    margin-bottom: 0px;
-}
-
 #OverlayBtn1,
-#OverlayBtn2{
+#OverlayBtn2 {
     height: 50px;
     width: 170px;
     margin-top: 28px;
@@ -205,25 +189,21 @@ border: none;
 }
 
 #OverlayBtn1:hover,
-#OverlayBtn2:hover{
+#OverlayBtn2:hover {
     background-color: #e6e6e6;
     cursor: pointer;
     box-shadow: 0px 5px 20px 3px rgb(22, 22, 22);
 }
 
-#NameAndType{
+#NameAndType {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-
-
-
-
 .bg-fire {
-    background-color: red ;
+    background-color: red;
     color: black;
     height: fit-content;
 
@@ -339,27 +319,10 @@ border: none;
 
 .bg-magenta {
     color: black;
-     background-color: rgb(134, 30, 134) !important;
-     height: fit-content;
+    background-color: rgb(134, 30, 134) !important;
+    height: fit-content;
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .bg-img-fire {
     background-image: url("./img/fire.png");
@@ -472,12 +435,6 @@ border: none;
     height: 60px;
     width: 60px;
 }
-
-
-
-
-
-
 
 .bg-fireSUB {
     background-color: red;
@@ -624,7 +581,7 @@ border: none;
     color: black;
     background-color: #6F35FC;
     border-radius: 20px;
-      height: 900px;
+    height: 900px;
     width: 45%;
     border: 2px solid rgb(255, 255, 255);
 
@@ -649,25 +606,6 @@ border: none;
     border: 2px solid rgb(255, 255, 255);
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .bg-img-fireSUB {
     background-image: url("./img/fire.png");
@@ -833,3 +771,47 @@ border: none;
 }
 
 
+
+#previousButtonMedia,
+#nextButtonMedia {
+    height: 90px;
+    width: 90px;
+    background-color: #bdbdbd;
+    border-radius: 50%;
+    font-size: xx-large;
+    color: rgb(0, 0, 0);
+    opacity: 90%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    justify-content: center;
+    border: none;
+    display: none;
+}
+
+.content-overlay {
+    position: relative;
+}
+
+.media-buttons {
+    display: flex;
+    gap: 18vw;
+    position: absolute;
+    bottom: 8px;
+}
+
+@media (max-width : 550px) {
+    #previousButton, #nextButton {
+        display: none;
+    }
+
+    .width-resp {
+        width: 90%;
+    }
+
+    #previousButtonMedia, #nextButtonMedia {
+        display: block;
+    }
+
+
+}
