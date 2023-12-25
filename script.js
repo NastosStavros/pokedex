@@ -23,6 +23,23 @@ let allPokemon = ['bulbasaur', 'ivysaur', 'venusaur', 'charmander', 'charmeleon'
 
 let pokemonArray = []; // after fetch for the URL, pokemons get pushed into this array
 
+let loaded = false
+let enoughTimePassed = false
+
+window.addEventListener("load", function() {
+  if (enoughTimePassed) { hidePreloader() }
+  loaded = true
+})
+
+setTimeout(() => {
+  if (loaded) { hidePreloader() }
+  enoughTimePassed = true
+}, 2000)
+
+function hidePreloader() {
+   document.getElementById("preloader").remove()
+}
+
 
 async function loadPokemon() {
     for (let i = 0; i < allPokemon.length; i++) {
@@ -315,3 +332,24 @@ function showOverlayBgbyType(selectedPokemon, i) { // adds colored images to bgs
 
     }
 }
+
+
+
+function startSlider() {
+    setTimeout(function () {
+        document.getElementById('sliderimg1').style = 'transform: translateX(-100%)';
+        document.getElementById('sliderimg2').style = 'transform: translateX(0)';
+        document.getElementById('sliderimg3').style = 'transform: translateX(100%)';
+    }, 6000);
+    setTimeout(function () {
+        document.getElementById('sliderimg1').style = 'transform: translateX(-200%)';
+        document.getElementById('sliderimg2').style = 'transform: translateX(100%)';
+        document.getElementById('sliderimg3').style = 'transform: translateX(0)';
+    }, 12000);
+    setTimeout(function () {
+        document.getElementById('sliderimg1').style = 'transform: translateX(0)';
+        document.getElementById('sliderimg2').style = 'transform: translateX(100%)';
+        document.getElementById('sliderimg3').style = 'transform: translateX(200%)';
+    }, 18000);
+}
+
