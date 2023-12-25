@@ -34,25 +34,24 @@ window.addEventListener("load", function() {
 setTimeout(() => {
   if (loaded) { hidePreloader() }
   enoughTimePassed = true
-}, 15000)
+}, 12000)
 
 function hidePreloader() {
    document.getElementById("preloader").remove()
 }
 
-
 async function loadPokemon() {
-    for (let i = 0; i < allPokemon.length; i++) {
-        let pokemon = allPokemon[i];
-        let url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`; //get data form API 
+    const promises = allPokemon.map(async (pokemon) => {
+        let url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
         let response = await fetch(url);
-        let currentPokemon = await response.json();
-        pokemonArray.push(currentPokemon);
-    }
+        return response.json();
+    });
+
+    pokemonArray = await Promise.all(promises);
+
     createPokedex();
     console.log(pokemonArray);
 }
-
 
 function createPokedex() { // creates all cards in  first main-overview 
     let pokedex = document.getElementById('pokedex');
@@ -340,16 +339,16 @@ function startSlider() {
         document.getElementById('sliderimg1').style = 'transform: translateX(-100%)';
         document.getElementById('sliderimg2').style = 'transform: translateX(0)';
         document.getElementById('sliderimg3').style = 'transform: translateX(100%)';
-    }, 6000);
+    }, 3000);
     setTimeout(function () {
         document.getElementById('sliderimg1').style = 'transform: translateX(-200%)';
         document.getElementById('sliderimg2').style = 'transform: translateX(100%)';
         document.getElementById('sliderimg3').style = 'transform: translateX(0)';
-    }, 12000);
+    }, 6000);
     setTimeout(function () {
         document.getElementById('sliderimg1').style = 'transform: translateX(0)';
         document.getElementById('sliderimg2').style = 'transform: translateX(100%)';
         document.getElementById('sliderimg3').style = 'transform: translateX(200%)';
-    }, 18000);
+    }, 9000);
 }
 
