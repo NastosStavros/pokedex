@@ -6,7 +6,13 @@ body {
     background-attachment: fixed;
 }
 
-
+#preloader{
+    background: #000;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+}
 
 #pokedex {
     display: flex;
@@ -816,8 +822,6 @@ flex-direction: column;
     }
     
 
-
-
 }
 @media (max-width: 1200px){
     .content-overlay {
@@ -840,8 +844,6 @@ flex-direction: column;
     width: 90%;
     height: 70vh;
 }
-
-
 }
 
 @media (max-width: 726px) {
