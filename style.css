@@ -790,8 +790,9 @@ height: auto;
 
 @media (max-width: 1000px) {
     .image-overlay{
-        width: 35vw  !important;
-        height: 40vh !important;
+        width: 45vw  !important;
+        height: 30vh !important;
+        object-fit: contain;
     }
 }
 

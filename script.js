@@ -42,17 +42,7 @@ function createFilteredPokedex(filteredPokemon) {
         let currentPokemon = filteredPokemon[i];
         let originalIndex = pokemonArray.indexOf(currentPokemon);
 
-        pokedex.innerHTML += `
-            <div id="pokedex-card" class="pokedex-card" style="width: 18rem;">
-                <img onclick="createPokemonCard(${originalIndex})" id="pokemonImage${currentPokemon}" 
-                    src="${currentPokemon['sprites']['other']['dream_world']['front_default']}" class="card-img-main">
-                <div id="cardBodyElement${originalIndex}" class="card-body-pokemon">
-                    <div class="texts">
-                        <p class="texts1">${currentPokemon.name}</p>
-                        <p class="texts2">Type: ${currentPokemon.types[0].type.name}</p>
-                    </div>
-                </div>
-            </div>`;
+        pokedex.innerHTML += filteredPokemonTemplate(originalIndex, currentPokemon);
         showBgbyType(currentPokemon, originalIndex);
     }
 }
@@ -92,18 +82,7 @@ function createPokedex() { // creates all cards in  first main-overview
     let pokedex = document.getElementById('pokedex');
     for (let i = 0; i < pokemonArray.length; i++) {
         let currentPokemon = pokemonArray[i];
-        pokedex.innerHTML += `
-        <div id="pokedex-card" class="pokedex-card" style="width: 18rem;">
-                    <img onclick="createPokemonCard(${i})" id="pokemonImage${currentPokemon}" 
-                    src="${currentPokemon['sprites']['other']['dream_world']['front_default']}" class="card-img-main">
-             <div id="cardBodyElement${i}" class="card-body-pokemon">
-                   
-            <div class="texts">
-             <p class="texts1">${currentPokemon.name}</p>
-             <p class="texts2">Type: ${currentPokemon.types[0].type.name}</p>
-            </div>
-            
-        </div>`;
+        pokedex.innerHTML += pokedexTemplate(i, currentPokemon);
         showBgbyType(currentPokemon, i);
     }
 }
@@ -114,69 +93,7 @@ function createPokemonCard(i) {   // shows pokemon in overlay
     let card = document.getElementById('pokemonCard');
 
     card.classList.remove('d-none');
-    card.innerHTML = `
-        
-
-    
-    <div> <button id="previousButton" onclick="previousPokemon(${i})"><</button>
-    </div>        
-        <div id="contentOverlay${i}" class="width-resp content-overlay">      
-            <div id="NameAndType">
-            <div id="overlayTop">
-            <div id="pokemonNumber">#${selectedPokemon.id}</div>
-            
-
-                <div id="pokemonName" class="overlay-name">${selectedPokemon.name}</div>
-                    <p id="pokemonType${selectedPokemon.name}" class="">Type: ${selectedPokemon.types[0].type.name}</p>
-                    </div>
-                    <div id="pokemonWeight">Weight: ${selectedPokemon.weight}</div>
-                        <div id="elementIcon${i}"><img id="elementIconBig" src="">
-                </div>
-                     
-                            <img class="image-overlay"id="pokemonOverlayImage" src="${selectedPokemon['sprites']['other']['home']['front_default']}"> 
-                      
-            </div>       
-
-            <div id="OverlayBottom">
-                <h1 id="headingStats">Stats</h1>
-                    <div id="infoBars">
-                        <div class="overlayHpBar marginPlus"> HP
-                            <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                                    <div id="progressBar${selectedPokemon.name}" class="progress-bar progress-bar-striped hp" style="width: ${selectedPokemon.stats[0]['base_stat']}%">${selectedPokemon['stats'][0]['base_stat']}
-                                    </div> 
-                                    </div>
-                                    </div>
-                            <div class="overlayHpBar"> ATK
-                            <div class="progress" role="progressbar" aria-label="Success striped example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                                <div id="progressBar${selectedPokemon.name}" class="progress-bar progress-bar-striped  bg-ground" style="width: ${selectedPokemon.stats[1]['base_stat']}%">${selectedPokemon['stats'][1]['base_stat']}
-                                </div> 
-                                </div>
-                                </div>
-                        
-                            <div class="overlayHpBar"> DEF
-                            <div class="progress" role="progressbar" aria-label="Info striped example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
-                                <div id="progressBar${selectedPokemon.name}" class="progress-bar progress-bar-striped  bg-blue" style="width: ${selectedPokemon.stats[2]['base_stat']}%">${selectedPokemon['stats'][2]['base_stat']}
-                                </div> 
-                                </div>
-                                </div>
-                            <div class="overlayHpBar"> SPD
-                            <div class="progress" role="progressbar" aria-label="Info striped example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
-                                <div id="progressBar${selectedPokemon.name}" class="progress-bar progress-bar-striped bg-magenta" style="width: ${selectedPokemon.stats[5]['base_stat']}%">${selectedPokemon['stats'][5]['base_stat']}
-                                </div> 
-                                </div>
-                                </div>
-                            <button id="backButton" onclick="goBackToPokedex()">Back to Pokedex</button>
-                        </div>   
-                        <div class="media-buttons">
-                        <button id="previousButtonMedia" onclick="previousPokemon(${i})"><</button>
-                        <div><button id="nextButtonMedia" onclick="nextPokemon(${i})">></button></div>  
-                        </div>
-                    </div>
-                </div>    
-                    <div>
-                    <button id="nextButton" onclick="nextPokemon(${i})">></button>
-                    </div>  
-                `;
+    card.innerHTML = overlayCardTemplate(i, selectedPokemon);
     showOverlayBgbyType(selectedPokemon, i);
 }
 
@@ -395,7 +312,93 @@ function startSlider() {
     }, 9000);
 }
 
-function pokedexTemplate() {
-    return 
+function pokedexTemplate(i, currentPokemon) {
+    return  `<div id="pokedex-card" class="pokedex-card" style="width: 18rem;">
+                <img onclick="createPokemonCard(${i})" id="pokemonImage${currentPokemon}" 
+                src="${currentPokemon['sprites']['other']['dream_world']['front_default']}" class="card-img-main">
+         <div id="cardBodyElement${i}" class="card-body-pokemon">
+               
+        <div class="texts">
+         <p class="texts1">${currentPokemon.name}</p>
+         <p class="texts2">Type: ${currentPokemon.types[0].type.name}</p>
+        </div>
+    </div>`;
+}
+
+function overlayCardTemplate(i, selectedPokemon) {
+    return `
+    <div> <button id="previousButton" onclick="previousPokemon(${i})"><</button>
+    </div>        
+        <div id="contentOverlay${i}" class="width-resp content-overlay">      
+            <div id="NameAndType">
+            <div id="overlayTop">
+            <div id="pokemonNumber">#${selectedPokemon.id}</div>
+            
+
+                <div id="pokemonName" class="overlay-name">${selectedPokemon.name}</div>
+                    <p id="pokemonType${selectedPokemon.name}" class="">Type: ${selectedPokemon.types[0].type.name}</p>
+                    </div>
+                    <div id="pokemonWeight">Weight: ${selectedPokemon.weight}</div>
+                        <div id="elementIcon${i}"><img id="elementIconBig" src="">
+                </div>
+                     
+                            <img class="image-overlay"id="pokemonOverlayImage" src="${selectedPokemon['sprites']['other']['home']['front_default']}"> 
+                      
+            </div>       
+
+            <div id="OverlayBottom">
+                <h1 id="headingStats">Stats</h1>
+                    <div id="infoBars">
+                        <div class="overlayHpBar marginPlus"> HP
+                            <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                                    <div id="progressBar${selectedPokemon.name}" class="progress-bar progress-bar-striped hp" style="width: ${selectedPokemon.stats[0]['base_stat']}%">${selectedPokemon['stats'][0]['base_stat']}
+                                    </div> 
+                                    </div>
+                                    </div>
+                            <div class="overlayHpBar"> ATK
+                            <div class="progress" role="progressbar" aria-label="Success striped example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                                <div id="progressBar${selectedPokemon.name}" class="progress-bar progress-bar-striped  bg-ground" style="width: ${selectedPokemon.stats[1]['base_stat']}%">${selectedPokemon['stats'][1]['base_stat']}
+                                </div> 
+                                </div>
+                                </div>
+                        
+                            <div class="overlayHpBar"> DEF
+                            <div class="progress" role="progressbar" aria-label="Info striped example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                                <div id="progressBar${selectedPokemon.name}" class="progress-bar progress-bar-striped  bg-blue" style="width: ${selectedPokemon.stats[2]['base_stat']}%">${selectedPokemon['stats'][2]['base_stat']}
+                                </div> 
+                                </div>
+                                </div>
+                            <div class="overlayHpBar"> SPD
+                            <div class="progress" role="progressbar" aria-label="Info striped example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                                <div id="progressBar${selectedPokemon.name}" class="progress-bar progress-bar-striped bg-magenta" style="width: ${selectedPokemon.stats[5]['base_stat']}%">${selectedPokemon['stats'][5]['base_stat']}
+                                </div> 
+                                </div>
+                                </div>
+                            <button id="backButton" onclick="goBackToPokedex()">Back to Pokedex</button>
+                        </div>   
+                        <div class="media-buttons">
+                        <button id="previousButtonMedia" onclick="previousPokemon(${i})"><</button>
+                        <div><button id="nextButtonMedia" onclick="nextPokemon(${i})">></button></div>  
+                        </div>
+                    </div>
+                </div>    
+                    <div>
+                    <button id="nextButton" onclick="nextPokemon(${i})">></button>
+                    </div>  
+                `;
+}
+
+function filteredPokemonTemplate(originalIndex, currentPokemon) {
+    return `
+    <div id="pokedex-card" class="pokedex-card" style="width: 18rem;">
+        <img onclick="createPokemonCard(${originalIndex})" id="pokemonImage${currentPokemon}" 
+            src="${currentPokemon['sprites']['other']['dream_world']['front_default']}" class="card-img-main">
+        <div id="cardBodyElement${originalIndex}" class="card-body-pokemon">
+            <div class="texts">
+                <p class="texts1">${currentPokemon.name}</p>
+                <p class="texts2">Type: ${currentPokemon.types[0].type.name}</p>
+            </div>
+        </div>
+    </div>`;
 }
 
