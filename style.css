@@ -14,14 +14,7 @@ body {
     margin-top: 4%;
 }
 
-#loadingScreenSubHeading{
-    color: white;
-    font-weight: 100;
-    font-size: 30px;
-    height: 100px;
-    margin-top: 10%;
-    margin-bottom: 5%;
-}
+
 
 #loadingGif{
     margin-top: 5%;
@@ -122,18 +115,15 @@ body {
 }
 
 .overlayHpBar {
-    font-size: larger;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    gap: 20px;
-    width: 30vw;
+    gap: 10px;
+    width: 90%;
 }
 
 #overlayBottom{
-   height: 0px;
-   display: block;
-
+height: auto;
 }
 
 #backButton {
@@ -169,7 +159,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     text-transform: capitalize;
     position: fixed;
     top: 0px;
@@ -177,7 +167,6 @@ body {
     background-image: url(./img/wallpaper.png);
     background-repeat: no-repeat;
     background-attachment: fixed;
-    padding-right: 4vw;
 }
 
 .hp {
@@ -187,18 +176,14 @@ body {
 #infoBars {
     display: flex;
     flex-direction: column;
-    font-size: larger;
     align-items: center;
     justify-content: center;
+    font-weight: 250;
+    gap: 1vh;
 }
 
 .d-none {
     display: none;
-}
-
-.image-overlay {
-    height: 680px;
-    width: 680px;
 }
 
 #previousButton,
@@ -229,19 +214,24 @@ body {
 }
 
 #OverlayBottom {
-    height: 300px;
-    border-radius: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
+#headingStats{
+    font-weight: 200;
+    font-size: 3vh;
+}
+
 .content-overlay{
-display: flex;
-align-items: center;
-justify-content: space-around;
-flex-direction: column;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 90vh !important;
+    color: black !important;
+    padding-top: 1%;
 }
 
 #OverlayBtn1,
@@ -260,6 +250,11 @@ flex-direction: column;
     box-shadow: 0px 5px 20px 3px rgb(22, 22, 22);
 }
 
+#pokemonName{
+    font-size: 3vh !important;
+    font-weight: 250;
+    margin-bottom: 0;
+}
 
 
 #NameAndType {
@@ -267,6 +262,8 @@ flex-direction: column;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    border-radius: 20px;
+    width: 94%;
 }
 
 .bg-fire {
@@ -676,165 +673,80 @@ flex-direction: column;
 
 .bg-img-fireSUB {
     background-image: url("./img/fire.png");
-    background-size: inherit;
-    color: white;
-    font-size: large;
-    display: flex;
-    justify-content: start;
-    padding-top: 18px;
 }
 
 .bg-img-grassSUB {
     background-image: url("./img/grass.png");
-    background-size: inherit;
-    width: 300px;
-    color: white;
-    font-size: large;
-    display: flex;
-    justify-content: start;
-    padding-top: 18px;
+
 }
 
 .bg-img-waterSUB {
     background-image: url("./img/water.png");
-    background-size: inherit;
-    color: white;
-    font-size: large;
-    display: flex;
-    justify-content: start;
-    padding-top: 18px;
+
 }
 
 .bg-img-electricSUB {
     background-image: url("./img/electric.png");
-    background-size: inherit;
 
-    color: white;
-    font-size: large;
-    display: flex;
-    justify-content: start;
-    padding-top: 18px;
 }
 
 .bg-img-psychicSUB {
     background-image: url("./img/psychic.png");
-    background-size: inherit;
 
-    color: white;
-    font-size: large;
-    display: flex;
-    justify-content: start;
-    padding-top: 18px;
 }
 
 .bg-img-rockSUB {
     background-image: url("./img/rock.png");
-    background-size: inherit;
-    color: white;
-    font-size: large;
-    display: flex;
-    justify-content: start;
-    padding-top: 18px;
+
 }
 
 .bg-img-bugSUB {
     background-image: url("./img/bug.png");
-    background-size: inherit;
-    color: white;
-    font-size: large;
-    display: flex;
-    justify-content: start;
-    padding-top: 18px;
+
 }
 
 .bg-img-normalSUB {
     background-image: url("./img/normal.png");
-    background-size: inherit;
-    color: white;
-    font-size: large;
-    display: flex;
-    justify-content: start;
-    padding-top: 18px;
+
 }
 
 .bg-img-poisonSUB {
     background-image: url("./img/poison.png");
-    background-size: inherit;
-    color: white;
-    font-size: large;
-    display: flex;
-    justify-content: start;
-    padding-top: 18px;
+
 }
 
 .bg-img-electricSUB {
     background-image: url("./img/bug.png");
-    background-size: inherit;
-    color: white;
-    font-size: large;
-    display: flex;
-    justify-content: start;
-    padding-top: 18px;
+
 }
 
 .bg-img-groundSUB {
     background-image: url("./img/ground.png");
-    background-size: inherit;
-    color: white;
-    font-size: large;
-    display: flex;
-    justify-content: start;
-    padding-top: 18px;
+
 }
 
 .bg-img-fairySUB {
     background-image: url("./img/fairy.png");
-    background-size: inherit;
-    color: white;
-    font-size: large;
-    display: flex;
-    justify-content: start;
-    padding-top: 18px;
 }
 
 .bg-img-fightingSUB {
     background-image: url("./img/fighting.png");
-    background-size: inherit;
-    color: white;
-    font-size: large;
-    display: flex;
-    justify-content: start;
-    padding-top: 18px;
+
 }
 
 .bg-img-dragonSUB {
     background-image: url("./img/dragon.png");
-    background-size: inherit;
-    color: white;
-    font-size: large;
-    display: flex;
-    justify-content: start;
-    padding-top: 18px;
+
 }
 
 .bg-img-iceSUB {
     background-image: url("./img/ice.png");
-    background-size: inherit;
-    color: white;
-    font-size: large;
-    display: flex;
-    justify-content: start;
-    padding-top: 18px;
+
 }
 
 .bg-img-ghostSUB {
     background-image: url("./img/ghost.png");
-    background-size: inherit;
-    color: white;
-    font-size: large;
-    display: flex;
-    justify-content: start;
-    padding-top: 18px;
+
 }
 
 
@@ -856,39 +768,22 @@ flex-direction: column;
     display: none;
 }
 
-.content-overlay {
-    position: relative;
-    height: 1200px;
-}
-
 .media-buttons {
     display: flex;
-    gap: 18vw;
-    position: absolute;
-    bottom: 8px;
+    gap: 70vw;
 }
 
-@media(max-width: 1550px){
-    .image-overlay {
-        height: 480px;
-        width: 480px;
-    }
-
-}
 @media (max-width: 1200px){
     .content-overlay {
-        height:890px ;
         display: flex;
         justify-content: center;
     }
-    #pokemonOverlayImage{
-        height: 300px;
-        width: 300px;
-    }
 }
-@media(max-width: 900px){
-    .width-resp {
-        width: 90%;
+
+@media (max-width: 1000px) {
+    .image-overlay{
+        width: 35vw  !important;
+        height: 40vh !important;
     }
 }
 
@@ -897,45 +792,50 @@ flex-direction: column;
         display: none;
     }
     .width-resp {
-        width: 90%;
-    }
-    .image-overlay{
+        width: 100%;
     }
     #previousButtonMedia, #nextButtonMedia {
         display: block;}
-        #previousButtonMedia, #nextButtonMedia {
-            height: 50px;
-            width: 50px;
-            margin-bottom: 18px;
-        }
-        .media-buttons{
-            gap:400px;
-        }
+    #previousButtonMedia, #nextButtonMedia {
+        height: 50px;
+        width: 50px;
+        margin-bottom: 18px;
     }
+    .image-overlay{ 
+        width: 45vw !important;
+        height: 35vh !important;
+    }
+}   
 
-    @media (max-width: 600px) {
-        .media-buttons{
-            gap:300px;
-        }
-        .overlayHpBar{
-            width: auto !important;
-        }
+@media (max-width: 580px) {
+    .image-overlay{ 
+        width: 50vw !important;
+        height: 25vh !important;
+    } 
+    .media-buttons {
+        display: flex;
+        gap: 50vw;
     }
+}
 
-    @media (max-width: 500px) {
-        .media-buttons{
-            gap:200px;
-        }
-        .overlayHpBar{
-            width: auto !important;
-        }
+@media (max-width: 370px) {
+    .image-overlay{ 
+        width: 55vw !important;
+        height: 20vh !important;
+    } 
+    .media-buttons {
+        display: flex;
+        gap: 30vw;
     }
+}
 
-    @media (max-width: 390px) {
-        .media-buttons{
-            gap:100px;
-        }
-        .overlayHpBar{
-            width: auto !important;
-        }
+@media (max-height: 700px) {
+    .image-overlay{ 
+        width: 35vw !important;
+        height: 15vh !important;
+    } 
+    .media-buttons {
+        display: flex;
+        gap: 30vw;
     }
+}

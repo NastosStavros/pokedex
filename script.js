@@ -34,7 +34,7 @@ window.addEventListener("load", function() {
 setTimeout(() => {
   if (loaded) { hidePreloader() }
   enoughTimePassed = true
-}, 12000)
+}, 100)
 
 function hidePreloader() {
    document.getElementById("preloader").remove()
@@ -81,6 +81,8 @@ function createPokemonCard(i) {   // shows pokemon in overlay
     card.classList.remove('d-none');
     card.innerHTML = `
         
+
+    
     <div> <button id="previousButton" onclick="previousPokemon(${i})"><</button>
     </div>        
         <div id="contentOverlay${i}" class="width-resp content-overlay">      
@@ -88,7 +90,7 @@ function createPokemonCard(i) {   // shows pokemon in overlay
                 <div id="pokemonName" class="overlay-name">${selectedPokemon.name}</div>
                     <p id="pokemonType${selectedPokemon.name}" class="">Type: ${selectedPokemon.types[0].type.name}</p>
                         <div id="elementIcon${i}"><img id="elementIconBig" src="">
-                        </div>
+                </div>
                      
                             <img class="image-overlay"id="pokemonOverlayImage" src="${selectedPokemon['sprites']['other']['home']['front_default']}"> 
                       
