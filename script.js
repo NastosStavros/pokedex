@@ -48,6 +48,7 @@ function createFilteredPokedex(filteredPokemon) {
 }
 
 
+
 let loaded = false
 let enoughTimePassed = false
 
@@ -97,6 +98,17 @@ function createPokemonCard(i) {   // shows pokemon in overlay
     showOverlayBgbyType(selectedPokemon, i);
 }
 
+function reset() {
+    let pokedex = document.getElementById('pokedex');
+    pokedex.innerHTML = ""; // Clear the existing content
+
+    // Loop through pokemonArray and recreate the Pokédex
+    for (let i = 0; i < pokemonArray.length; i++) {
+        let currentPokemon = pokemonArray[i];
+        pokedex.innerHTML += pokedexTemplate(i, currentPokemon); // Append content for each Pokémon
+        showBgbyType(currentPokemon, i);
+    }
+}
 
 function goBackToPokedex() { // leads back to main-overview
     let card = document.getElementById('pokemonCard');
