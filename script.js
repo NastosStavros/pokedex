@@ -89,9 +89,9 @@ function createPokemonCard(i) {   // shows pokemon in overlay
                     <p id="pokemonType${selectedPokemon.name}" class="">Type: ${selectedPokemon.types[0].type.name}</p>
                         <div id="elementIcon${i}"><img id="elementIconBig" src="">
                         </div>
-                        <div id="imageDiv">       
+                     
                             <img class="image-overlay"id="pokemonOverlayImage" src="${selectedPokemon['sprites']['other']['home']['front_default']}"> 
-                        </div>
+                      
                 </div>       
 
             <div id="OverlayBottom">

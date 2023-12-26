@@ -47,13 +47,13 @@ body {
 }
 
 .slider-container {
-    width: 55%;
+    width: 45%;
     background-color: rgb(0, 0, 0);
     position: absolute;
     overflow: hidden;
     border-radius: 40px;
     height: 20%;
-    top: 45%;
+    top: 63%;
     background-color: black;
 }
 
@@ -138,8 +138,8 @@ body {
 
 #backButton {
     border-radius: 8px;
-    margin-top: 4%;
-    height: 55px;
+    height: 40px;
+    margin: 20px;
 }
 
 #backButton:hover {
@@ -229,7 +229,7 @@ body {
 }
 
 #OverlayBottom {
-    height: 25%;
+    height: 300px;
     border-radius: 20px;
     display: flex;
     justify-content: center;
@@ -867,75 +867,75 @@ flex-direction: column;
     position: absolute;
     bottom: 8px;
 }
+
 @media(max-width: 1550px){
     .image-overlay {
         height: 480px;
         width: 480px;
     }
-    
 
 }
 @media (max-width: 1200px){
     .content-overlay {
-        position: relative;
-        height: 60vh;
+        height:890px ;
+        display: flex;
+        justify-content: center;
     }
-    .image-overlay{
-        height: 380px;
-        width: 380px;
+    #pokemonOverlayImage{
+        height: 300px;
+        width: 300px;
     }
 }
-
-
 @media(max-width: 900px){
-    .image-overlay{
-    height: 480px;
-    width: 480px;
-}
-.width-resp {
-    width: 90%;
-    height: 70vh;
-}
+    .width-resp {
+        width: 90%;
+    }
 }
 
 @media (max-width: 726px) {
     #previousButton, #nextButton {
         display: none;
     }
-    .content-overlay{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
     .width-resp {
         width: 90%;
-        height: 70vh;
     }
     .image-overlay{
-        height: 480px;
-        width: 480px;
     }
-
     #previousButtonMedia, #nextButtonMedia {
-        display: block;
+        display: block;}
+        #previousButtonMedia, #nextButtonMedia {
+            height: 50px;
+            width: 50px;
+            margin-bottom: 18px;
+        }
+        .media-buttons{
+            gap:400px;
+        }
     }
-}
 
-@media (max-width: 550px) {
-    .image-overlay{
-        height: 280px;
-        width: 280px;
-}
-.width-resp {
-    width: 90%;
-    height: 50vh;
-}
-}
+    @media (max-width: 600px) {
+        .media-buttons{
+            gap:300px;
+        }
+        .overlayHpBar{
+            width: auto !important;
+        }
+    }
 
-@media (max-width: 450px) {
-    .image-overlay{
-        height: 180px;
-        width: 180px;
-}
-}
+    @media (max-width: 500px) {
+        .media-buttons{
+            gap:200px;
+        }
+        .overlayHpBar{
+            width: auto !important;
+        }
+    }
+
+    @media (max-width: 390px) {
+        .media-buttons{
+            gap:100px;
+        }
+        .overlayHpBar{
+            width: auto !important;
+        }
+    }
