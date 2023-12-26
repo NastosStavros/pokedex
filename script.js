@@ -23,6 +23,40 @@ let allPokemon = ['bulbasaur', 'ivysaur', 'venusaur', 'charmander', 'charmeleon'
 
 let pokemonArray = []; // after fetch for the URL, pokemons get pushed into this array
 
+function searchPokemon() {
+    let searchInput = document.getElementById('searchInput').value.toLowerCase();
+    let filteredPokemon = pokemonArray.filter(pokemon => pokemon.name.toLowerCase().includes(searchInput));
+
+    if (filteredPokemon.length > 0) {
+        createFilteredPokedex(filteredPokemon);
+    } else {
+        alert('No matching Pokemon found.');
+    }
+}
+
+function createFilteredPokedex(filteredPokemon) {
+    let pokedex = document.getElementById('pokedex');
+    pokedex.innerHTML = '';
+
+    for (let i = 0; i < filteredPokemon.length; i++) {
+        let currentPokemon = filteredPokemon[i];
+        let originalIndex = pokemonArray.indexOf(currentPokemon);
+
+        pokedex.innerHTML += `
+            <div id="pokedex-card" class="pokedex-card" style="width: 18rem;">
+                <img onclick="createPokemonCard(${originalIndex})" id="pokemonImage${currentPokemon}" 
+                    src="${currentPokemon['sprites']['other']['dream_world']['front_default']}" class="card-img-main">
+                <div id="cardBodyElement${originalIndex}" class="card-body-pokemon">
+                    <div class="texts">
+                        <p class="texts1">${currentPokemon.name}</p>
+                        <p class="texts2">Type: ${currentPokemon.types[0].type.name}</p>
+                    </div>
+                </div>
+            </div>`;
+        showBgbyType(currentPokemon, originalIndex);
+    }
+}
+
 let loaded = false
 let enoughTimePassed = false
 
@@ -34,7 +68,7 @@ window.addEventListener("load", function() {
 setTimeout(() => {
   if (loaded) { hidePreloader() }
   enoughTimePassed = true
-}, 12000)
+}, 000)
 
 function hidePreloader() {
    document.getElementById("preloader").remove()
