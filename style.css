@@ -795,11 +795,7 @@ height: auto;
         width: 100%;
     }
     #previousButtonMedia, #nextButtonMedia {
-        display: block;}
-    #previousButtonMedia, #nextButtonMedia {
-        height: 50px;
-        width: 50px;
-        margin-bottom: 18px;
+        display: block;
     }
     .image-overlay{ 
         width: 45vw !important;
