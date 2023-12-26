@@ -57,6 +57,7 @@ function createFilteredPokedex(filteredPokemon) {
     }
 }
 
+
 let loaded = false
 let enoughTimePassed = false
 
@@ -68,7 +69,7 @@ window.addEventListener("load", function() {
 setTimeout(() => {
   if (loaded) { hidePreloader() }
   enoughTimePassed = true
-}, 000)
+}, 1000)
 
 function hidePreloader() {
    document.getElementById("preloader").remove()
@@ -121,14 +122,20 @@ function createPokemonCard(i) {   // shows pokemon in overlay
     </div>        
         <div id="contentOverlay${i}" class="width-resp content-overlay">      
             <div id="NameAndType">
+            <div id="overlayTop">
+            <div id="pokemonNumber">#${selectedPokemon.id}</div>
+            
+
                 <div id="pokemonName" class="overlay-name">${selectedPokemon.name}</div>
                     <p id="pokemonType${selectedPokemon.name}" class="">Type: ${selectedPokemon.types[0].type.name}</p>
+                    </div>
+                    <div id="pokemonWeight">Weight: ${selectedPokemon.weight}</div>
                         <div id="elementIcon${i}"><img id="elementIconBig" src="">
                 </div>
                      
                             <img class="image-overlay"id="pokemonOverlayImage" src="${selectedPokemon['sprites']['other']['home']['front_default']}"> 
                       
-                </div>       
+            </div>       
 
             <div id="OverlayBottom">
                 <h1 id="headingStats">Stats</h1>
@@ -199,7 +206,7 @@ function nextPokemon(i) {      //next-button
         i++;
     }
     createPokemonCard(i);
-    console.log(i);
+    console.log(pokemonArray);
 }
 
 
@@ -386,5 +393,9 @@ function startSlider() {
         document.getElementById('sliderimg2').style = 'transform: translateX(100%)';
         document.getElementById('sliderimg3').style = 'transform: translateX(200%)';
     }, 9000);
+}
+
+function pokedexTemplate() {
+    return 
 }
 
