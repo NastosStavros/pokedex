@@ -63,7 +63,7 @@ window.addEventListener("load", function() {
 setTimeout(() => {
   if (loaded) { hidePreloader() }
   enoughTimePassed = true
-}, 3000)
+}, 2800)
 function hidePreloader() {
    document.getElementById("preloader").remove()
 }
