@@ -299,19 +299,19 @@ body {
 }
 
 .bg-fire {
-    background-color: red;
+    background-color: rgb(225, 94, 94);
     color: black;
     height: fit-content;
 }
 
 .bg-grass {
-    background-color: lightgreen;
+    background-color: rgb(22, 232, 22);
     color: black;
     height: fit-content;
 }
 
 .bg-water {
-    background-color: lightblue;
+    background-color: rgb(129, 223, 255);
     color: black;
     height: fit-content;
 }
@@ -341,32 +341,32 @@ body {
 }
 
 .bg-bug {
-    background-color: #A6B91A;
+    background-color: #576b32;
     color: black;
     height: fit-content;
 }
 
 .bg-fairy {
-    background-color: #D685AD;
+    background-color: #ff41a0;
     color: black;
     height: fit-content;
 }
 
 .bg-fighting {
-    background-color: #C22E28;
+    background-color: #ff9490;
     color: black;
     height: fit-content;
 }
 
 .bg-rock {
-    background-color: #B6A136;
+    background-color: #f5dd68;
     color: black;
     height: fit-content;
 }
 
 .bg-ice {
     color: black;
-    background-color: #96D9D6;
+    background-color: #d4fffd;
     height: fit-content;
 }
 
@@ -513,7 +513,7 @@ body {
 }
 
 .bg-fireSUB {
-    background-color: red;
+    background-color: rgb(255, 120, 120);
     color: black;
     border-radius: 20px;
     height: 900px;
@@ -522,7 +522,7 @@ body {
 }
 
 .bg-grassSUB {
-    background-color: lightgreen;
+    background-color: rgb(62, 255, 62);
     color: black;
     border-radius: 20px;
     height: 900px;
@@ -531,7 +531,7 @@ body {
 }
 
 .bg-waterSUB {
-    background-color: lightblue;
+    background-color: rgb(207, 243, 255);
     color: black;
     border-radius: 20px;
     height: 900px;
@@ -540,7 +540,7 @@ body {
 }
 
 .bg-normalSUB {
-    background-color: gray;
+    background-color: rgb(131, 131, 131);
     color: black;
     border-radius: 20px;
     height: 900px;
@@ -549,7 +549,7 @@ body {
 }
 
 .bg-poisonSUB {
-    background-color: #66cc1a;
+    background-color: #aaf66f;
     color: black;
     border-radius: 20px;
     height: 900px;
@@ -558,7 +558,7 @@ body {
 }
 
 .bg-groundSUB {
-    background-color: rgb(183, 46, 46) !important;
+    background-color: rgb(255, 142, 142) !important;
     color: black;
     border-radius: 20px;
     height: 900px;
@@ -567,7 +567,7 @@ body {
 }
 
 .bg-electricSUB {
-    background-color: yellow;
+    background-color: rgb(255, 255, 21);
     color: black;
     border-radius: 20px;
     height: 900px;
@@ -576,7 +576,7 @@ body {
 }
 
 .bg-bugSUB {
-    background-color: #A6B91A;
+    background-color: #979d67;
     color: black;
     border-radius: 20px;
     height: 900px;
@@ -594,14 +594,12 @@ body {
 }
 
 .bg-fightingSUB {
-    background-color: #C22E28;
+    background-color: #ea8582;
     color: black;
     border-radius: 20px;
     height: 900px;
-
     width: 45%;
     border: 2px solid rgb(255, 255, 255);
-
 }
 
 .bg-rockSUB {
@@ -615,7 +613,7 @@ body {
 
 .bg-iceSUB {
     color: black;
-    background-color: #96D9D6;
+    background-color: #c4fffc;
     border-radius: 20px;
     height: 900px;
     width: 45%;
