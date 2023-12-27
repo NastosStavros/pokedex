@@ -289,72 +289,74 @@ function overlayCardTemplate(i, selectedPokemon) {
     return `
     <div> <button id="previousButton" onclick="previousPokemon(${i})"><</button>
     </div>        
-        <div id="contentOverlay${i}" class="width-resp content-overlay">      
-            <div id="NameAndType">
-            <div id="overlayTop">
-            <div id="pokemonNumber">#${selectedPokemon.id}</div>
-                <div id="pokemonName" class="overlay-name">${selectedPokemon.name}</div>
-                    <p id="pokemonType${selectedPokemon.name}"</p>
-                    </div>
-                    <div id="pokemonWeight">Weight: ${selectedPokemon.weight}</div>
-                        <div id="elementIcon${i}"><img id="elementIconBig" src="">
+        
+    <div id="contentOverlay${i}" class="width-resp content-overlay">      
+        <div id="NameAndType">
+                <div id="overlayTop">
+                <div id="pokemonNumber">#${selectedPokemon.id}</div>
+                    <div id="pokemonName">${selectedPokemon.name}</div>
+                        <p id="pokemonType${selectedPokemon.name}"</p>
                 </div>
-                            <img class="image-overlay"id="pokemonOverlayImage" src="${selectedPokemon['sprites']['other']['home']['front_default']}"> 
-            </div>       
-            <div id="OverlayBottom">
-                <h1 id="headingStats">Stats</h1>
-                    <div id="infoBars">
-                        <div class="overlayHpBar marginPlus"> HP
+            <div id="pokemonWeight">Weight: ${selectedPokemon.weight}
+            </div>
+            <div id="elementIcon${i}">
+            </div>
+            <img class="image-overlay"id="pokemonOverlayImage" src="${selectedPokemon['sprites']['other']['home']['front_default']}"> 
+        </div>       
+    <div id="OverlayBottom">
+        <h1 id="headingStats">Stats</h1>
+            <div id="infoBars">
+                <div class="overlayHpBar marginPlus"> HP
                             <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                                    <div  class="progress-bar progress-bar-striped hp" style="width: ${selectedPokemon.stats[0]['base_stat']}%">${selectedPokemon['stats'][0]['base_stat']}
-                                    </div> 
-                                    </div>        
-                                    </div>
+                                <div  class="progress-bar progress-bar-striped hp" style="width: ${selectedPokemon.stats[0]['base_stat']}%">${selectedPokemon['stats'][0]['base_stat']}
+                                </div> 
+                            </div>        
+                </div>
                         <div class="overlayHpBar"> ATK
                             <div class="progress" role="progressbar" aria-label="Success striped example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
                                 <div  class="progress-bar progress-bar-striped  bg-ground" style="width: ${selectedPokemon.stats[1]['base_stat']}%">${selectedPokemon['stats'][1]['base_stat']}
                                 </div> 
-                                </div>
-                                </div>
+                            </div>
+                        </div>
                         
-                        <div class="overlayHpBar"> DEF
-                            <div class="progress" role="progressbar" aria-label="Info striped example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
-                                <div  class="progress-bar progress-bar-striped  bg-blue" style="width: ${selectedPokemon.stats[2]['base_stat']}%">${selectedPokemon['stats'][2]['base_stat']}
-                                </div> 
-                                </div>
-                                </div>
+                            <div class="overlayHpBar"> DEF
+                                    <div class="progress" role="progressbar" aria-label="Info striped example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                                            <div  class="progress-bar progress-bar-striped  bg-blue" style="width: ${selectedPokemon.stats[2]['base_stat']}%">${selectedPokemon['stats'][2]['base_stat']}
+                                            </div> 
+                                    </div>
+                            </div>
+
                         <div class="overlayHpBar"> SPD
                             <div class="progress" role="progressbar" aria-label="Info striped example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
                                 <div  class="progress-bar progress-bar-striped bg-magenta" style="width: ${selectedPokemon.stats[5]['base_stat']}%">${selectedPokemon['stats'][5]['base_stat']}
                                 </div> 
-                                </div>
-                                </div>
+                            </div>
+                        </div>
                                 <button id="backButton" onclick="goBackToPokedex()">Back to Pokedex</button>
                         </div>   
-                        <div class="media-buttons">
-                        <button id="previousButtonMedia" onclick="previousPokemon(${i})"><</button>
-                        <div><button id="nextButtonMedia" onclick="nextPokemon(${i})">></button></div>  
+                            <div class="media-buttons">
+                                <button id="previousButtonMedia" onclick="previousPokemon(${i})"><</button>
+                                <div><button id="nextButtonMedia" onclick="nextPokemon(${i})">></button></div>  
+                            </div>
                         </div>
-                    </div>
-                </div>    
-                    <div>
-                    <button id="nextButton" onclick="nextPokemon(${i})">></button>
-                    </div>  
+            </div>    
+        <div>
+                            <button id="nextButton" onclick="nextPokemon(${i})">></button>
+    </div>  
                 `;
 }
 
 
 function filteredPokemonTemplate(originalIndex, currentPokemon) {
     return `
-    <div id="pokedex-card" class="pokedex-card" style="width: 18rem;">
-        <img onclick="createPokemonCard(${originalIndex})" id="pokemonImage${currentPokemon}" 
-            src="${currentPokemon['sprites']['other']['dream_world']['front_default']}" class="card-img-main">
+    <div id="pokedex-card">
+            <img onclick="createPokemonCard(${originalIndex})" src="${currentPokemon['sprites']['other']['dream_world']['front_default']}" class="card-img-main">
         <div id="cardBodyElement${originalIndex}" class="card-body-pokemon">
-            <div class="texts">
-                <p class="texts1">${currentPokemon.name}</p>
-                <p class="texts2">Type: ${currentPokemon.types[0].type.name}</p>
+                <div class="texts">
+                    <p class="texts1">${currentPokemon.name}</p>
+                    <p class="texts2">Type: ${currentPokemon.types[0].type.name}</p>
+                </div>
             </div>
-        </div>
-    </div>`;
-}
+        </div>`;
+    }
 
