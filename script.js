@@ -34,16 +34,6 @@ async function loadPokemon() {
     console.log(pokemonArray);
 }
 
-/*
-function searchPokemon() {
-    let searchInput = document.getElementById('searchInput').value.toLowerCase();   // searching function
-    let filteredPokemon = pokemonArray.filter(pokemon => pokemon.name.toLowerCase().includes(searchInput));
-    if (filteredPokemon.length > 0) {
-        createFilteredPokedex(filteredPokemon);
-    }
-}
-*/
-
 function createFilteredPokedex(filteredPokemon) {
     let pokedex = document.getElementById('pokedex');
     pokedex.innerHTML = '';                                      // searching function
@@ -304,7 +294,7 @@ function overlayCardTemplate(i, selectedPokemon) {
             <div id="overlayTop">
             <div id="pokemonNumber">#${selectedPokemon.id}</div>
                 <div id="pokemonName" class="overlay-name">${selectedPokemon.name}</div>
-                    <p id="pokemonType${selectedPokemon.name}" class="">Type: ${selectedPokemon.types[0].type.name}</p>
+                    <p id="pokemonType${selectedPokemon.name}"</p>
                     </div>
                     <div id="pokemonWeight">Weight: ${selectedPokemon.weight}</div>
                         <div id="elementIcon${i}"><img id="elementIconBig" src="">

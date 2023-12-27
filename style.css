@@ -123,6 +123,10 @@ body {
     cursor: pointer;
 }
 
+#pokemonType {
+    margin-bottom: 0px;
+}
+
 .card-title {
     text-transform: capitalize;
 }
@@ -132,6 +136,7 @@ body {
     flex-direction: column;
     align-items: center;
     margin-top: 5%;
+    font-size: 15px;
 }
 
 .overlayHpBar {
@@ -188,6 +193,11 @@ body {
     margin-bottom: 4%;
 }
 
+.image-overlay{
+    width: 35vw  !important;
+    height: 40vh !important;
+}
+
 .hp {
     background-color: green !important;
 }
@@ -199,6 +209,7 @@ body {
     justify-content: center;
     font-weight: 250;
     gap: 1vh;
+    height: auto;
 }
 
 .d-none {
@@ -248,9 +259,10 @@ body {
     display: flex;
     align-items: center;
     flex-direction: column;
-    height: 90vh !important;
     color: black !important;
     justify-content: space-evenly !important;
+   max-height: 98vh;
+   min-height: 92vh;
 }
 
 #OverlayBtn1,
@@ -270,8 +282,8 @@ body {
 }
 
 #pokemonName{
-    font-size: 3vh !important;
-    font-weight: 250;
+    font-size: 28px !important;
+    font-weight: 200;
     margin-bottom: 0;
 }
 
@@ -284,15 +296,12 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    border-radius: 20px;
-    width: 94%;
 }
 
 .bg-fire {
     background-color: red;
     color: black;
     height: fit-content;
-
 }
 
 .bg-grass {
@@ -305,7 +314,6 @@ body {
     background-color: lightblue;
     color: black;
     height: fit-content;
-
 }
 
 .bg-normal {
@@ -745,12 +753,7 @@ body {
     display: flex;
 }
 
-@media (max-width: 1200px){
-.content-overlay {
-    display: flex;
-    justify-content: center;
-}
-}
+
 
 @media (max-width: 1000px) {
 .image-overlay{
@@ -819,7 +822,6 @@ body {
     font-size: small;
 }
 #backButton{
-    height: 30px;
 }
 .media-buttons {
     display: flex;
