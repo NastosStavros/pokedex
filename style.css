@@ -753,12 +753,44 @@ body {
     display: flex;
 }
 
+.image-overlay{
+    width: 45vw  !important;
+    height: 40vh !important;
+    object-fit: contain;
+    }
+
+    /* width */
+::-webkit-scrollbar {
+    width: 25px;
+  }
+  
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: grey;
+    border-radius: 25px;
+    height: 120px;
+    width: 40px;
+    
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
 
 
 @media (max-width: 1000px) {
 .image-overlay{
-    width: 35vw  !important;
+    width: 45vw  !important;
     height: 40vh !important;
+    object-fit: contain;
     }
 }
 

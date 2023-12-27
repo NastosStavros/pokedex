@@ -55,7 +55,7 @@ window.addEventListener("load", function () {
 setTimeout(() => {
     if (loaded) { hidePreloader() }
     enoughTimePassed = true
-}, 100)
+}, 2800)
 function hidePreloader() {
     document.getElementById("preloader").remove()
 }
@@ -93,20 +93,6 @@ function createPokemonCard(i) {   // shows pokemon in overlay
     card.innerHTML = overlayCardTemplate(i, selectedPokemon);
     showOverlayBgbyType(selectedPokemon, i);
 }
-
-
-function reset() {
-    let pokedex = document.getElementById('pokedex');
-    pokedex.innerHTML = ""; // Clear the existing content
-
-    // Loop through pokemonArray and recreate the Pokédex
-    for (let i = 0; i < pokemonArray.length; i++) {
-        let currentPokemon = pokemonArray[i];
-        pokedex.innerHTML += pokedexTemplate(i, currentPokemon); // Append content for each Pokémon
-        showBgbyType(currentPokemon, i);
-    }
-}
-
 
 function goBackToPokedex() { // leads back to main-overview
     let card = document.getElementById('pokemonCard');
