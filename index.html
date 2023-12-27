@@ -14,37 +14,33 @@
         crossorigin="anonymous"></script>
 </head>
 
-<body onload="startSlider(), loadPokemon()">
-
+<body onload= "loadPokemon()">
+ 
     <div id="preloader">
         <h1 id="loadingScreenMainHeading">Pokedex is loading...</h1>
-        <p id="loadingtext">please wait a few seconds...</p>
-
-        <div id="loadingGif"><img src="./img/loader.gif" alt=""></div>
-
-
-        <div id="sliderContainer" class="slider-container">
-            <img id="sliderimg1" class="slider-img" src="./img/sliderimg1.jpg">
-            <img id="sliderimg2" style="transform: translateX(100%)" class="slider-img" src="./img/sliderimg2.jpg">
-            <img id="sliderimg3" style="transform: translateX(200%)" class="slider-img" src="./img/sliderimg3.jpg">
-        </div>
+            <p id="loadingtext">please wait a few seconds...</p>        <!--loadingscreen--->
+                <div id="loadingGif"><img src="./img/loader.gif" alt="LoadingScreen">
+                </div>
     </div>
+   
 
-    <h1 id="staticMainHeading">Pokedex</h1>
-    <input type="text" id="searchInput" placeholder="Search for Pokemon...">
-    <button onclick="searchPokemon()">Search</button>
-    <button onclick="reset()">Reset</button>
-
+    <div id="inputAndHeading">
+        <div><h1 id="staticMainHeading">POKEDEX</h1>
+            <div id="btnAndInput">
+            <input onkeydown="searchPokemon()"  id="searchInput" placeholder="Search for Pokemon...">
+        
+            </div>
+        </div>
+   
+   
     <div id="pokedex">
     </div>
+    
 
-
-
+    
     <div id="pokemonCard" class="d-none">
-
     </div>
-
-
+    
 
 
 </body>

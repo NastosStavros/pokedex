@@ -1,6 +1,6 @@
 body {
     margin: 0px;
-    background-image: linear-gradient(to right, black, rgb(46, 46, 46), purple, purple, rgb(46, 46, 46), black);
+    background-image: linear-gradient(to right top,rgb(22, 22, 22),rgb(121, 23, 109),rgb(31, 31, 31));
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -11,13 +11,16 @@ body {
     font-weight: 100;
     font-size: 48px;
     height: 100px;
-    margin-top: 4%;
 }
 
+#staticMainHeading{
+font-weight: 200;
+display: flex;
+justify-content: center;
+font-size: 50px;
+letter-spacing: 1rem;
 
 
-#loadingGif{
-    margin-top: 5%;
 }
 
 #loadingtext{
@@ -36,29 +39,37 @@ body {
     justify-content: top;
     align-items: center;
     flex-direction: column;
-    
 }
 
-.slider-container {
-    width: 45%;
-    background-color: rgb(0, 0, 0);
-    position: absolute;
-    overflow: hidden;
-    border-radius: 40px;
-    height: 20%;
-    top: 63%;
-    background-color: black;
+#inputAndHeading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    padding-top: 2%;
 }
 
-.slider-img {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    object-fit: cover;
-    border-radius: 40px;
-    transition: transform 225ms ease-in-out;
-    transform: translateX(0%);
+#searchInput{
+    border-radius: 8px;
+    height: 50px;
 }
+
+#btnAndInput{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.5vh;
+}
+
+#searchButton{
+width: 80px;
+height: 40px;
+align-self:center;
+border-radius: 8px;
+
+}
+
 #pokedex {
     display: flex;
     justify-content: center;
@@ -116,10 +127,9 @@ body {
 
 #overlayTop {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    gap: 10px;
+    margin-top: 5%;
 }
 
 .overlayHpBar {
@@ -166,15 +176,18 @@ height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 100%;
     width: 100%;
     text-transform: capitalize;
     position: fixed;
     top: 0px;
-    gap: 24px;
-    background-image: url(./img/wallpaper.png);
+    background-image: linear-gradient(to right top,rgb(22, 22, 22),rgb(73, 9, 66),rgb(22, 22, 22));
     background-repeat: no-repeat;
     background-attachment: fixed;
+}
+
+#pokemonWeight{
+    margin-bottom: 4%;
 }
 
 .hp {
@@ -239,7 +252,7 @@ height: auto;
     flex-direction: column;
     height: 90vh !important;
     color: black !important;
-    padding-top: 1%;
+    justify-content: space-evenly !important;
 }
 
 #OverlayBtn1,
@@ -264,6 +277,11 @@ height: auto;
     margin-bottom: 0;
 }
 
+#pokemonWeight{
+    margin-bottom: 1%;
+
+
+}
 
 #NameAndType {
     display: flex;
@@ -790,9 +808,8 @@ height: auto;
 
 @media (max-width: 1000px) {
     .image-overlay{
-        width: 45vw  !important;
-        height: 30vh !important;
-        object-fit: contain;
+        width: 35vw  !important;
+        height: 40vh !important;
     }
 }
 
@@ -820,6 +837,17 @@ height: auto;
     .media-buttons {
         display: flex;
         gap: 50vw;
+        margin-bottom: 30% ;
+    }
+    #nextButtonMedia{
+    width: 30px;        
+    height: 30px;
+    font-size: 10px;
+    }
+    #previousButtonMedia{
+        width: 30px;        
+        height: 30px;
+        font-size: 10px;
     }
 }
 
@@ -831,18 +859,19 @@ height: auto;
     .media-buttons {
         display: flex;
         gap: 30vw;
+        margin-bottom: 30% ;
     }
 }
-
-
 
 @media (max-height: 700px) {
     .image-overlay{ 
         width: 35vw !important;
-        height: 15vh !important;
+        height: 10vh !important;
     } 
     .media-buttons {
         display: flex;
         gap: 30vw;
+        margin-bottom: 30% ;
     }
 }
+
