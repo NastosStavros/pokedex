@@ -821,8 +821,6 @@ body {
 #pokemonWeight{
     font-size: small;
 }
-#backButton{
-}
 .media-buttons {
     display: flex;
     gap: 30vw;
