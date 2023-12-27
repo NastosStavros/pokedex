@@ -11,6 +11,7 @@ body {
     font-weight: 100;
     font-size: 48px;
     height: 100px;
+    margin-top: 5vh;;
 }
 
 #staticMainHeading{
@@ -76,6 +77,11 @@ body {
     margin-top: 50px;
 }
 
+#pokedex-card{
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
 .texts1 {
     color: rgb(0, 0, 0);
     padding: 28px;
@@ -134,10 +140,6 @@ body {
     justify-content: space-between;
     gap: 10px;
     width: 90%;
-}
-
-#overlayBottom{
-    height: auto;
 }
 
 #backButton {
@@ -741,7 +743,6 @@ body {
 
 .media-buttons {
     display: flex;
-    gap: 70vw;
 }
 
 @media (max-width: 1200px){
@@ -782,7 +783,6 @@ body {
 .media-buttons {
     display: flex;
     gap: 50vw;
-    margin-bottom: 30% ;
 }
 #nextButtonMedia{
     width: 30px;        
@@ -804,19 +804,27 @@ body {
 .media-buttons {
     display: flex;
     gap: 30vw;
-    margin-bottom: 30% ;
 }
 }
 
 @media (max-height: 700px) {
 .image-overlay{ 
-    width: 35vw !important;
-    height: 10vh !important;
+    width: 30vw !important;
+    height: 20vh !important;
 } 
+#overlayTop{
+    font-size: small;
+}
+#pokemonWeight{
+    font-size: small;
+}
+#backButton{
+    height: 30px;
+}
 .media-buttons {
-     display: flex;
+    display: flex;
     gap: 30vw;
-    margin-bottom: 30% ;
+    margin-bottom: 8%;
 }
 }
 

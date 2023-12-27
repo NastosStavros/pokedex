@@ -63,7 +63,7 @@ window.addEventListener("load", function() {
 setTimeout(() => {
   if (loaded) { hidePreloader() }
   enoughTimePassed = true
-}, 1000)
+}, 3000)
 function hidePreloader() {
    document.getElementById("preloader").remove()
 }
@@ -266,7 +266,7 @@ function showOverlayBgbyType(selectedPokemon, i) { // adds colored images to bgs
 
 
 function pokedexTemplate(i, currentPokemon) { // HTML Templates
-    return  `<div id="pokedex-card" class="pokedex-card" style="width: 18rem;">
+    return  `<div id="pokedex-card" class="pokedex-card"">
                 <img onclick="createPokemonCard(${i})" id="pokemonImage${currentPokemon}" 
                 src="${currentPokemon['sprites']['other']['dream_world']['front_default']}" class="card-img-main">
          <div id="cardBodyElement${i}" class="card-body-pokemon">
