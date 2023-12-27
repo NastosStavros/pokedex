@@ -13,7 +13,7 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 </head>
-<body onload= "loadPokemon()">
+<body onload= "loadPokemon(), addSearchBarHandler()">
  
     <div id="preloader">
         <h1 id="loadingScreenMainHeading">Pokedex is loading...</h1>
@@ -25,7 +25,7 @@
     <div id="inputAndHeading">
         <h1 id="staticMainHeading">POKEDEX</h1>  <!--Overlay Top Heading and Input for searching Pokemon -->
             <div id="btnAndInput">
-            <input onkeydown="searchPokemon()"  id="searchInput" placeholder="Search for Pokemon...">
+            <input  id="searchInput" placeholder="Search for Pokemon...">
             </div>
     </div>
    

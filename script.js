@@ -34,38 +34,54 @@ async function loadPokemon() {
     console.log(pokemonArray);
 }
 
-
+/*
 function searchPokemon() {
     let searchInput = document.getElementById('searchInput').value.toLowerCase();   // searching function
     let filteredPokemon = pokemonArray.filter(pokemon => pokemon.name.toLowerCase().includes(searchInput));
-    if (filteredPokemon.length > 0) {                   
+    if (filteredPokemon.length > 0) {
         createFilteredPokedex(filteredPokemon);
     }
 }
-
+*/
 
 function createFilteredPokedex(filteredPokemon) {
     let pokedex = document.getElementById('pokedex');
     pokedex.innerHTML = '';                                      // searching function
-    for (let i = 0; i < filteredPokemon.length; i++) {      
+    for (let i = 0; i < filteredPokemon.length; i++) {
         let currentPokemon = filteredPokemon[i];
         let originalIndex = pokemonArray.indexOf(currentPokemon);
         pokedex.innerHTML += filteredPokemonTemplate(originalIndex, currentPokemon);
         showBgbyType(currentPokemon, originalIndex);
     }
 }
+
+
 let loaded = false
 let enoughTimePassed = false               // searching function
-window.addEventListener("load", function() {
-  if (enoughTimePassed) { hidePreloader() }
-  loaded = true
+window.addEventListener("load", function () {
+    if (enoughTimePassed) { hidePreloader() }
+    loaded = true
 })
 setTimeout(() => {
-  if (loaded) { hidePreloader() }
-  enoughTimePassed = true
-}, 2800)
+    if (loaded) { hidePreloader() }
+    enoughTimePassed = true
+}, 100)
 function hidePreloader() {
-   document.getElementById("preloader").remove()
+    document.getElementById("preloader").remove()
+}
+
+
+function addSearchBarHandler() {
+    let input = document.getElementById("searchInput");
+    function search() {
+        let searchTerm = input.value.toLowerCase();
+        let filteredPokemon = pokemonArray.filter(pokemon => {
+            let nameOfPokemon = pokemon.name.toLowerCase();
+            return nameOfPokemon.includes(searchTerm);
+        });
+        createFilteredPokedex(filteredPokemon)
+    }
+    input.oninput = search;
 }
 
 
@@ -216,7 +232,7 @@ function showOverlayBgbyType(selectedPokemon, i) { // adds colored images to bgs
     }
     if (type == 'electric') {
         overlayImage.classList.add('bg-img-electric');
-                overlayBg.classList.add('bg-electricSUB');
+        overlayBg.classList.add('bg-electricSUB');
     }
     if (type == 'bug') {
         overlayImage.classList.add('bg-img-bug');
@@ -266,7 +282,7 @@ function showOverlayBgbyType(selectedPokemon, i) { // adds colored images to bgs
 
 
 function pokedexTemplate(i, currentPokemon) { // HTML Templates
-    return  `<div id="pokedex-card" class="pokedex-card"">
+    return `<div id="pokedex-card" class="pokedex-card"">
                 <img onclick="createPokemonCard(${i})" id="pokemonImage${currentPokemon}" 
                 src="${currentPokemon['sprites']['other']['dream_world']['front_default']}" class="card-img-main">
          <div id="cardBodyElement${i}" class="card-body-pokemon">
