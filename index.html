@@ -13,7 +13,6 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 </head>
-
 <body onload= "loadPokemon()">
  
     <div id="preloader">
@@ -22,27 +21,18 @@
                 <div id="loadingGif"><img src="./img/loader.gif" alt="LoadingScreen">
                 </div>
     </div>
-   
 
     <div id="inputAndHeading">
-        <div><h1 id="staticMainHeading">POKEDEX</h1>
+        <h1 id="staticMainHeading">POKEDEX</h1>  <!--Overlay Top Heading and Input for searching Pokemon -->
             <div id="btnAndInput">
             <input onkeydown="searchPokemon()"  id="searchInput" placeholder="Search for Pokemon...">
-        
             </div>
-        </div>
-   
-   
-    <div id="pokedex">
     </div>
-    
-
-    
-    <div id="pokemonCard" class="d-none">
+   
+    <div id="pokedex">  <!--Main Overview of Pokedex with small cards-->
     </div>
-    
-
+    <div id="pokemonCard" class="d-none">   <!--Overlay View of single Pokemon -->
+    </div>
 
 </body>
-
 </html>

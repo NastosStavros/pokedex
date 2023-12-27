@@ -14,13 +14,11 @@ body {
 }
 
 #staticMainHeading{
-font-weight: 200;
-display: flex;
-justify-content: center;
-font-size: 50px;
-letter-spacing: 1rem;
-
-
+    font-weight: 200;
+    display: flex;
+    justify-content: center;
+    font-size: 50px;
+    letter-spacing: 1rem;
 }
 
 #loadingtext{
@@ -63,11 +61,10 @@ letter-spacing: 1rem;
 }
 
 #searchButton{
-width: 80px;
-height: 40px;
-align-self:center;
-border-radius: 8px;
-
+    width: 80px;
+    height: 40px;
+    align-self:center;
+    border-radius: 8px;
 }
 
 #pokedex {
@@ -118,7 +115,6 @@ border-radius: 8px;
     border: 4px solid rgb(37, 37, 37);
     box-shadow: 0px 0px 18px 12px rgb(69, 69, 69);
     cursor: pointer;
-
 }
 
 .card-title {
@@ -141,7 +137,7 @@ border-radius: 8px;
 }
 
 #overlayBottom{
-height: auto;
+    height: auto;
 }
 
 #backButton {
@@ -279,8 +275,6 @@ height: auto;
 
 #pokemonWeight{
     margin-bottom: 1%;
-
-
 }
 
 #NameAndType {
@@ -316,68 +310,54 @@ height: auto;
     background-color: gray;
     color: black;
     height: fit-content;
-
 }
 
 .bg-poison {
     background-color: #66cc1a;
     color: black;
     height: fit-content;
-
-
 }
 
 .bg-ground {
     background-color: rgb(183, 46, 46) !important;
     color: black;
     height: fit-content;
-
-
 }
 
 .bg-electric {
     background-color: yellow;
     color: black;
     height: fit-content;
-
 }
 
 .bg-bug {
     background-color: #A6B91A;
     color: black;
     height: fit-content;
-
-
 }
 
 .bg-fairy {
     background-color: #D685AD;
     color: black;
     height: fit-content;
-
-
 }
 
 .bg-fighting {
     background-color: #C22E28;
     color: black;
     height: fit-content;
-
-
 }
 
 .bg-rock {
     background-color: #B6A136;
     color: black;
     height: fit-content;
-
 }
 
 .bg-ice {
     color: black;
     background-color: #96D9D6;
     height: fit-content;
-
 }
 
 .bg-psychic {
@@ -390,28 +370,24 @@ height: auto;
     background-color: #735797;
     color: black;
     height: fit-content;
-
 }
 
 .bg-dragon {
     color: black;
     background-color: #6F35FC;
     height: fit-content;
-
 }
 
 .bg-blue {
     color: black;
     background-color: rgb(37, 37, 251) !important;
     height: fit-content;
-
 }
 
 .bg-magenta {
     color: black;
     background-color: rgb(134, 30, 134) !important;
     height: fit-content;
-
 }
 
 .bg-img-fire {
@@ -478,7 +454,7 @@ height: auto;
 }
 
 .bg-img-electric {
-    background-image: url("./img/bug.png");
+    background-image: url("./img/eletric.png");
     background-size: cover;
     height: 60px;
     width: 60px;
@@ -560,7 +536,6 @@ height: auto;
     height: 900px;
     width: 45%;
     border: 2px solid rgb(255, 255, 255);
-
 }
 
 .bg-poisonSUB {
@@ -570,7 +545,6 @@ height: auto;
     height: 900px;
     width: 45%;
     border: 2px solid rgb(255, 255, 255);
-
 }
 
 .bg-groundSUB {
@@ -580,7 +554,6 @@ height: auto;
     height: 900px;
     width: 45%;
     border: 2px solid rgb(255, 255, 255);
-
 }
 
 .bg-electricSUB {
@@ -588,10 +561,8 @@ height: auto;
     color: black;
     border-radius: 20px;
     height: 900px;
-
     width: 45%;
     border: 2px solid rgb(255, 255, 255);
-
 }
 
 .bg-bugSUB {
@@ -599,10 +570,8 @@ height: auto;
     color: black;
     border-radius: 20px;
     height: 900px;
-
     width: 45%;
     border: 2px solid rgb(255, 255, 255);
-
 }
 
 .bg-fairySUB {
@@ -610,10 +579,8 @@ height: auto;
     color: black;
     border-radius: 20px;
     height: 900px;
-
     width: 45%;
     border: 2px solid rgb(255, 255, 255);
-
 }
 
 .bg-fightingSUB {
@@ -634,7 +601,6 @@ height: auto;
     height: 900px;
     width: 45%;
     border: 2px solid rgb(255, 255, 255);
-
 }
 
 .bg-iceSUB {
@@ -664,7 +630,6 @@ height: auto;
     height: 900px;
     width: 45%;
     border: 2px solid rgb(255, 255, 255);
-
 }
 
 .bg-dragonSUB {
@@ -674,17 +639,14 @@ height: auto;
     height: 900px;
     width: 45%;
     border: 2px solid rgb(255, 255, 255);
-
 }
 
 .bg-blueSUB {
     color: black;
     background-color: rgb(37, 37, 251);
     border-radius: 20px;
-
     width: 45%;
     border: 2px solid rgb(255, 255, 255);
-
 }
 
 .bg-magentaSUB {
@@ -694,7 +656,6 @@ height: auto;
     height: 900px;
     width: 45%;
     border: 2px solid rgb(255, 255, 255);
-
 }
 
 .bg-img-fireSUB {
@@ -703,52 +664,42 @@ height: auto;
 
 .bg-img-grassSUB {
     background-image: url("./img/grass.png");
-
 }
 
 .bg-img-waterSUB {
     background-image: url("./img/water.png");
-
 }
 
 .bg-img-electricSUB {
     background-image: url("./img/electric.png");
-
 }
 
 .bg-img-psychicSUB {
     background-image: url("./img/psychic.png");
-
 }
 
 .bg-img-rockSUB {
     background-image: url("./img/rock.png");
-
 }
 
 .bg-img-bugSUB {
     background-image: url("./img/bug.png");
-
 }
 
 .bg-img-normalSUB {
     background-image: url("./img/normal.png");
-
 }
 
 .bg-img-poisonSUB {
     background-image: url("./img/poison.png");
-
 }
 
 .bg-img-electricSUB {
-    background-image: url("./img/bug.png");
-
+    background-image: url("./img/eletric.png");
 }
 
 .bg-img-groundSUB {
     background-image: url("./img/ground.png");
-
 }
 
 .bg-img-fairySUB {
@@ -757,25 +708,19 @@ height: auto;
 
 .bg-img-fightingSUB {
     background-image: url("./img/fighting.png");
-
 }
 
 .bg-img-dragonSUB {
     background-image: url("./img/dragon.png");
-
 }
 
 .bg-img-iceSUB {
     background-image: url("./img/ice.png");
-
 }
 
 .bg-img-ghostSUB {
     background-image: url("./img/ghost.png");
-
 }
-
-
 
 #previousButtonMedia,
 #nextButtonMedia {
@@ -800,78 +745,78 @@ height: auto;
 }
 
 @media (max-width: 1200px){
-    .content-overlay {
-        display: flex;
-        justify-content: center;
-    }
+.content-overlay {
+    display: flex;
+    justify-content: center;
+}
 }
 
 @media (max-width: 1000px) {
-    .image-overlay{
-        width: 35vw  !important;
-        height: 40vh !important;
+.image-overlay{
+    width: 35vw  !important;
+    height: 40vh !important;
     }
 }
 
 @media (max-width: 726px) {
-    #previousButton, #nextButton {
-        display: none;
+#previousButton, #nextButton {
+    display: none;
     }
-    .width-resp {
-        width: 100%;
+.width-resp {
+    width: 100%;
     }
-    #previousButtonMedia, #nextButtonMedia {
-        display: block;
+#previousButtonMedia, #nextButtonMedia {
+    display: block;
     }
-    .image-overlay{ 
-        width: 45vw !important;
-        height: 35vh !important;
-    }
+.image-overlay{ 
+    width: 45vw !important;
+    height: 35vh !important;
+}
 }   
 
 @media (max-width: 580px) {
-    .image-overlay{ 
-        width: 50vw !important;
-        height: 25vh !important;
-    } 
-    .media-buttons {
-        display: flex;
-        gap: 50vw;
-        margin-bottom: 30% ;
-    }
-    #nextButtonMedia{
+.image-overlay{ 
+    width: 50vw !important;
+    height: 25vh !important;
+} 
+.media-buttons {
+    display: flex;
+    gap: 50vw;
+    margin-bottom: 30% ;
+}
+#nextButtonMedia{
     width: 30px;        
     height: 30px;
     font-size: 10px;
-    }
+}
     #previousButtonMedia{
-        width: 30px;        
-        height: 30px;
-        font-size: 10px;
-    }
+    width: 30px;        
+    height: 30px;
+    font-size: 10px;
+}
 }
 
 @media (max-width: 370px) {
-    .image-overlay{ 
-        width: 55vw !important;
-        height: 20vh !important;
+.image-overlay{ 
+    width: 55vw !important;
+    height: 20vh !important;
     } 
-    .media-buttons {
-        display: flex;
-        gap: 30vw;
-        margin-bottom: 30% ;
-    }
+.media-buttons {
+    display: flex;
+    gap: 30vw;
+    margin-bottom: 30% ;
+}
 }
 
 @media (max-height: 700px) {
-    .image-overlay{ 
-        width: 35vw !important;
-        height: 10vh !important;
-    } 
-    .media-buttons {
-        display: flex;
-        gap: 30vw;
-        margin-bottom: 30% ;
-    }
+.image-overlay{ 
+    width: 35vw !important;
+    height: 10vh !important;
+} 
+.media-buttons {
+     display: flex;
+    gap: 30vw;
+    margin-bottom: 30% ;
+}
 }
 

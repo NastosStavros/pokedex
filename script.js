@@ -23,29 +23,39 @@ let allPokemon = ['bulbasaur', 'ivysaur', 'venusaur', 'charmander', 'charmeleon'
 let pokemonArray = []; // after fetch for the URL, pokemons get pushed into this array
 
 
+async function loadPokemon() {
+    const promises = allPokemon.map(async (pokemon) => {
+        let url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
+        let response = await fetch(url);                            //function to get data from API 
+        return response.json();
+    });
+    pokemonArray = await Promise.all(promises);
+    createPokedex();
+    console.log(pokemonArray);
+}
+
+
 function searchPokemon() {
-    let searchInput = document.getElementById('searchInput').value.toLowerCase();
+    let searchInput = document.getElementById('searchInput').value.toLowerCase();   // searching function
     let filteredPokemon = pokemonArray.filter(pokemon => pokemon.name.toLowerCase().includes(searchInput));
-    if (filteredPokemon.length > 0) {
+    if (filteredPokemon.length > 0) {                   
         createFilteredPokedex(filteredPokemon);
+    }
 }
-}
+
 
 function createFilteredPokedex(filteredPokemon) {
     let pokedex = document.getElementById('pokedex');
-    pokedex.innerHTML = '';
-    for (let i = 0; i < filteredPokemon.length; i++) {
+    pokedex.innerHTML = '';                                      // searching function
+    for (let i = 0; i < filteredPokemon.length; i++) {      
         let currentPokemon = filteredPokemon[i];
         let originalIndex = pokemonArray.indexOf(currentPokemon);
         pokedex.innerHTML += filteredPokemonTemplate(originalIndex, currentPokemon);
         showBgbyType(currentPokemon, originalIndex);
     }
 }
-
-
 let loaded = false
-let enoughTimePassed = false
-
+let enoughTimePassed = false               // searching function
 window.addEventListener("load", function() {
   if (enoughTimePassed) { hidePreloader() }
   loaded = true
@@ -56,18 +66,6 @@ setTimeout(() => {
 }, 1000)
 function hidePreloader() {
    document.getElementById("preloader").remove()
-}
-
-
-async function loadPokemon() {
-    const promises = allPokemon.map(async (pokemon) => {
-        let url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
-        let response = await fetch(url);
-        return response.json();
-    });
-    pokemonArray = await Promise.all(promises);
-    createPokedex();
-    console.log(pokemonArray);
 }
 
 
@@ -267,7 +265,7 @@ function showOverlayBgbyType(selectedPokemon, i) { // adds colored images to bgs
 }
 
 
-function pokedexTemplate(i, currentPokemon) {
+function pokedexTemplate(i, currentPokemon) { // HTML Templates
     return  `<div id="pokedex-card" class="pokedex-card" style="width: 18rem;">
                 <img onclick="createPokemonCard(${i})" id="pokemonImage${currentPokemon}" 
                 src="${currentPokemon['sprites']['other']['dream_world']['front_default']}" class="card-img-main">
