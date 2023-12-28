@@ -1,38 +1,34 @@
-let allPokemon = ['bulbasaur', 'ivysaur', 'venusaur', 'charmander', 'charmeleon', 'charizard',
-    'squirtle', 'wartortle', 'blastoise', 'caterpie', 'metapod', 'butterfree',
-    'weedle', 'kakuna', 'beedrill', 'pidgey', 'pidgeotto', 'pidgeot', 'rattata',
-    'raticate', 'spearow', 'fearow', 'ekans', 'arbok', 'pikachu', 'raichu',
-    'sandshrew', 'sandslash', 'nidorina', 'nidoqueen',
-    'nidorino', 'nidoking', 'clefairy', 'clefable', 'vulpix', 'ninetales',
-    'jigglypuff', 'wigglytuff', 'zubat', 'golbat', 'oddish', 'gloom', 'vileplume',
-    'paras', 'parasect', 'venonat', 'venomoth', 'diglett', 'dugtrio', 'meowth',
-    'persian', 'psyduck', 'golduck', 'mankey', 'primeape', 'growlithe', 'arcanine',
-    'poliwag', 'poliwhirl', 'poliwrath', 'abra', 'kadabra', 'alakazam', 'machop',
-    'machoke', 'machamp', 'bellsprout', 'weepinbell', 'victreebel', 'tentacool',
-    'tentacruel', 'geodude', 'graveler', 'golem', 'ponyta', 'rapidash', 'slowpoke',
-    'slowbro', 'magnemite', 'magneton', 'doduo', 'dodrio', 'seel',
-    'dewgong', 'grimer', 'muk', 'shellder', 'cloyster', 'gastly', 'haunter', 'gengar',
-    'onix', 'drowzee', 'hypno', 'krabby', 'kingler', 'voltorb', 'electrode', 'exeggcute',
-    'exeggutor', 'cubone', 'marowak', 'hitmonlee', 'hitmonchan', 'lickitung', 'koffing',
-    'weezing', 'rhyhorn', 'rhydon', 'chansey', 'tangela', 'kangaskhan', 'horsea',
-    'seadra', 'goldeen', 'seaking', 'staryu', 'starmie', 'scyther',
-    'jynx', 'electabuzz', 'magmar', 'pinsir', 'tauros', 'magikarp', 'gyarados',
-    'lapras', 'ditto', 'eevee', 'vaporeon', 'jolteon', 'flareon', 'porygon',
-    'omanyte', 'omastar', 'kabuto', 'kabutops', 'aerodactyl', 'snorlax', 'articuno',
-    'zapdos', 'moltres', 'dratini', 'dragonair', 'dragonite', 'mewtwo', 'mew'];
 let pokemonArray = []; // after fetch for the URL, pokemons get pushed into this array
-
+let limit = 10;
+let loaded = false
+let enoughTimePassed = false   
 
 async function loadPokemon() {
-    const promises = allPokemon.map(async (pokemon) => {
-        let url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
-        let response = await fetch(url);                            //function to get data from API 
-        return response.json();
-    });
-    pokemonArray = await Promise.all(promises);
-    createPokedex();
-    console.log(pokemonArray);
+    try {
+        // Fetch the list of Pokemon names
+        let namesResponse = await fetch(`https://pokeapi.co/api/v2/pokemon?limit= ${limit}`);
+        let namesData = await namesResponse.json();
+        let allPokemonNames = namesData.results.map(pokemon => pokemon.name);
+        // Fetch details for each Pokemon
+        const promises = allPokemonNames.map(async (pokemonName) => {
+            let url = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`;
+            let response = await fetch(url); // function to get data from API
+            return response.json();
+        });
+        pokemonArray = await Promise.all(promises);
+        createPokedex();
+    } catch (error) {
+        console.error('Error loading Pokemon:', error);
+    }
 }
+
+
+function loadMore() {
+    limit += 10;
+    pokedex.innerHTML = "";
+    loadPokemon();
+}
+
 
 function createFilteredPokedex(filteredPokemon) {
     let pokedex = document.getElementById('pokedex');
@@ -46,8 +42,7 @@ function createFilteredPokedex(filteredPokemon) {
 }
 
 
-let loaded = false
-let enoughTimePassed = false               // searching function
+            // searching function
 window.addEventListener("load", function () {
     if (enoughTimePassed) { hidePreloader() }
     loaded = true
@@ -94,6 +89,7 @@ function createPokemonCard(i) {   // shows pokemon in overlay
     showOverlayBgbyType(selectedPokemon, i);
 }
 
+
 function goBackToPokedex() { // leads back to main-overview
     let card = document.getElementById('pokemonCard');
     card.innerHTML = '';
@@ -103,7 +99,7 @@ function goBackToPokedex() { // leads back to main-overview
 
 function previousPokemon(i) {   //perv-button
     if (i == 0) {
-        i += 146;
+        i = pokemonArray.length - 1;
     } else {
         i--;
     }
@@ -113,13 +109,12 @@ function previousPokemon(i) {   //perv-button
 
 
 function nextPokemon(i) {      //next-button
-    if (i == 146) {
-        i -= 146;
+    if (i == pokemonArray.length - 1) {
+        i = 0;
     } else {
         i++;
     }
     createPokemonCard(i);
-    console.log(pokemonArray);
 }
 
 
@@ -271,7 +266,7 @@ function pokedexTemplate(i, currentPokemon) { // HTML Templates
 }
 
 
-function overlayCardTemplate(i, selectedPokemon) {
+function overlayCardTemplate(i, currentPokemon) {
     return `
     <div> <button id="previousButton" onclick="previousPokemon(${i})"><</button>
     </div>        
@@ -279,42 +274,42 @@ function overlayCardTemplate(i, selectedPokemon) {
     <div id="contentOverlay${i}" class="width-resp content-overlay">      
         <div id="NameAndType">
                 <div id="overlayTop">
-                <div id="pokemonNumber">#${selectedPokemon.id}</div>
-                    <div id="pokemonName">${selectedPokemon.name}</div>
-                        <p id="pokemonType${selectedPokemon.name}"</p>
+                <div id="pokemonNumber">#${currentPokemon.id}</div>
+                    <div id="pokemonName">${currentPokemon.name}</div>
+                        <p id="pokemonType${currentPokemon.name}"</p>
                 </div>
-            <div id="pokemonWeight">Weight: ${selectedPokemon.weight}
+            <div id="pokemonWeight">Weight: ${currentPokemon.weight}
             </div>
             <div id="elementIcon${i}">
             </div>
-            <img class="image-overlay"id="pokemonOverlayImage" src="${selectedPokemon['sprites']['other']['home']['front_default']}"> 
+            <img class="image-overlay"id="pokemonOverlayImage" src="${currentPokemon['sprites']['other']['home']['front_default']}"> 
         </div>       
     <div id="OverlayBottom">
         <h1 id="headingStats">Stats</h1>
             <div id="infoBars">
                 <div class="overlayHpBar marginPlus"> HP
-                            <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                                <div  class="progress-bar progress-bar-striped hp" style="width: ${selectedPokemon.stats[0]['base_stat']}%">${selectedPokemon['stats'][0]['base_stat']}
+                            <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="60" aria-valuemin="0" aria-valuemax="50">
+                                <div  class="progress-bar progress-bar-striped hp" style="width: ${currentPokemon.stats[0]['base_stat']}%">${currentPokemon['stats'][0]['base_stat']}
                                 </div> 
                             </div>        
                 </div>
                         <div class="overlayHpBar"> ATK
-                            <div class="progress" role="progressbar" aria-label="Success striped example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                                <div  class="progress-bar progress-bar-striped  bg-ground" style="width: ${selectedPokemon.stats[1]['base_stat']}%">${selectedPokemon['stats'][1]['base_stat']}
+                            <div class="progress" role="progressbar" aria-label="Success striped example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="200">
+                                <div  class="progress-bar progress-bar-striped  bg-ground" style="width: ${currentPokemon.stats[1]['base_stat']}%">${currentPokemon['stats'][1]['base_stat']}
                                 </div> 
                             </div>
                         </div>
                         
                             <div class="overlayHpBar"> DEF
-                                    <div class="progress" role="progressbar" aria-label="Info striped example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
-                                            <div  class="progress-bar progress-bar-striped  bg-blue" style="width: ${selectedPokemon.stats[2]['base_stat']}%">${selectedPokemon['stats'][2]['base_stat']}
+                                    <div class="progress" role="progressbar" aria-label="Info striped example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="200">
+                                            <div  class="progress-bar progress-bar-striped  bg-blue" style="width: ${currentPokemon.stats[2]['base_stat']}%">${currentPokemon['stats'][2]['base_stat']}
                                             </div> 
                                     </div>
                             </div>
 
                         <div class="overlayHpBar"> SPD
-                            <div class="progress" role="progressbar" aria-label="Info striped example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
-                                <div  class="progress-bar progress-bar-striped bg-magenta" style="width: ${selectedPokemon.stats[5]['base_stat']}%">${selectedPokemon['stats'][5]['base_stat']}
+                            <div class="progress" role="progressbar" aria-label="Info striped example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="200">
+                                <div  class="progress-bar progress-bar-striped bg-magenta" style="width: ${currentPokemon.stats[5]['base_stat']}%">${currentPokemon['stats'][5]['base_stat']}
                                 </div> 
                             </div>
                         </div>
@@ -344,5 +339,5 @@ function filteredPokemonTemplate(originalIndex, currentPokemon) {
                 </div>
             </div>
         </div>`;
-    }
+}
 
