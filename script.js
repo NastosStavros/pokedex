@@ -89,7 +89,6 @@ function createPokemonCard(i) {   // shows pokemon in overlay
     showOverlayBgbyType(selectedPokemon, i);
 }
 
-
 function goBackToPokedex() { // leads back to main-overview
     let card = document.getElementById('pokemonCard');
     card.innerHTML = '';
@@ -121,66 +120,8 @@ function nextPokemon(i) {      //next-button
 function showBgbyType(currentPokemon, i) {  // adds background colors for specific types of pokemon
     let type = currentPokemon['types'][0]['type']['name'];
     let infoCard = document.getElementById(`cardBodyElement${i}`);
-    if (type == 'fire') {
-        infoCard.classList.add('bg-fire');
-        infoCard.classList.add('bg-img-fireSUB');
-    }
-    if (type == 'grass') {
-        infoCard.classList.add('bg-grass');
-        infoCard.classList.add('bg-img-grassSUB');
-    }
-    if (type == 'dragon') {
-        infoCard.classList.add('bg-dragon');
-        infoCard.classList.add('bg-img-dragonSUB');
-    }
-    if (type == 'water') {
-        infoCard.classList.add('bg-water');
-        infoCard.classList.add('bg-img-waterSUB');
-    }
-    if (type == 'fighting') {
-        infoCard.classList.add('bg-fighting');
-        infoCard.classList.add('bg-img-fightingSUB');
-    }
-    if (type == 'bug') {
-        infoCard.classList.add('bg-bug');
-        infoCard.classList.add('bg-img-bugSUB');
-    }
-    if (type == 'electric') {
-        infoCard.classList.add('bg-electric');
-        infoCard.classList.add('bg-img-electricSUB');
-    }
-    if (type == 'normal') {
-        infoCard.classList.add('bg-normal');
-        infoCard.classList.add('bg-img-normalSUB');
-    }
-    if (type == 'poison') {
-        infoCard.classList.add('bg-poison');
-        infoCard.classList.add('bg-img-poisonSUB');
-    }
-    if (type == 'psychic') {
-        infoCard.classList.add('bg-psychic');
-        infoCard.classList.add('bg-img-psychicSUB');
-    }
-    if (type == 'ground') {
-        infoCard.classList.add('bg-ground');
-        infoCard.classList.add('bg-img-groundSUB');
-    }
-    if (type == 'rock') {
-        infoCard.classList.add('bg-rock');
-        infoCard.classList.add('bg-img-rockSUB');
-    }
-    if (type == 'fairy') {
-        infoCard.classList.add('bg-fairy');
-        infoCard.classList.add('bg-img-fairySUB');
-    }
-    if (type == 'ghost') {
-        infoCard.classList.add('bg-ghost');
-        infoCard.classList.add('bg-img-ghostSUB');
-    }
-    if (type == 'ice') {
-        infoCard.classList.add('bg-ice');
-        infoCard.classList.add('bg-img-iceSUB');
-    }
+    infoCard.classList.add(type);
+    
 }
 
 
@@ -188,67 +129,9 @@ function showOverlayBgbyType(selectedPokemon, i) { // adds colored images to bgs
     let type = selectedPokemon['types'][0]['type']['name'];
     let overlayImage = document.getElementById(`elementIcon${i}`)
     let overlayBg = document.getElementById(`contentOverlay${i}`)
-
-    if (type == 'fire') {
-        overlayImage.classList.add('bg-img-fire');
-        overlayBg.classList.add('bg-fireSUB');
-    }
-    if (type == 'water') {
-        overlayImage.classList.add('bg-img-water');
-        overlayBg.classList.add('bg-waterSUB');
-    }
-    if (type == 'grass') {
-        overlayImage.classList.add('bg-img-grass');
-        overlayBg.classList.add('bg-grassSUB');
-    }
-    if (type == 'electric') {
-        overlayImage.classList.add('bg-img-electric');
-        overlayBg.classList.add('bg-electricSUB');
-    }
-    if (type == 'bug') {
-        overlayImage.classList.add('bg-img-bug');
-        overlayBg.classList.add('bg-bugSUB');
-    }
-    if (type == 'normal') {
-        overlayImage.classList.add('bg-img-normal');
-        overlayBg.classList.add('bg-normalSUB');
-    }
-    if (type == 'poison') {
-        overlayImage.classList.add('bg-img-poison');
-        overlayBg.classList.add('bg-poisonSUB');
-    }
-    if (type == 'ground') {
-        overlayImage.classList.add('bg-img-ground');
-        overlayBg.classList.add('bg-groundSUB');
-    }
-    if (type == 'rock') {
-        overlayImage.classList.add('bg-img-rock');
-        overlayBg.classList.add('bg-rockSUB');
-    }
-    if (type == 'fairy') {
-        overlayImage.classList.add('bg-img-fairy');
-        overlayBg.classList.add('bg-fairySUB');
-    }
-    if (type == 'ghost') {
-        overlayImage.classList.add('bg-img-ghost');
-        overlayBg.classList.add('bg-ghostSUB');
-    }
-    if (type == 'ice') {
-        overlayImage.classList.add('bg-img-ice');
-        overlayBg.classList.add('bg-iceSUB');
-    }
-    if (type == 'fighting') {
-        overlayImage.classList.add('bg-img-fighting');
-        overlayBg.classList.add('bg-fightingSUB');
-    }
-    if (type == 'psychic') {
-        overlayImage.classList.add('bg-img-psychic');
-        overlayBg.classList.add('bg-psychicSUB');
-    }
-    if (type == 'dragon') {
-        overlayImage.classList.add('bg-img-dragon');
-        overlayBg.classList.add('bg-dragonSUB');
-    }
+    overlayImage.classList.add(`bg-img-${type}`);
+    overlayBg.classList.add(`bg-${type}SUB`);
+    
 }
 
 

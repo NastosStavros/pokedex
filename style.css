@@ -327,103 +327,118 @@ font-weight: 280;
     flex-direction: column;
 }
 
-.bg-fire {
+.fire {
     background-color: rgb(225, 94, 94);
     color: black;
     height: fit-content;
+    background-image: url("./img/fire.png");
 }
 
-.bg-grass {
+.grass {
     background-color: rgb(22, 232, 22);
     color: black;
     height: fit-content;
+    background-image: url("./img/grass.png");
 }
 
-.bg-water {
+.water {
     background-color: rgb(129, 223, 255);
     color: black;
     height: fit-content;
+    background-image: url("./img/water.png");
 }
 
-.bg-normal {
+.normal {
     background-color: gray;
     color: black;
     height: fit-content;
+    background-image: url("./img/normal.png");
 }
 
-.bg-poison {
+.poison {
     background-color: #66cc1a;
     color: black;
     height: fit-content;
+    background-image: url("./img/poison.png");
 }
 
-.bg-ground {
+.ground {
     background-color: rgb(183, 46, 46) !important;
     color: black;
     height: fit-content;
+    background-image: url("./img/ground.png");
 }
 
-.bg-electric {
+.electric {
     background-color: yellow;
     color: black;
     height: fit-content;
+    background-image: url("./img/eletric.png");
 }
 
-.bg-bug {
+.bug {
     background-color: #576b32;
     color: black;
     height: fit-content;
+    background-image: url("./img/bug.png");
 }
 
-.bg-fairy {
+.fairy {
     background-color: #ff41a0;
     color: black;
     height: fit-content;
+    background-image: url("./img/fairy.png");
 }
 
-.bg-fighting {
+.fighting {
     background-color: #ff9490;
     color: black;
     height: fit-content;
+    background-image: url("./img/fighting.png");
 }
 
-.bg-rock {
+.rock {
     background-color: #f5dd68;
     color: black;
     height: fit-content;
+    background-image: url("./img/rock.png");
 }
 
-.bg-ice {
+.ice {
     color: black;
     background-color: #d4fffd;
     height: fit-content;
+    background-image: url("./img/ice.png");
 }
 
-.bg-psychic {
+.psychic {
     background-color: #F95587;
     color: black;
     height: fit-content;
+    background-image: url("./img/psychic.png");
 }
 
-.bg-ghost {
+.ghost {
     background-color: #735797;
     color: black;
     height: fit-content;
+    background-image: url("./img/ghost.png");
 }
 
-.bg-dragon {
+.dragon {
     color: black;
     background-color: #6F35FC;
     height: fit-content;
+    background-image: url("./img/dragon.png");
 }
 
-.bg-blue {
+.blue {
     color: black;
     background-color: rgb(37, 37, 251) !important;
     height: fit-content;
 }
 
-.bg-magenta {
+.magenta {
     color: black;
     background-color: rgb(134, 30, 134) !important;
     height: fit-content;
@@ -434,6 +449,7 @@ font-weight: 280;
     background-size: cover;
     height: 60px;
     width: 60px;
+    
 }
 
 .bg-img-grass {
@@ -696,7 +712,7 @@ font-weight: 280;
 }
 
 .bg-img-fireSUB {
-    background-image: url("./img/fire.png");
+    
 }
 
 .bg-img-grassSUB {
